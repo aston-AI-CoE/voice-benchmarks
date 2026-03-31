@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Environment
+.env
+
+# Audio fixtures (large binary files — generated locally)
+audio_fixtures/
+
+# Old audio cache
+results/_audio_cache/
+
+# Results (run-specific data, generated per run)
+results/run_*/
+results/run1/
+results/run_01/
+results/smoke_*/
+results/e01_*/
+results/e02_*/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+*.swp
