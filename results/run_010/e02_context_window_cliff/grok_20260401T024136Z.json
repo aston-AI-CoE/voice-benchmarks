@@ -1,0 +1,180 @@
+{
+  "experiment": "e02_context_window_cliff",
+  "provider": "grok",
+  "config": {
+    "milestones": [
+      100,
+      500,
+      1000,
+      2000,
+      5000,
+      10000,
+      20000
+    ],
+    "anchor": {
+      "codename": "Sapphire Falcon",
+      "budget": "$2,847,300",
+      "location": "Building 7, third floor"
+    }
+  },
+  "milestone_results": [
+    {
+      "milestone_tokens": 100,
+      "anchor_codename_recalled": true,
+      "anchor_budget_recalled": false,
+      "anchor_response": "Project codename is Sapphire Falcon, total budget exactly 2 million 847 thousand 300 dollars.",
+      "anchor_latency_ms": 657.0190866477787,
+      "new_fact": {
+        "statement": "The new office pet's name is Biscuit, a golden retriever.",
+        "question": "What's the name of the office pet?",
+        "key_term": "Biscuit"
+      }
+    },
+    {
+      "milestone_tokens": 500,
+      "anchor_codename_recalled": true,
+      "anchor_budget_recalled": true,
+      "anchor_response": "Project codename is Sapphire Falcon, total budget $2,847,300.",
+      "anchor_latency_ms": 647.8104530833662,
+      "new_fact": {
+        "statement": "The company's wifi password was changed to 'NorthStar2026!'.",
+        "question": "What was the company wifi password changed to?",
+        "key_term": "NorthStar2026"
+      }
+    },
+    {
+      "milestone_tokens": 1000,
+      "anchor_codename_recalled": true,
+      "anchor_budget_recalled": true,
+      "anchor_response": "Project codename is Sapphire Falcon, total budget $2,847,300.",
+      "anchor_latency_ms": 672.595800831914,
+      "new_fact": {
+        "statement": "The employee appreciation event is at the Rosewood Hotel.",
+        "question": "Where is the employee appreciation event?",
+        "key_term": "Rosewood"
+      }
+    },
+    {
+      "milestone_tokens": 2000,
+      "anchor_codename_recalled": true,
+      "anchor_budget_recalled": true,
+      "anchor_response": "Project codename is Sapphire Falcon, total budget $2,847,300.",
+      "anchor_latency_ms": 690.4058801010251,
+      "new_fact": {
+        "statement": "The emergency contact for the server room is extension 4471.",
+        "question": "What's the emergency contact extension for the server room?",
+        "key_term": "4471"
+      }
+    },
+    {
+      "milestone_tokens": 5000,
+      "anchor_codename_recalled": true,
+      "anchor_budget_recalled": true,
+      "anchor_response": "Project codename is Sapphire Falcon, total budget $2,847,300.",
+      "anchor_latency_ms": 695.6706112250686,
+      "new_fact": {
+        "statement": "The new conference room on the fifth floor is named 'Aurora'.",
+        "question": "What's the name of the new conference room on the fifth floor?",
+        "key_term": "Aurora"
+      }
+    },
+    {
+      "milestone_tokens": 10000,
+      "anchor_codename_recalled": true,
+      "anchor_budget_recalled": true,
+      "anchor_response": "Project codename is Sapphire Falcon, total budget $2,847,300.",
+      "anchor_latency_ms": 962.2543249279261,
+      "new_fact": {
+        "statement": "The quarterly all-hands meeting code is 'Horizon-Delta'.",
+        "question": "What's the code for the quarterly all-hands meeting?",
+        "key_term": "Horizon-Delta"
+      }
+    },
+    {
+      "milestone_tokens": 20000,
+      "anchor_codename_recalled": true,
+      "anchor_budget_recalled": true,
+      "anchor_response": "Project codename is Sapphire Falcon, total budget $2,847,300.",
+      "anchor_latency_ms": 1257.4556819163263,
+      "new_fact": {
+        "statement": "The backup server IP address is 10.42.88.17.",
+        "question": "What's the backup server IP address?",
+        "key_term": "10.42.88.17"
+      }
+    }
+  ],
+  "final_recall": [
+    {
+      "milestone": 100,
+      "question": "What's the name of the office pet?",
+      "expected_key_term": "Biscuit",
+      "response": "The office pet is Biscuit, a golden retriever.",
+      "recalled": true,
+      "latency_ms": 1014.3655883148313
+    },
+    {
+      "milestone": 500,
+      "question": "What was the company wifi password changed to?",
+      "expected_key_term": "NorthStar2026",
+      "response": "The company wifi password was changed to NorthStar2026!.",
+      "recalled": true,
+      "latency_ms": 945.6785288639367
+    },
+    {
+      "milestone": 1000,
+      "question": "Where is the employee appreciation event?",
+      "expected_key_term": "Rosewood",
+      "response": "The employee appreciation event is at the Rosewood Hotel.",
+      "recalled": true,
+      "latency_ms": 1163.9523319900036
+    },
+    {
+      "milestone": 2000,
+      "question": "What's the emergency contact extension for the server room?",
+      "expected_key_term": "4471",
+      "response": "The emergency contact for the server",
+      "recalled": false,
+      "latency_ms": 712.0981384068727
+    },
+    {
+      "milestone": 5000,
+      "question": "What's the name of the new conference room on the fifth floor?",
+      "expected_key_term": "Aurora",
+      "response": "The new conference room on the fifth floor is named Aurora.",
+      "recalled": true,
+      "latency_ms": 670.1739989221096
+    },
+    {
+      "milestone": 10000,
+      "question": "What's the code for the quarterly all-hands meeting?",
+      "expected_key_term": "Horizon-Delta",
+      "response": "The quarterly all-hands meeting code is",
+      "recalled": false,
+      "latency_ms": 686.1877189949155
+    },
+    {
+      "milestone": 20000,
+      "question": "What's the backup server IP address?",
+      "expected_key_term": "10.42.88.17",
+      "response": "The backup server IP address is 10.42.88.17.",
+      "recalled": true,
+      "latency_ms": 679.5086818747222
+    }
+  ],
+  "final_anchor": {
+    "response": "Project codename is Sapphire Falcon, total budget is $2,847,300, war room is in Building 7, third floor.",
+    "codename_recalled": true,
+    "budget_recalled": true,
+    "location_recalled": true
+  },
+  "session_metrics": {
+    "items_injected": 1047,
+    "total_input_tokens": 0,
+    "total_output_tokens": 0,
+    "errors": [],
+    "connection_drops": 0
+  },
+  "run_id": "20260401T024136Z_grok_e02_context_window_cliff",
+  "run_name": "run_010",
+  "saved_at": "2026-04-01T02:41:36.978603+00:00"
+}

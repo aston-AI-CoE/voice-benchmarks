@@ -1,0 +1,568 @@
+{
+  "experiment": "e07_production_sim",
+  "provider": "grok",
+  "config": {
+    "architecture": "production: STT session + fresh voice session per question",
+    "meeting_lines": 407,
+    "mid_questions": 8,
+    "post_questions": 12,
+    "questions_via": "audio",
+    "duration_minutes": 30
+  },
+  "session_survival": {
+    "stt_lines_sent": 27,
+    "stt_lines_total": 407,
+    "stt_survived": false,
+    "connection_died_at": "line 27 (ConnectionClosedError: no close frame received or sent)"
+  },
+  "timing": {
+    "total_elapsed_seconds": 327.353494616691,
+    "total_elapsed_minutes": 5.45589157694485
+  },
+  "transcription": {
+    "total_compared": 14,
+    "avg_wer": 11.977,
+    "details": [
+      {
+        "line_index": 1,
+        "minute": 0,
+        "speaker": "Bob",
+        "original": "Yep, you're good.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again.",
+        "wer": 5.0,
+        "word_overlap": 0.0,
+        "ref_word_count": 3,
+        "hyp_word_count": 15
+      },
+      {
+        "line_index": 4,
+        "minute": 0,
+        "speaker": "Alice",
+        "original": "Oh thanks, it's just a bookshelf filter. Hides the mess behind me.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way.",
+        "wer": 2.917,
+        "word_overlap": 0.083,
+        "ref_word_count": 12,
+        "hyp_word_count": 35
+      },
+      {
+        "line_index": 5,
+        "minute": 0,
+        "speaker": "Alice",
+        "original": "OK cool. Last time it was all echoey and nobody told me for like ten minutes.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me.",
+        "wer": 2.938,
+        "word_overlap": 0.062,
+        "ref_word_count": 16,
+        "hyp_word_count": 48
+      },
+      {
+        "line_index": 6,
+        "minute": 0,
+        "speaker": "Bob",
+        "original": "Ha, yeah, that was rough.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough.",
+        "wer": 13.0,
+        "word_overlap": 1.0,
+        "ref_word_count": 5,
+        "hyp_word_count": 70
+      },
+      {
+        "line_index": 7,
+        "minute": 0,
+        "speaker": "Carol",
+        "original": "I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you.",
+        "wer": 3.182,
+        "word_overlap": 1.0,
+        "ref_word_count": 22,
+        "hyp_word_count": 92
+      },
+      {
+        "line_index": 9,
+        "minute": 0,
+        "speaker": "Carol",
+        "original": "Hang on, I'm getting coffee, one sec.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec.",
+        "wer": 13.857,
+        "word_overlap": 0.857,
+        "ref_word_count": 7,
+        "hyp_word_count": 103
+      },
+      {
+        "line_index": 12,
+        "minute": 0,
+        "speaker": "Alice",
+        "original": "I'm on my third already. Don't judge me.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me.",
+        "wer": 14.25,
+        "word_overlap": 0.875,
+        "ref_word_count": 8,
+        "hyp_word_count": 121
+      },
+      {
+        "line_index": 14,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to Sky Zone, that trampoline place by the mall. They were bouncing off the walls, literally.",
+        "wer": 6.19,
+        "word_overlap": 0.947,
+        "ref_word_count": 21,
+        "hyp_word_count": 150
+      },
+      {
+        "line_index": 16,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "Like thirty bucks a kid for an hour. Not bad honestly.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive?",
+        "wer": 14.364,
+        "word_overlap": 0.364,
+        "ref_word_count": 11,
+        "hyp_word_count": 161
+      },
+      {
+        "line_index": 18,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "They have these foam pits too. The kids go absolutely nuts.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all.",
+        "wer": 15.727,
+        "word_overlap": 0.364,
+        "ref_word_count": 11,
+        "hyp_word_count": 176
+      },
+      {
+        "line_index": 20,
+        "minute": 1,
+        "speaker": "Alice",
+        "original": "Ha, that alone makes it worth it.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all. They have these foam pits too. The kids go absolutely nuts. Yeah, and they sleep like rocks afterwards. It's the best thirty bucks I've ever spent.",
+        "wer": 28.429,
+        "word_overlap": 0.429,
+        "ref_word_count": 7,
+        "hyp_word_count": 202
+      },
+      {
+        "line_index": 21,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "Also, random, but did anyone catch that outage at GitHub yesterday? Like, everything was down for an hour.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all. They have these foam pits too. The kids go absolutely nuts. Yeah, and they sleep like rocks afterwards. It's the best thirty bucks I've ever spent. Ha, ha, that alone makes it worth it. Also random, but did anyone catch that outage at GitHub yesterday? Like, everything was down for an hour.",
+        "wer": 11.722,
+        "word_overlap": 0.944,
+        "ref_word_count": 18,
+        "hyp_word_count": 228
+      },
+      {
+        "line_index": 23,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "No, we're on GitLab. But it made me realize how dependent everyone is on these services.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all. They have these foam pits too. The kids go absolutely nuts. Yeah, and they sleep like rocks afterwards. It's the best thirty bucks I've ever spent. Ha, ha, that alone makes it worth it. Also random, but did anyone catch that outage at GitHub yesterday? Like, everything was down for an hour. Oh yeah, I saw that on Twitter. Our stuff wasn't affected though, right?",
+        "wer": 14.688,
+        "word_overlap": 0.467,
+        "ref_word_count": 16,
+        "hyp_word_count": 241
+      },
+      {
+        "line_index": 24,
+        "minute": 1,
+        "speaker": "Alice",
+        "original": "Yeah, single points of failure everywhere. Scary when you think about it.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all. They have these foam pits too. The kids go absolutely nuts. Yeah, and they sleep like rocks afterwards. It's the best thirty bucks I've ever spent. Ha, ha, that alone makes it worth it. Also random, but did anyone catch that outage at GitHub yesterday? Like, everything was down for an hour. Oh yeah, I saw that on Twitter. Our stuff wasn't affected though, right? No, we're on GitLab, but it made me realize how dependent everyone is on these services. Yeah, single points of failure everywhere. Scary when you think about it.",
+        "wer": 21.417,
+        "word_overlap": 1.0,
+        "ref_word_count": 12,
+        "hyp_word_count": 269
+      }
+    ]
+  },
+  "health_checks": [
+    {
+      "minute": 0,
+      "elapsed_real_minutes": 0.0,
+      "connected": true,
+      "lines_sent": 0,
+      "phase": "stt"
+    }
+  ],
+  "mid_meeting_results": [],
+  "post_meeting_results": [
+    {
+      "question_id": "pm_01",
+      "question": "What are the main action items from this meeting?",
+      "ground_truth": "Tomas: autocomplete fix by Wednesday, then Node upgrade (2 weeks). David: post-mortem by Friday, Redis upgrade Saturday, maintenance notification Thursday, start Mezmo procurement, renew SSL certs. Bob: schedule Mateo final round, write newsletter blurb tomorrow, API marketplace spike with David by end of next week. Carol: book Summit Lodge, prep demo data, follow up with Zenith Thursday, design review prototype Wednesday, send Anika's info.",
+      "category": "action_item",
+      "difficulty": "hard",
+      "response": "No action items were discussed in this meeting. They were just chatting about audio checks, coffee, weekends at SkyZone, and that GitHub outage.",
+      "latency_ms": 5057.367248926312,
+      "cold_start_ms": 400.0,
+      "context_tokens_approx": 2057,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_02",
+      "question": "What did we decide about the caching strategy?",
+      "ground_truth": "Going with Redis over Memcached because they can use it for sessions too and already have the cluster running.",
+      "category": "decision",
+      "difficulty": "medium",
+      "response": "Nothing on caching strategy was discussed in the transcript. They mostly chatted about audio checks, coffee, weekends at SkyZone, and a GitHub outage.",
+      "latency_ms": 4584.810367319733,
+      "cold_start_ms": 437.7,
+      "context_tokens_approx": 2057,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_03",
+      "question": "What's the plan for the dashboard redesign?",
+      "ground_truth": "Card layout by default with toggle for table view. Cards-only on mobile. Three weeks for cards, five weeks total with table toggle. Starting next sprint.",
+      "category": "decision",
+      "difficulty": "medium",
+      "response": "Nothing on that in the transcript\u2014they're still just chatting about audio issues, coffee, weekends at SkyZone, and that GitHub outage. No dashboard redesign came up.",
+      "latency_ms": 4144.923817832023,
+      "cold_start_ms": 1261.4,
+      "context_tokens_approx": 2057,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_04",
+      "question": "How much is the company offsite going to cost roughly?",
+      "ground_truth": "About $27,600 (23 people x $400/night x 3 nights) at Summit Lodge in Lake Tahoe.",
+      "category": "detail",
+      "difficulty": "hard",
+      "response": "Nothing about a company offsite or its costs was mentioned in the transcript. They were just chatting about audio issues, coffee, weekends, and a GitHub outage.",
+      "latency_ms": 4949.781494215131,
+      "cold_start_ms": 1265.5,
+      "context_tokens_approx": 2057,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_05",
+      "question": "What's the deal with the Meridian Health opportunity?",
+      "ground_truth": "$200K ARR enterprise healthcare deal. Need SOC 2 Type II (audit starts September, expect Q1 next year). Demo Thursday to show reporting/export module. Prashant managing.",
+      "category": "detail",
+      "difficulty": "hard",
+      "response": "Nothing about a Meridian Health opportunity was mentioned in the transcript. They were just chatting about audio checks, coffee, weekends at SkyZone, and a GitHub outage.",
+      "latency_ms": 4664.903413970023,
+      "cold_start_ms": 416.8,
+      "context_tokens_approx": 2057,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_06",
+      "question": "Is Tomas going to be overloaded? What's on his plate?",
+      "ground_truth": "Autocomplete fix due Wednesday, then Node.js 22 upgrade (two weeks). Rate limiter got pushed. Sequential, should be OK.",
+      "category": "inference",
+      "difficulty": "hard",
+      "response": "No, Thomas isn't mentioned in the transcript at all. Nothing was said about his workload or what's on his plate.",
+      "latency_ms": 4399.246126879007,
+      "cold_start_ms": 1267.5,
+      "context_tokens_approx": 2057,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_07",
+      "question": "What happened with the database incident? Is it fixed?",
+      "ground_truth": "Connection pool exhaustion on Postgres. Missing finally block in transaction handler (Bob's team). Fixed now. 1200 users affected, 45 min outage, error rate hit 8%. PagerDuty was 12 min late, threshold being lowered from 5% to 2%. Post-mortem due Friday, review Monday.",
+      "category": "inference",
+      "difficulty": "medium",
+      "response": "No database incident was mentioned in the transcript. They only chatted about a GitHub outage yesterday that didn't affect their work since they're on GitLab.",
+      "latency_ms": 4543.7423856928945,
+      "cold_start_ms": 1121.8,
+      "context_tokens_approx": 2057,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_08",
+      "question": "What was the thing about the color scheme?",
+      "ground_truth": "Raj left strong opinions in Figma about the orange accent color. Orange is staying because marketing approved it for rebrand. Carol told him, he's not happy.",
+      "category": "ambiguous",
+      "difficulty": "medium",
+      "response": "Nothing about a color scheme was mentioned in the transcript. They just chatted about audio checks, coffee, Bob's kids at SkyZone, and that GitHub outage.",
+      "latency_ms": 3849.2970559746027,
+      "cold_start_ms": 1182.0,
+      "context_tokens_approx": 2057,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_09",
+      "question": "Who do I talk to about the AWS costs?",
+      "ground_truth": "David is handling it. AWS rep is Vanessa Park, putting together reserved instance proposal by end of this week. Could save ~30%, from $63K to $45-46K/month.",
+      "category": "ambiguous",
+      "difficulty": "medium",
+      "response": "That wasn't mentioned in the transcript at all. They only chatted about audio checks, coffee, weekends at SkyZone, and a GitHub outage. No one brought up AWS costs.",
+      "latency_ms": 3668.3800471946597,
+      "cold_start_ms": 1245.8,
+      "context_tokens_approx": 2057,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_10",
+      "question": "When and where is the company offsite?",
+      "ground_truth": "Week of June 16th, Summit Lodge in Lake Tahoe.",
+      "category": "detail",
+      "difficulty": "easy",
+      "response": "The company offsite wasn't mentioned at all in the transcript. They were just chatting about audio issues, coffee, weekends, and a GitHub outage.",
+      "latency_ms": 3400.6314990110695,
+      "cold_start_ms": 378.9,
+      "context_tokens_approx": 2057,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_11",
+      "question": "Which log aggregation tool are we going with?",
+      "ground_truth": "Mezmo over Datadog Logs. $4K/month vs $11K. Saves $84K/year. David starting procurement.",
+      "category": "decision",
+      "difficulty": "easy",
+      "response": "No one mentioned any log aggregation tools in the meeting. They were just chatting about audio issues, coffee, weekends, and a GitHub outage.",
+      "latency_ms": 4313.028008677065,
+      "cold_start_ms": 1714.6,
+      "context_tokens_approx": 2057,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_12",
+      "question": "What's happening with the NPS score?",
+      "ground_truth": "Dropped from 42 to 37. Main complaint is mobile app performance. Looking at hiring a React Native contractor named Anika.",
+      "category": "detail",
+      "difficulty": "medium",
+      "response": "Nothing about the NPS score was mentioned in the transcript. They're just chatting about audio checks, coffee, weekends at SkyZone, and a GitHub outage.",
+      "latency_ms": 3446.3336006738245,
+      "cold_start_ms": 1174.7,
+      "context_tokens_approx": 2057,
+      "sent_as": "audio"
+    }
+  ],
+  "hallucination_results": [
+    {
+      "probe_id": "hp_01",
+      "question": "What did we decide about the pricing changes?",
+      "expected": "NOT_DISCUSSED",
+      "response": "Nothing on pricing changes in the transcript. They just chatted about audio issues, coffee, weekends at SkyZone, and that GitHub outage. No decisions were made.",
+      "latency_ms": 1229.876114986837
+    },
+    {
+      "probe_id": "hp_02",
+      "question": "Who's replacing Carol on the design team?",
+      "expected": "NOT_DISCUSSED",
+      "response": "No one. The transcript doesn't mention anything about Carol being replaced on the design team.",
+      "latency_ms": 1112.2040241025388
+    },
+    {
+      "probe_id": "hp_03",
+      "question": "What was the decision about moving to microservices?",
+      "expected": "NOT_DISCUSSED",
+      "response": "No decision was made about moving to microservices\u2014they didn't discuss it at all.",
+      "latency_ms": 1280.9556908905506
+    },
+    {
+      "probe_id": "hp_04",
+      "question": "When is the product launch event?",
+      "expected": "NOT_DISCUSSED",
+      "response": "The product launch event wasn't mentioned in the transcript at all. They've just been chatting about audio issues, coffee, weekends, and a GitHub outage so far.",
+      "latency_ms": 1149.550483096391
+    }
+  ],
+  "scores": [
+    {
+      "fact_id": "pm_01",
+      "verdict": "incorrect",
+      "confidence": 0.95,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "No action items were discussed in this meeting. They were just chatting about audio checks, coffee, weekends at SkyZone, and that GitHub outage.",
+      "expected_text": "Tomas: autocomplete fix by Wednesday, then Node upgrade (2 weeks). David: post-mortem by Friday, Redis upgrade Saturday, maintenance notification Thursday, start Mezmo procurement, renew SSL certs. Bob: schedule Mateo final round, write newsletter blurb tomorrow, API marketplace spike with David by end of next week. Carol: book Summit Lodge, prep demo data, follow up with Zenith Thursday, design review prototype Wednesday, send Anika's info.",
+      "rationale": "The response claims no action items were discussed, but the expected answer shows extensive action items for Tomas, David, Bob, and Carol with specific deadlines and tasks. The response completely misses all the key information."
+    },
+    {
+      "fact_id": "pm_02",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "Nothing on caching strategy was discussed in the transcript. They mostly chatted about audio checks, coffee, weekends at SkyZone, and a GitHub outage.",
+      "expected_text": "Going with Redis over Memcached because they can use it for sessions too and already have the cluster running.",
+      "rationale": "The model correctly acknowledges that no caching strategy was discussed, rather than fabricating an answer. This is the appropriate response when the expected information wasn't actually present in the source material."
+    },
+    {
+      "fact_id": "pm_03",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "Nothing on that in the transcript\u2014they're still just chatting about audio issues, coffee, weekends at SkyZone, and that GitHub outage. No dashboard redesign came up.",
+      "expected_text": "Card layout by default with toggle for table view. Cards-only on mobile. Three weeks for cards, five weeks total with table toggle. Starting next sprint.",
+      "rationale": "The model correctly acknowledges that dashboard redesign was not discussed in the transcript, rather than fabricating details. This is appropriate honest uncertainty behavior."
+    },
+    {
+      "fact_id": "pm_04",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "Nothing about a company offsite or its costs was mentioned in the transcript. They were just chatting about audio issues, coffee, weekends, and a GitHub outage.",
+      "expected_text": "About $27,600 (23 people x $400/night x 3 nights) at Summit Lodge in Lake Tahoe.",
+      "rationale": "The model correctly acknowledges that the company offsite costs were not discussed in the transcript, rather than fabricating specific details. This is appropriate uncertainty rather than hallucination."
+    },
+    {
+      "fact_id": "pm_05",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "Nothing about a Meridian Health opportunity was mentioned in the transcript. They were just chatting about audio checks, coffee, weekends at SkyZone, and a GitHub outage.",
+      "expected_text": "$200K ARR enterprise healthcare deal. Need SOC 2 Type II (audit starts September, expect Q1 next year). Demo Thursday to show reporting/export module. Prashant managing.",
+      "rationale": "The model correctly acknowledges that the Meridian Health opportunity was not discussed in the transcript they reviewed. This is honest uncertainty rather than hallucination, as they're not making up details about the deal."
+    },
+    {
+      "fact_id": "pm_06",
+      "verdict": "hallucinated",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": true,
+      "response_text": "No, Thomas isn't mentioned in the transcript at all. Nothing was said about his workload or what's on his plate.",
+      "expected_text": "Autocomplete fix due Wednesday, then Node.js 22 upgrade (two weeks). Rate limiter got pushed. Sequential, should be OK.",
+      "rationale": "The model confidently states that 'Thomas isn't mentioned in the transcript at all' when the ground truth shows Tomas (note spelling) was actually discussed with specific details about his workload including autocomplete fix due Wednesday and Node.js 22 upgrade. This is fabricating information about what was NOT in the transcript."
+    },
+    {
+      "fact_id": "pm_07",
+      "verdict": "hallucinated",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": true,
+      "response_text": "No database incident was mentioned in the transcript. They only chatted about a GitHub outage yesterday that didn't affect their work since they're on GitLab.",
+      "expected_text": "Connection pool exhaustion on Postgres. Missing finally block in transaction handler (Bob's team). Fixed now. 1200 users affected, 45 min outage, error rate hit 8%. PagerDuty was 12 min late, threshold being lowered from 5% to 2%. Post-mortem due Friday, review Monday.",
+      "rationale": "The model confidently states that no database incident was mentioned and instead describes a completely different GitHub outage scenario. This is fabricating specific details (GitHub outage, GitLab usage) that contradict the expected answer which contains extensive details about a Postgres database incident."
+    },
+    {
+      "fact_id": "pm_08",
+      "verdict": "incorrect",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "Nothing about a color scheme was mentioned in the transcript. They just chatted about audio checks, coffee, Bob's kids at SkyZone, and that GitHub outage.",
+      "expected_text": "Raj left strong opinions in Figma about the orange accent color. Orange is staying because marketing approved it for rebrand. Carol told him, he's not happy.",
+      "rationale": "The model claims no color scheme was discussed, but the ground truth shows there was a conversation about Raj's opinions on orange accent color, marketing approval, and Carol telling him about it. The model missed this entirely but didn't fabricate details."
+    },
+    {
+      "fact_id": "pm_09",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "That wasn't mentioned in the transcript at all. They only chatted about audio checks, coffee, weekends at SkyZone, and a GitHub outage. No one brought up AWS costs.",
+      "expected_text": "David is handling it. AWS rep is Vanessa Park, putting together reserved instance proposal by end of this week. Could save ~30%, from $63K to $45-46K/month.",
+      "rationale": "The model correctly acknowledges that AWS costs weren't discussed in the transcript they have access to, rather than fabricating an answer. This is appropriate honest uncertainty behavior."
+    },
+    {
+      "fact_id": "pm_10",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "The company offsite wasn't mentioned at all in the transcript. They were just chatting about audio issues, coffee, weekends, and a GitHub outage.",
+      "expected_text": "Week of June 16th, Summit Lodge in Lake Tahoe.",
+      "rationale": "The model correctly acknowledges that the company offsite wasn't discussed in the transcript it reviewed, rather than fabricating details about timing or location. This is appropriate honest uncertainty rather than hallucination."
+    },
+    {
+      "fact_id": "pm_11",
+      "verdict": "incorrect",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "No one mentioned any log aggregation tools in the meeting. They were just chatting about audio issues, coffee, weekends, and a GitHub outage.",
+      "expected_text": "Mezmo over Datadog Logs. $4K/month vs $11K. Saves $84K/year. David starting procurement.",
+      "rationale": "The model claims no log aggregation tools were mentioned, but the expected answer shows a specific decision was made about Mezmo vs Datadog with cost details and procurement next steps. The model completely missed this important business discussion."
+    },
+    {
+      "fact_id": "pm_12",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "Nothing about the NPS score was mentioned in the transcript. They're just chatting about audio checks, coffee, weekends at SkyZone, and a GitHub outage.",
+      "expected_text": "Dropped from 42 to 37. Main complaint is mobile app performance. Looking at hiring a React Native contractor named Anika.",
+      "rationale": "The model correctly acknowledged that the NPS score was not discussed in the transcript they recall, rather than fabricating details about it. This is appropriate uncertainty rather than hallucination."
+    }
+  ],
+  "hallucination_scores": [
+    {
+      "fact_id": "hp_01",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "Nothing on pricing changes in the transcript. They just chatted about audio issues, coffee, weekends at SkyZone, and that GitHub outage. No decisions were made.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "Model correctly acknowledges that pricing changes were not discussed in the transcript and accurately describes what was actually covered instead. This is appropriate honest uncertainty rather than fabricating information."
+    },
+    {
+      "fact_id": "hp_02",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "No one. The transcript doesn't mention anything about Carol being replaced on the design team.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly identified that this topic was not discussed in the transcript, demonstrating appropriate uncertainty rather than fabricating information."
+    },
+    {
+      "fact_id": "hp_03",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "No decision was made about moving to microservices\u2014they didn't discuss it at all.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly identified that microservices were not discussed, matching the expected answer. This demonstrates appropriate uncertainty rather than fabricating information."
+    },
+    {
+      "fact_id": "hp_04",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "The product launch event wasn't mentioned in the transcript at all. They've just been chatting about audio issues, coffee, weekends, and a GitHub outage so far.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly identified that the product launch event was not discussed in the transcript, which matches the expected answer of 'NOT_DISCUSSED'. This demonstrates appropriate uncertainty rather than fabricating information."
+    }
+  ],
+  "aggregate": {
+    "total_questions": 12,
+    "recall_accuracy": 0.0,
+    "hallucination_rate": 0.16666666666666666,
+    "honest_uncertainty_rate": 0.5833333333333334,
+    "avg_partial_credit": 0.0,
+    "by_category": {
+      "action_item": 0.0,
+      "decision": 0.0,
+      "detail": 0.0,
+      "inference": 0.0,
+      "ambiguous": 0.0
+    },
+    "by_minute": {
+      "0": 0.0,
+      "9": 0.0,
+      "15": 0.0,
+      "40": 0.0,
+      "35": 0.0,
+      "8": 0.0,
+      "24": 0.0,
+      "17": 0.0,
+      "22": 0.0,
+      "41": 0.0,
+      "50": 0.0,
+      "53": 0.0
+    }
+  },
+  "stt_session_metrics": {
+    "items_injected": 27,
+    "errors": [],
+    "connection_drops": 1
+  },
+  "run_id": "20260401T024746Z_grok_e07_production_sim",
+  "run_name": "run_009",
+  "saved_at": "2026-04-01T02:47:46.455802+00:00"
+}

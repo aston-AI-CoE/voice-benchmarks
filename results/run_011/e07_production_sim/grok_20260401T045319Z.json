@@ -1,0 +1,278 @@
+{
+  "experiment": "e07_production_sim",
+  "provider": "grok",
+  "config": {
+    "architecture": "production: STT session + fresh voice session per question",
+    "meeting_lines": 799,
+    "mid_questions": 15,
+    "post_questions": 12,
+    "questions_via": "audio",
+    "duration_minutes": 60
+  },
+  "session_survival": {
+    "stt_lines_sent": 89,
+    "stt_lines_total": 799,
+    "stt_survived": false,
+    "connection_died_at": "line 89 (InvalidStatus: server rejected WebSocket connection: HTTP 429)"
+  },
+  "timing": {
+    "total_elapsed_seconds": 1081.6226456081495,
+    "total_elapsed_minutes": 18.027044093469158
+  },
+  "transcription": {
+    "total_compared": 49,
+    "avg_wer": 59.524,
+    "details": [
+      {
+        "line_index": 1,
+        "minute": 0,
+        "speaker": "Bob",
+        "original": "Yep, you're good.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again.",
+        "wer": 5.0,
+        "word_overlap": 0.0,
+        "ref_word_count": 3,
+        "hyp_word_count": 15
+      },
+      {
+        "line_index": 4,
+        "minute": 0,
+        "speaker": "Alice",
+        "original": "Oh thanks, it's just a bookshelf filter. Hides the mess behind me.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way.",
+        "wer": 2.917,
+        "word_overlap": 0.083,
+        "ref_word_count": 12,
+        "hyp_word_count": 35
+      },
+      {
+        "line_index": 5,
+        "minute": 0,
+        "speaker": "Alice",
+        "original": "OK cool. Last time it was all echoey and nobody told me for like ten minutes.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me.",
+        "wer": 2.938,
+        "word_overlap": 0.062,
+        "ref_word_count": 16,
+        "hyp_word_count": 48
+      },
+      {
+        "line_index": 6,
+        "minute": 0,
+        "speaker": "Bob",
+        "original": "Ha, yeah, that was rough.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough.",
+        "wer": 13.0,
+        "word_overlap": 1.0,
+        "ref_word_count": 5,
+        "hyp_word_count": 70
+      },
+      {
+        "line_index": 7,
+        "minute": 0,
+        "speaker": "Carol",
+        "original": "I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you.",
+        "wer": 3.182,
+        "word_overlap": 1.0,
+        "ref_word_count": 22,
+        "hyp_word_count": 92
+      },
+      {
+        "line_index": 9,
+        "minute": 0,
+        "speaker": "Carol",
+        "original": "Hang on, I'm getting coffee, one sec.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec.",
+        "wer": 13.857,
+        "word_overlap": 0.857,
+        "ref_word_count": 7,
+        "hyp_word_count": 103
+      },
+      {
+        "line_index": 12,
+        "minute": 0,
+        "speaker": "Alice",
+        "original": "I'm on my third already. Don't judge me.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me.",
+        "wer": 14.25,
+        "word_overlap": 0.875,
+        "ref_word_count": 8,
+        "hyp_word_count": 121
+      },
+      {
+        "line_index": 14,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally.",
+        "wer": 6.095,
+        "word_overlap": 1.0,
+        "ref_word_count": 21,
+        "hyp_word_count": 149
+      },
+      {
+        "line_index": 16,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "Like thirty bucks a kid for an hour. Not bad honestly.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive?",
+        "wer": 14.364,
+        "word_overlap": 0.364,
+        "ref_word_count": 11,
+        "hyp_word_count": 161
+      },
+      {
+        "line_index": 18,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "They have these foam pits too. The kids go absolutely nuts.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all.",
+        "wer": 15.727,
+        "word_overlap": 0.364,
+        "ref_word_count": 11,
+        "hyp_word_count": 176
+      },
+      {
+        "line_index": 20,
+        "minute": 1,
+        "speaker": "Alice",
+        "original": "Ha, that alone makes it worth it.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all. They have these foam pits too. The kids go absolutely nuts. Yeah, and they sleep like rocks afterwards. It's the best thirty bucks I've ever spent.",
+        "wer": 28.429,
+        "word_overlap": 0.429,
+        "ref_word_count": 7,
+        "hyp_word_count": 202
+      },
+      {
+        "line_index": 21,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "Also, random, but did anyone catch that outage at GitHub yesterday? Like, everything was down for an hour.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all. They have these foam pits too. The kids go absolutely nuts. Yeah, and they sleep like rocks afterwards. It's the best thirty bucks I've ever spent. Ha, that alone makes it worth it. Also random, but did anyone catch that outage at GitHub yesterday? Like, everything was down for an hour.",
+        "wer": 11.667,
+        "word_overlap": 0.944,
+        "ref_word_count": 18,
+        "hyp_word_count": 227
+      },
+      {
+        "line_index": 23,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "No, we're on GitLab. But it made me realize how dependent everyone is on these services.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all. They have these foam pits too. The kids go absolutely nuts. Yeah, and they sleep like rocks afterwards. It's the best thirty bucks I've ever spent. Ha, that alone makes it worth it. Also random, but did anyone catch that outage at GitHub yesterday? Like, everything was down for an hour. Oh yeah, I saw that on Twitter. Our stuff wasn't affected though, right?",
+        "wer": 14.625,
+        "word_overlap": 0.467,
+        "ref_word_count": 16,
+        "hyp_word_count": 240
+      },
+      {
+        "line_index": 24,
+        "minute": 1,
+        "speaker": "Alice",
+        "original": "Yeah, single points of failure everywhere. Scary when you think about it.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all. They have these foam pits too. The kids go absolutely nuts. Yeah, and they sleep like rocks afterwards. It's the best thirty bucks I've ever spent. Ha, that alone makes it worth it. Also random, but did anyone catch that outage at GitHub yesterday? Like, everything was down for an hour. Oh yeah, I saw that on Twitter. Our stuff wasn't affected though, right? No, we're on GitLab, but it made me realize how dependent everyone is on these services. Yeah, single points of failure everywhere. Scary when you think about it.",
+        "wer": 21.333,
+        "word_overlap": 1.0,
+        "ref_word_count": 12,
+        "hyp_word_count": 268
+      },
+      {
+        "line_index": 27,
+        "minute": 2,
+        "speaker": "Bob",
+        "original": "Yeah, we were just talking about trampoline parks. Very important business stuff.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all. They have these foam pits too. The kids go absolutely nuts. Yeah, and they sleep like rocks afterwards. It's the best thirty bucks I've ever spent. Ha, that alone makes it worth it. Also random, but did anyone catch that outage at GitHub yesterday? Like, everything was down for an hour. Oh yeah, I saw that on Twitter. Our stuff wasn't affected though, right? No, we're on GitLab, but it made me realize how dependent everyone is on these services. Yeah, single ... points of failure everywhere. Scary when you think about it. Hey, sorry, sorry, my last call went way over. Some vendor thing. No worries, you didn't miss anything. We're just chatting.",
+        "wer": 23.917,
+        "word_overlap": 0.417,
+        "ref_word_count": 12,
+        "hyp_word_count": 290
+      },
+      {
+        "line_index": 30,
+        "minute": 2,
+        "speaker": "Carol",
+        "original": "OK I'm back. Hey David.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all. They have these foam pits too. The kids go absolutely nuts. Yeah, and they sleep like rocks afterwards. It's the best thirty bucks I've ever spent. Ha, that alone makes it worth it. Also random, but did anyone catch that outage at GitHub yesterday? Like, everything was down for an hour. Oh yeah, I saw that on Twitter. Our stuff wasn't affected though, right? No, we're on GitLab, but it made me realize how dependent everyone is on these services. Yeah, single ... points of failure everywhere. Scary when you think about it. Hey, sorry, sorry, my last call went way over. Some vendor thing. No worries, you didn't miss anything. We're just chatting. Yeah, we were just talking about trampoline parks. Very important business stuff. Ha, sounds riveting. We had a very heated debate about foam pits. You missed out.",
+        "wer": 63.2,
+        "word_overlap": 0.2,
+        "ref_word_count": 5,
+        "hyp_word_count": 317
+      },
+      {
+        "line_index": 31,
+        "minute": 2,
+        "speaker": "David",
+        "original": "Hey Carol.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all. They have these foam pits too. The kids go absolutely nuts. Yeah, and they sleep like rocks afterwards. It's the best thirty bucks I've ever spent. Ha, that alone makes it worth it. Also random, but did anyone catch that outage at GitHub yesterday? Like, everything was down for an hour. Oh yeah, I saw that on Twitter. Our stuff wasn't affected though, right? No, we're on GitLab, but it made me realize how dependent everyone is on these services. Yeah, single ... points of failure everywhere. Scary when you think about it. Hey, sorry, sorry, my last call went way over. Some vendor thing. No worries, you didn't miss anything. We're just chatting. Yeah, we were just talking about trampoline parks. Very important business stuff. Ha, sounds riveting. We had a very heated debate about foam pits. You missed out. Okay, I'm back. Hey, David. Hey, Carol.",
+        "wer": 161.5,
+        "word_overlap": 0.5,
+        "ref_word_count": 2,
+        "hyp_word_count": 324
+      },
+      {
+        "line_index": 34,
+        "minute": 2,
+        "speaker": "Alice",
+        "original": "Nope, just waiting on you. OK, we're all here now.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all. They have these foam pits too. The kids go absolutely nuts. Yeah, and they sleep like rocks afterwards. It's the best thirty bucks I've ever spent. Ha, that alone makes it worth it. Also random, but did anyone catch that outage at GitHub yesterday? Like, everything was down for an hour. Oh yeah, I saw that on Twitter. Our stuff wasn't affected though, right? No, we're on GitLab, but it made me realize how dependent everyone is on these services. Yeah, single ... points of failure everywhere. Scary when you think about it. Hey, sorry, sorry, my last call went way over. Some vendor thing. No worries, you didn't miss anything. We're just chatting. Yeah, we were just talking about trampoline parks. Very important business stuff. Ha, sounds riveting. We had a very heated debate about foam pits. You missed out. Okay, I'm back. Hey, David. Hey, Carol. Did I miss anything? Just the trampoline discourse. But you'll survive.",
+        "wer": 33.2,
+        "word_overlap": 0.5,
+        "ref_word_count": 10,
+        "hyp_word_count": 335
+      },
+      {
+        "line_index": 35,
+        "minute": 2,
+        "speaker": "Alice",
+        "original": "Alright, so I don't have a formal agenda, let's just go around. Bob, you wanna start?",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all. They have these foam pits too. The kids go absolutely nuts. Yeah, and they sleep like rocks afterwards. It's the best thirty bucks I've ever spent. Ha, that alone makes it worth it. Also random, but did anyone catch that outage at GitHub yesterday? Like, everything was down for an hour. Oh yeah, I saw that on Twitter. Our stuff wasn't affected though, right? No, we're on GitLab, but it made me realize how dependent everyone is on these services. Yeah, single ... points of failure everywhere. Scary when you think about it. Hey, sorry, sorry, my last call went way over. Some vendor thing. No worries, you didn't miss anything. We're just chatting. Yeah, we were just talking about trampoline parks. Very important business stuff. Ha, sounds riveting. We had a very heated debate about foam pits. You missed out. Okay, I'm back. Hey, David. Hey, Carol. Did I miss anything? Just the trampoline discourse. But you'll survive. Nope, just waiting on you. Okay, we're all here now. Alright, so I don't have a formal agenda. Let's just go around. Bob, you want to start?",
+        "wer": 21.75,
+        "word_overlap": 0.875,
+        "ref_word_count": 16,
+        "hyp_word_count": 362
+      },
+      {
+        "line_index": 37,
+        "minute": 3,
+        "speaker": "Alice",
+        "original": "Actually wait, before that, did everyone see the email from HR about the new PTO policy?",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all. They have these foam pits too. The kids go absolutely nuts. Yeah, and they sleep like rocks afterwards. It's the best thirty bucks I've ever spent. Ha, that alone makes it worth it. Also random, but did anyone catch that outage at GitHub yesterday? Like, everything was down for an hour. Oh yeah, I saw that on Twitter. Our stuff wasn't affected though, right? No, we're on GitLab, but it made me realize how dependent everyone is on these services. Yeah, single ... points of failure everywhere. Scary when you think about it. Hey, sorry, sorry, my last call went way over. Some vendor thing. No worries, you didn't miss anything. We're just chatting. Yeah, we were just talking about trampoline parks. Very important business stuff. Ha, sounds riveting. We had a very heated debate about foam pits. You missed out. Okay, I'm back. Hey, David. Hey, Carol. Did I miss anything? Just the trampoline discourse. But you'll survive. Nope, just waiting on you. Okay, we're all here now. Alright, so I don't have a formal agenda. Let's just go around. Bob, you want to start? Sure. Actually, wait, before that, did everyone see the email from HR about the new PTO policy?",
+        "wer": 22.75,
+        "word_overlap": 0.933,
+        "ref_word_count": 16,
+        "hyp_word_count": 379
+      }
+    ]
+  },
+  "health_checks": [
+    {
+      "minute": 0,
+      "elapsed_real_minutes": 0.0,
+      "connected": true,
+      "lines_sent": 0,
+      "phase": "stt"
+    },
+    {
+      "minute": 5,
+      "elapsed_real_minutes": 12.5,
+      "connected": true,
+      "lines_sent": 62,
+      "phase": "stt"
+    }
+  ],
+  "mid_meeting_results": [],
+  "post_meeting_results": [],
+  "hallucination_results": [],
+  "scores": [],
+  "hallucination_scores": [],
+  "aggregate": null,
+  "stt_session_metrics": {
+    "items_injected": 89,
+    "errors": [],
+    "connection_drops": 0
+  },
+  "run_id": "20260401T045319Z_grok_e07_production_sim",
+  "run_name": "run_011",
+  "saved_at": "2026-04-01T04:53:19.222441+00:00"
+}
