@@ -1,0 +1,102 @@
+Voice Benchmarks — run_007
+Date: Tue Mar 31 23:45:54 UTC 2026
+Failures: 0/17
+
+========== E01: Instant Context Recall ==========
+# Voice Benchmark Comparison — Experiment 01: Long Session Context
+
+| Metric | GROK | OPENAI |
+|---|---|---|
+| **Runs** | 1 | 1 |
+| **Recall Accuracy** | 95% | 100% |
+| **Hallucination Rate** | 5% | 10% |
+| **Honest Uncertainty** | 5% | 0% |
+| **Avg Partial Credit** | 85% | 95% |
+| **Avg Latency** | 675ms | 351ms |
+| **P95 Latency** | 732ms | 570ms |
+| **Connection Drops** | 0 | 0 |
+| **Errors** | 0 | 0 |
+
+## Recall by Category
+
+| Category | GROK | OPENAI |
+|---|---|---|
+| date | 65% | 100% |
+| decision | 80% | 100% |
+| name | 100% | 100% |
+| number | 88% | 82% |
+| preference | 92% | 92% |
+
+## Recall by Time Period
+
+| Period | GROK | OPENAI |
+|---|---|---|
+| Early (0-20min) | 100% | 92% |
+| Mid (20-40min) | 83% | 97% |
+| Late (40-60min) | 73% | 95% |
+
+========== E06: Always-Streaming Audio (OpenAI) ==========
+# Voice Benchmark Comparison — Experiment 01: Long Session Context
+
+| Metric | OPENAI |
+|---|---|
+| **Runs** | 3 |
+| **Recall Accuracy** | 38% |
+| **Hallucination Rate** | 25% |
+| **Honest Uncertainty** | 25% |
+| **Avg Partial Credit** | 36% |
+| **Avg Latency** | N/A |
+| **P95 Latency** | N/A |
+| **Connection Drops** | 0 |
+| **Errors** | 1 |
+
+## Recall by Category
+
+| Category | OPENAI |
+|---|---|
+| action_item | 10% |
+| ambiguous | 57% |
+| decision | 62% |
+| detail | 8% |
+| inference | 48% |
+
+## Recall by Time Period
+
+| Period | OPENAI |
+|---|---|
+| Early (0-20min) | 61% |
+| Mid (20-40min) | 29% |
+| Late (40-60min) | 4% |
+
+========== E07: Production Sim ==========
+# Voice Benchmark Comparison — Experiment 01: Long Session Context
+
+| Metric | GROK | OPENAI |
+|---|---|---|
+| **Runs** | 3 | 3 |
+| **Recall Accuracy** | 0% | 37% |
+| **Hallucination Rate** | 31% | 9% |
+| **Honest Uncertainty** | 22% | 40% |
+| **Avg Partial Credit** | 0% | 33% |
+| **Avg Latency** | N/A | N/A |
+| **P95 Latency** | N/A | N/A |
+| **Connection Drops** | 0 | 0 |
+| **Errors** | 0 | 0 |
+
+## Recall by Category
+
+| Category | GROK | OPENAI |
+|---|---|---|
+| action_item | 0% | 10% |
+| ambiguous | 0% | 50% |
+| decision | 0% | 74% |
+| detail | 0% | 0% |
+| inference | 0% | 42% |
+
+## Recall by Time Period
+
+| Period | GROK | OPENAI |
+|---|---|---|
+| Early (0-20min) | 0% | 64% |
+| Mid (20-40min) | 0% | 16% |
+| Late (40-60min) | 0% | 0% |

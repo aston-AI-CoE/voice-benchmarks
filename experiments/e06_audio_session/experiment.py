@@ -175,10 +175,11 @@ async def run(
 
             # Mid-meeting questions — sent as AUDIO if available, text as fallback
             fired = []
-            for idx, mq in enumerate(pending_mid_questions):
+            for mq in pending_mid_questions:
                 if minute >= mq.trigger_after_minute:
                     await asyncio.sleep(1)  # natural pause
-                    q_id = f"mid_{idx:02d}"
+                    q_idx = meeting.mid_meeting_questions.index(mq)
+                    q_id = f"mid_{q_idx:02d}"
                     q_audio = question_audio.get(q_id)
 
                     if q_audio:

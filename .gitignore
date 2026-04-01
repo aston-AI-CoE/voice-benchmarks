@@ -15,7 +15,6 @@ audio_fixtures/
 results/_audio_cache/
 
 # Results (run-specific data, generated per run)
-results/run_*/
 results/run1/
 results/run_01/
 results/smoke_*/

@@ -1,0 +1,83 @@
+{
+  "experiment": "e05_realtime_session_1hr",
+  "provider": "grok",
+  "config": {
+    "seconds_per_minute": 60.0,
+    "meeting_title": "Weekly Team Sync \u2014 Engineering, Design, Ops",
+    "total_lines": 167,
+    "num_mid_questions": 3,
+    "num_post_questions": 12,
+    "num_hallucination_probes": 4,
+    "transcript_source": "built-in"
+  },
+  "session_survival": {
+    "lines_sent": 45,
+    "lines_total": 167,
+    "survived_full_meeting": false,
+    "connection_died_at": "line 45 (exception: ConnectionClosedOK: received 1001 (going away) Conversation timed out due to inactivity; then sent 1001 (going away) Conversation timed out due to inactivity)",
+    "post_meeting_completed": false
+  },
+  "timing": {
+    "total_elapsed_seconds": 904.1059764651582,
+    "total_elapsed_minutes": 15.06843294108597,
+    "target_minutes": 58,
+    "pacing_ratio": 1.0
+  },
+  "health_checks": [
+    {
+      "minute": 0,
+      "elapsed_real_minutes": 0.0,
+      "connected": true,
+      "lines_sent": 0
+    },
+    {
+      "minute": 5,
+      "elapsed_real_minutes": 4.0,
+      "connected": true,
+      "lines_sent": 17
+    },
+    {
+      "minute": 10,
+      "elapsed_real_minutes": 9.0,
+      "connected": true,
+      "lines_sent": 30
+    },
+    {
+      "minute": 15,
+      "elapsed_real_minutes": 14.0,
+      "connected": true,
+      "lines_sent": 44
+    }
+  ],
+  "latency_over_time": [],
+  "mid_meeting_results": [],
+  "post_meeting_results": [],
+  "hallucination_results": [],
+  "scores": [],
+  "hallucination_scores": [],
+  "aggregate": null,
+  "session_metrics": {
+    "total_turns": 0,
+    "items_injected": 45,
+    "total_input_tokens": 0,
+    "total_output_tokens": 0,
+    "errors": [
+      {
+        "type": "error",
+        "event_id": "949438c3-436f-472b-bb6b-a66ba99831b9",
+        "error": {
+          "message": "Conversation timed out after 900.0 seconds due to inactivity",
+          "type": "timeout",
+          "event_id": "949438c3-436f-472b-bb6b-a66ba99831b9"
+        },
+        "code": "timeout",
+        "message": "Conversation timed out after 900.0 seconds due to inactivity",
+        "previous_item_id": null
+      }
+    ],
+    "connection_drops": 0
+  },
+  "run_id": "20260331T020943Z_grok_e05_realtime_session_1hr",
+  "run_name": "run_003",
+  "saved_at": "2026-03-31T02:09:43.461558+00:00"
+}

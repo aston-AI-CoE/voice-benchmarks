@@ -1,0 +1,180 @@
+{
+  "experiment": "e02_context_window_cliff",
+  "provider": "openai",
+  "config": {
+    "milestones": [
+      100,
+      500,
+      1000,
+      2000,
+      5000,
+      10000,
+      20000
+    ],
+    "anchor": {
+      "codename": "Sapphire Falcon",
+      "budget": "$2,847,300",
+      "location": "Building 7, third floor"
+    }
+  },
+  "milestone_results": [
+    {
+      "milestone_tokens": 100,
+      "anchor_codename_recalled": true,
+      "anchor_budget_recalled": true,
+      "anchor_response": "The project codename is Sapphire Falcon, and the total budget is exactly $2,847,300.",
+      "anchor_latency_ms": 288.49003929644823,
+      "new_fact": {
+        "statement": "The new office pet's name is Biscuit, a golden retriever.",
+        "question": "What's the name of the office pet?",
+        "key_term": "Biscuit"
+      }
+    },
+    {
+      "milestone_tokens": 500,
+      "anchor_codename_recalled": true,
+      "anchor_budget_recalled": true,
+      "anchor_response": "The project codename is Sapphire Falcon, and the total budget is $2,847,300.",
+      "anchor_latency_ms": 227.16583404690027,
+      "new_fact": {
+        "statement": "The company's wifi password was changed to 'NorthStar2026!'.",
+        "question": "What was the company wifi password changed to?",
+        "key_term": "NorthStar2026"
+      }
+    },
+    {
+      "milestone_tokens": 1000,
+      "anchor_codename_recalled": true,
+      "anchor_budget_recalled": true,
+      "anchor_response": "The project codename is Sapphire Falcon, and the total budget is $2,847,300.",
+      "anchor_latency_ms": 438.4606359526515,
+      "new_fact": {
+        "statement": "The employee appreciation event is at the Rosewood Hotel.",
+        "question": "Where is the employee appreciation event?",
+        "key_term": "Rosewood"
+      }
+    },
+    {
+      "milestone_tokens": 2000,
+      "anchor_codename_recalled": true,
+      "anchor_budget_recalled": true,
+      "anchor_response": "The project codename is Sapphire Falcon, and the total budget is $2,847,300.",
+      "anchor_latency_ms": 324.5666529983282,
+      "new_fact": {
+        "statement": "The emergency contact for the server room is extension 4471.",
+        "question": "What's the emergency contact extension for the server room?",
+        "key_term": "4471"
+      }
+    },
+    {
+      "milestone_tokens": 5000,
+      "anchor_codename_recalled": true,
+      "anchor_budget_recalled": true,
+      "anchor_response": "The project codename is Sapphire Falcon, and the total budget is $2,847,300.",
+      "anchor_latency_ms": 394.0396667458117,
+      "new_fact": {
+        "statement": "The new conference room on the fifth floor is named 'Aurora'.",
+        "question": "What's the name of the new conference room on the fifth floor?",
+        "key_term": "Aurora"
+      }
+    },
+    {
+      "milestone_tokens": 10000,
+      "anchor_codename_recalled": true,
+      "anchor_budget_recalled": true,
+      "anchor_response": "The project codename is Sapphire Falcon, and the total budget is $2,847,300.",
+      "anchor_latency_ms": 560.4111216962337,
+      "new_fact": {
+        "statement": "The quarterly all-hands meeting code is 'Horizon-Delta'.",
+        "question": "What's the code for the quarterly all-hands meeting?",
+        "key_term": "Horizon-Delta"
+      }
+    },
+    {
+      "milestone_tokens": 20000,
+      "anchor_codename_recalled": false,
+      "anchor_budget_recalled": false,
+      "anchor_response": "You haven't mentioned any project codename or total budget at the start of this conversation. If you did in a previous conversation or if it was mentioned before this session, I don't have that information right now. Please feel free to share again, and I'll remember it going forward.",
+      "anchor_latency_ms": 1102.5499128736556,
+      "new_fact": {
+        "statement": "The backup server IP address is 10.42.88.17.",
+        "question": "What's the backup server IP address?",
+        "key_term": "10.42.88.17"
+      }
+    }
+  ],
+  "final_recall": [
+    {
+      "milestone": 100,
+      "question": "What's the name of the office pet?",
+      "expected_key_term": "Biscuit",
+      "response": "I\u2019m sorry, but I don\u2019t have any record of an office pet\u2019s name being mentioned. Could you please remind me or share it?",
+      "recalled": false,
+      "latency_ms": 535.5369988828897
+    },
+    {
+      "milestone": 500,
+      "question": "What was the company wifi password changed to?",
+      "expected_key_term": "NorthStar2026",
+      "response": "I\u2019m sorry, but I don\u2019t have any record of the company Wi-Fi password being mentioned or changed. Could you please share that information if you need me to remember it?",
+      "recalled": false,
+      "latency_ms": 1827.986516058445
+    },
+    {
+      "milestone": 1000,
+      "question": "Where is the employee appreciation event?",
+      "expected_key_term": "Rosewood",
+      "response": "I\u2019m sorry, but I don\u2019t have any information about the location of the employee appreciation event. Could you please provide more details if you\u2019d like me to remember it?",
+      "recalled": false,
+      "latency_ms": 1158.8673260994256
+    },
+    {
+      "milestone": 2000,
+      "question": "What's the emergency contact extension for the server room?",
+      "expected_key_term": "4471",
+      "response": "I\u2019m sorry, but I don\u2019t have any information about the emergency contact extension for the server room. Could you please provide it if you\u2019d like me to remember it?",
+      "recalled": false,
+      "latency_ms": 494.7842760011554
+    },
+    {
+      "milestone": 5000,
+      "question": "What's the name of the new conference room on the fifth floor?",
+      "expected_key_term": "Aurora",
+      "response": "The name of the new conference room on the fifth floor is 'Aurora'.",
+      "recalled": true,
+      "latency_ms": 1021.1304808035493
+    },
+    {
+      "milestone": 10000,
+      "question": "What's the code for the quarterly all-hands meeting?",
+      "expected_key_term": "Horizon-Delta",
+      "response": "The code for the quarterly all-hands meeting is 'Horizon-Delta'.",
+      "recalled": true,
+      "latency_ms": 462.97362307086587
+    },
+    {
+      "milestone": 20000,
+      "question": "What's the backup server IP address?",
+      "expected_key_term": "10.42.88.17",
+      "response": "The backup server IP address is 10.42.88.17.",
+      "recalled": true,
+      "latency_ms": 1958.3839871920645
+    }
+  ],
+  "final_anchor": {
+    "response": "I'm sorry, I don't have any record of the project codename, the budget, or the war room location. They weren\u2019t mentioned earlier. If you can provide them again, I\u2019ll remember them for you.",
+    "codename_recalled": false,
+    "budget_recalled": false,
+    "location_recalled": false
+  },
+  "session_metrics": {
+    "items_injected": 1048,
+    "total_input_tokens": 255681,
+    "total_output_tokens": 646,
+    "errors": [],
+    "connection_drops": 0
+  },
+  "run_id": "20260330T213916Z_openai_e02_context_window_cliff",
+  "run_name": "run_001",
+  "saved_at": "2026-03-30T21:39:16.694999+00:00"
+}

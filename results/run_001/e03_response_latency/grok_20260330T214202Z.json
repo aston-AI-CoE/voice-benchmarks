@@ -1,0 +1,284 @@
+{
+  "experiment": "e03_response_latency",
+  "provider": "grok",
+  "config": {
+    "num_prompts": 30
+  },
+  "results": [
+    {
+      "index": 0,
+      "complexity": "simple",
+      "prompt": "What's 17 times 23?",
+      "response_length": 57,
+      "ttfb_ms": 791.4337236434221,
+      "total_ms": 1317.25562363863
+    },
+    {
+      "index": 1,
+      "complexity": "simple",
+      "prompt": "What's the capital of Portugal?",
+      "response_length": 90,
+      "ttfb_ms": 591.4857252500951,
+      "total_ms": 1690.4102759435773
+    },
+    {
+      "index": 2,
+      "complexity": "simple",
+      "prompt": "How many days are in February during a leap year?",
+      "response_length": 46,
+      "ttfb_ms": 605.5178889073431,
+      "total_ms": 1233.233300037682
+    },
+    {
+      "index": 3,
+      "complexity": "simple",
+      "prompt": "What does HTML stand for?",
+      "response_length": 42,
+      "ttfb_ms": 594.380316324532,
+      "total_ms": 1298.27699996531
+    },
+    {
+      "index": 4,
+      "complexity": "simple",
+      "prompt": "What color do you get when you mix red and blue?",
+      "response_length": 37,
+      "ttfb_ms": 629.3571540154517,
+      "total_ms": 1081.5668390132487
+    },
+    {
+      "index": 5,
+      "complexity": "simple",
+      "prompt": "Name three planets in our solar system.",
+      "response_length": 63,
+      "ttfb_ms": 627.7143596671522,
+      "total_ms": 1323.0408700183034
+    },
+    {
+      "index": 6,
+      "complexity": "simple",
+      "prompt": "What's the boiling point of water in Celsius?",
+      "response_length": 43,
+      "ttfb_ms": 605.9418460354209,
+      "total_ms": 1095.3019638545811
+    },
+    {
+      "index": 7,
+      "complexity": "simple",
+      "prompt": "Who wrote Romeo and Juliet?",
+      "response_length": 43,
+      "ttfb_ms": 621.6751551255584,
+      "total_ms": 1056.742541026324
+    },
+    {
+      "index": 8,
+      "complexity": "simple",
+      "prompt": "What's the square root of 144?",
+      "response_length": 36,
+      "ttfb_ms": 644.2212723195553,
+      "total_ms": 1134.0498942881823
+    },
+    {
+      "index": 9,
+      "complexity": "simple",
+      "prompt": "How many continents are there?",
+      "response_length": 9,
+      "ttfb_ms": 612.057289108634,
+      "total_ms": 717.0598381198943
+    },
+    {
+      "index": 10,
+      "complexity": "medium",
+      "prompt": "Explain the difference between TCP and UDP in one sentence.",
+      "response_length": 153,
+      "ttfb_ms": 603.4294851124287,
+      "total_ms": 2595.3622520901263
+    },
+    {
+      "index": 11,
+      "complexity": "medium",
+      "prompt": "What's the main advantage of using a hash table over an array?",
+      "response_length": 39,
+      "ttfb_ms": 614.5047186873853,
+      "total_ms": 1558.4475616924465
+    },
+    {
+      "index": 12,
+      "complexity": "medium",
+      "prompt": "Why do we use HTTPS instead of HTTP?",
+      "response_length": 44,
+      "ttfb_ms": 623.9088270813227,
+      "total_ms": 1501.7636301927269
+    },
+    {
+      "index": 13,
+      "complexity": "medium",
+      "prompt": "Briefly explain what a mutex is used for.",
+      "response_length": 18,
+      "ttfb_ms": 609.8710848018527,
+      "total_ms": 884.636839851737
+    },
+    {
+      "index": 14,
+      "complexity": "medium",
+      "prompt": "What's the difference between a stack and a queue?",
+      "response_length": 20,
+      "ttfb_ms": 628.3157719299197,
+      "total_ms": 967.1819158829749
+    },
+    {
+      "index": 15,
+      "complexity": "medium",
+      "prompt": "Why is it important to sanitize user input?",
+      "response_length": 97,
+      "ttfb_ms": 602.1168599836528,
+      "total_ms": 1790.6284467317164
+    },
+    {
+      "index": 16,
+      "complexity": "medium",
+      "prompt": "Explain what a REST API is in simple terms.",
+      "response_length": 30,
+      "ttfb_ms": 764.6516319364309,
+      "total_ms": 1803.632928058505
+    },
+    {
+      "index": 17,
+      "complexity": "medium",
+      "prompt": "What's the purpose of a load balancer?",
+      "response_length": 36,
+      "ttfb_ms": 625.0129430554807,
+      "total_ms": 1346.0851921699941
+    },
+    {
+      "index": 18,
+      "complexity": "medium",
+      "prompt": "Why would you use an index on a database table?",
+      "response_length": 39,
+      "ttfb_ms": 635.7549838721752,
+      "total_ms": 1351.6076537780464
+    },
+    {
+      "index": 19,
+      "complexity": "medium",
+      "prompt": "What's the difference between authentication and authorization?",
+      "response_length": 42,
+      "ttfb_ms": 718.471969012171,
+      "total_ms": 1630.8391629718244
+    },
+    {
+      "index": 20,
+      "complexity": "complex",
+      "prompt": "Write a haiku about debugging code.",
+      "response_length": 88,
+      "ttfb_ms": 661.3514046184719,
+      "total_ms": 2449.0317958407104
+    },
+    {
+      "index": 21,
+      "complexity": "complex",
+      "prompt": "Give me a metaphor for explaining microservices to a non-technical person.",
+      "response_length": 83,
+      "ttfb_ms": 661.5019529126585,
+      "total_ms": 1744.1984326578677
+    },
+    {
+      "index": 22,
+      "complexity": "complex",
+      "prompt": "What are three things to consider when designing an API rate limiter?",
+      "response_length": 26,
+      "ttfb_ms": 588.3633708581328,
+      "total_ms": 2493.6109366826713
+    },
+    {
+      "index": 23,
+      "complexity": "complex",
+      "prompt": "Describe the CAP theorem and give a practical example.",
+      "response_length": 7,
+      "ttfb_ms": 600.9553098119795,
+      "total_ms": 812.2791890054941
+    },
+    {
+      "index": 24,
+      "complexity": "complex",
+      "prompt": "Suggest three ways to reduce latency in a web application.",
+      "response_length": 28,
+      "ttfb_ms": 603.1421241350472,
+      "total_ms": 830.670871771872
+    },
+    {
+      "index": 25,
+      "complexity": "complex",
+      "prompt": "Explain the observer pattern with a real-world analogy.",
+      "response_length": 40,
+      "ttfb_ms": 603.1558937393129,
+      "total_ms": 1228.553129825741
+    },
+    {
+      "index": 26,
+      "complexity": "complex",
+      "prompt": "What's a good strategy for database migration with zero downtime?",
+      "response_length": 33,
+      "ttfb_ms": 601.9435906782746,
+      "total_ms": 2674.5204138569534
+    },
+    {
+      "index": 27,
+      "complexity": "complex",
+      "prompt": "Compare eventual consistency and strong consistency with examples.",
+      "response_length": 111,
+      "ttfb_ms": 662.0658081956208,
+      "total_ms": 3311.632966157049
+    },
+    {
+      "index": 28,
+      "complexity": "complex",
+      "prompt": "Describe a scenario where a memory leak is hard to detect.",
+      "response_length": 24,
+      "ttfb_ms": 631.1054523102939,
+      "total_ms": 843.9600463025272
+    },
+    {
+      "index": 29,
+      "complexity": "complex",
+      "prompt": "How would you design a simple notification system?",
+      "response_length": 32,
+      "ttfb_ms": 608.3701169118285,
+      "total_ms": 947.479578666389
+    }
+  ],
+  "aggregate": {
+    "avg_ttfb_ms": 632.3926010013869,
+    "avg_total_ms": 1490.4353696697701,
+    "p95_ttfb_ms": 764.6516319364309,
+    "p95_total_ms": 2674.5204138569534,
+    "by_complexity": {
+      "simple": {
+        "avg_ttfb_ms": 632.3784730397165,
+        "avg_total_ms": 1194.6938145905733,
+        "p95_ttfb_ms": 791.4337236434221,
+        "p95_total_ms": 1690.4102759435773
+      },
+      "medium": {
+        "avg_ttfb_ms": 642.603827547282,
+        "avg_total_ms": 1543.0185583420098,
+        "p95_ttfb_ms": 764.6516319364309,
+        "p95_total_ms": 2595.3622520901263
+      },
+      "complex": {
+        "avg_ttfb_ms": 622.1955024171621,
+        "avg_total_ms": 1733.5937360767275,
+        "p95_ttfb_ms": 662.0658081956208,
+        "p95_total_ms": 3311.632966157049
+      }
+    }
+  },
+  "session_metrics": {
+    "total_input_tokens": 0,
+    "total_output_tokens": 0,
+    "errors": [],
+    "connection_drops": 0
+  },
+  "run_id": "20260330T214202Z_grok_e03_response_latency",
+  "run_name": "run_001",
+  "saved_at": "2026-03-30T21:42:02.923241+00:00"
+}

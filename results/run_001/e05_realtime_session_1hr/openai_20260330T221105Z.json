@@ -1,0 +1,62 @@
+{
+  "experiment": "e05_realtime_session_1hr",
+  "provider": "openai",
+  "config": {
+    "seconds_per_minute": 60.0,
+    "num_segments": 12,
+    "num_facts": 12,
+    "num_pulse_checks": 4,
+    "num_hallucination_probes": 3
+  },
+  "session_survival": {
+    "segments_completed": 2,
+    "segments_total": 12,
+    "survived_full_session": false,
+    "connection_died_at": "segment 2 (exception: no close frame received or sent)",
+    "recall_phase_completed": false
+  },
+  "timing": {
+    "total_elapsed_seconds": 870.6578637450002,
+    "total_elapsed_minutes": 14.510964395750003,
+    "target_minutes": 60,
+    "pacing_ratio": 1.0
+  },
+  "health_checks": [
+    {
+      "segment": 0,
+      "minute": 0,
+      "elapsed_real_seconds": 0.5654412130825222,
+      "connected": true
+    },
+    {
+      "segment": 1,
+      "minute": 5,
+      "elapsed_real_seconds": 300.5666559590027,
+      "connected": true
+    },
+    {
+      "segment": 2,
+      "minute": 10,
+      "elapsed_real_seconds": 600.567528417334,
+      "connected": true
+    }
+  ],
+  "pulse_check_results": [],
+  "recall_results": [],
+  "hallucination_results": [],
+  "naturalness_results": [],
+  "scores": [],
+  "hallucination_scores": [],
+  "aggregate": null,
+  "session_metrics": {
+    "total_turns": 1,
+    "items_injected": 14,
+    "total_input_tokens": 144,
+    "total_output_tokens": 32,
+    "errors": [],
+    "connection_drops": 1
+  },
+  "run_id": "20260330T221105Z_openai_e05_realtime_session_1hr",
+  "run_name": "run_001",
+  "saved_at": "2026-03-30T22:11:05.856687+00:00"
+}

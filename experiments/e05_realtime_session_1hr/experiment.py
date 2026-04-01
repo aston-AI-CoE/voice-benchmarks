@@ -165,10 +165,11 @@ async def run(
 
             # Check for mid-meeting questions — sent as AUDIO (Mode A: wake word)
             fired = []
-            for idx, mq in enumerate(pending_mid_questions):
+            for mq in pending_mid_questions:
                 if line.minute >= mq.trigger_after_minute:
                     await asyncio.sleep(1 * speed_factor)
-                    q_id = f"mid_{idx:02d}"
+                    q_idx = meeting.mid_meeting_questions.index(mq)
+                    q_id = f"mid_{q_idx:02d}"
                     q_audio = question_audio.get(q_id)
 
                     if q_audio:

@@ -1,0 +1,68 @@
+{
+  "experiment": "e06_audio_session",
+  "provider": "grok",
+  "config": {
+    "seconds_per_minute": 5.0,
+    "meeting_title": "Weekly Team Sync \u2014 Full Hour",
+    "total_lines": 649,
+    "total_audio_duration_ms": 2529550.0,
+    "mode": "audio"
+  },
+  "session_survival": {
+    "lines_sent": 91,
+    "lines_total": 649,
+    "survived_full_meeting": false,
+    "connection_died_at": "line 91 (ConnectionClosedOK: received 1001 (going away) Conversation timed out due to inactivity; then sent 1001 (going away) Conversation timed out due to inactivity)"
+  },
+  "timing": {
+    "total_elapsed_seconds": 910.2012348650023,
+    "total_elapsed_minutes": 15.170020581083373
+  },
+  "transcription": {
+    "total_compared": 0,
+    "avg_wer": null,
+    "details": []
+  },
+  "health_checks": [
+    {
+      "minute": 0,
+      "elapsed_real_minutes": 0.0,
+      "connected": true,
+      "lines_sent": 0
+    },
+    {
+      "minute": 5,
+      "elapsed_real_minutes": 8.2,
+      "connected": true,
+      "lines_sent": 49
+    }
+  ],
+  "mid_meeting_results": [],
+  "post_meeting_results": [],
+  "hallucination_results": [],
+  "scores": [],
+  "hallucination_scores": [],
+  "aggregate": null,
+  "session_metrics": {
+    "total_turns": 0,
+    "items_injected": 91,
+    "errors": [
+      {
+        "type": "error",
+        "event_id": "684859da-48e6-4fef-8bb9-b2a1616a6001",
+        "error": {
+          "message": "Conversation timed out after 900.0 seconds due to inactivity",
+          "type": "timeout",
+          "event_id": "684859da-48e6-4fef-8bb9-b2a1616a6001"
+        },
+        "code": "timeout",
+        "message": "Conversation timed out after 900.0 seconds due to inactivity",
+        "previous_item_id": null
+      }
+    ],
+    "connection_drops": 0
+  },
+  "run_id": "20260331T104613Z_grok_e06_audio_session",
+  "run_name": "run_004",
+  "saved_at": "2026-03-31T10:46:13.031438+00:00"
+}

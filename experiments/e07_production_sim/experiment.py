@@ -172,8 +172,10 @@ async def run(
 
             # === Mid-meeting "Hey Otto" — open fresh session per question ===
             fired = []
-            for idx, mq in enumerate(pending_mid_questions):
+            for mq in pending_mid_questions:
                 if minute >= mq.trigger_after_minute:
+                    # Use the question's position in the ORIGINAL list (not the shrinking pending list)
+                    q_idx = meeting.mid_meeting_questions.index(mq)
                     logger.info("  Hey Otto! (min %d) Opening fresh session...", minute)
                     q_start = time.monotonic()
 
@@ -186,7 +188,7 @@ async def run(
                     cold_start_ms = (time.monotonic() - q_start) * 1000
 
                     # Send question as audio
-                    q_id = f"mid_{idx:02d}"
+                    q_id = f"mid_{q_idx:02d}"
                     q_audio = question_audio.get(q_id)
                     if q_audio:
                         logger.info("  Asking via AUDIO: %s", mq.question[:60])

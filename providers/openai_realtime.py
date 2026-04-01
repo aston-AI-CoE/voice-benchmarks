@@ -126,7 +126,10 @@ class OpenAIRealtimeProvider(RealtimeProvider):
         }))
 
         # Wait for response.done
-        await self._response_done.wait()
+        try:
+            await asyncio.wait_for(self._response_done.wait(), timeout=30.0)
+        except asyncio.TimeoutError:
+            logger.warning("Response timed out after 30s")
 
         t_done = time.monotonic()
         ttfb = (
@@ -191,7 +194,10 @@ class OpenAIRealtimeProvider(RealtimeProvider):
             "response": {"modalities": ["text", "audio"]},
         }))
 
-        await self._response_done.wait()
+        try:
+            await asyncio.wait_for(self._response_done.wait(), timeout=30.0)
+        except asyncio.TimeoutError:
+            logger.warning("Response timed out after 30s")
 
         t_done = time.monotonic()
         ttfb = (self._first_token_time - t0) * 1000 if self._first_token_time else None
@@ -261,7 +267,10 @@ class OpenAIRealtimeProvider(RealtimeProvider):
         }))
 
         # Wait for the model to finish responding to the tool result
-        await self._response_done.wait()
+        try:
+            await asyncio.wait_for(self._response_done.wait(), timeout=30.0)
+        except asyncio.TimeoutError:
+            logger.warning("Response timed out after 30s")
 
     async def get_session_metrics(self) -> SessionMetrics:
         self._metrics.ended_at = time.time()

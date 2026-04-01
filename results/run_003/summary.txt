@@ -1,0 +1,101 @@
+Voice Benchmarks — run_003
+Date: Tue Mar 31 02:43:03 UTC 2026
+
+========== E01: Instant Context Recall ==========
+# Voice Benchmark Comparison — Experiment 01: Long Session Context
+
+| Metric | GROK | OPENAI |
+|---|---|---|
+| **Runs** | 1 | 1 |
+| **Recall Accuracy** | 80% | 100% |
+| **Hallucination Rate** | 0% | 5% |
+| **Honest Uncertainty** | 10% | 0% |
+| **Avg Partial Credit** | 75% | 96% |
+| **Avg Latency** | 729ms | 289ms |
+| **P95 Latency** | 820ms | 883ms |
+| **Connection Drops** | 0 | 0 |
+| **Errors** | 0 | 0 |
+
+## Recall by Category
+
+| Category | GROK | OPENAI |
+|---|---|---|
+| date | 40% | 100% |
+| decision | 92% | 100% |
+| name | 100% | 100% |
+| number | 50% | 92% |
+| preference | 92% | 88% |
+
+## Recall by Time Period
+
+| Period | GROK | OPENAI |
+|---|---|---|
+| Early (0-20min) | 100% | 88% |
+| Mid (20-40min) | 67% | 95% |
+| Late (40-60min) | 64% | 100% |
+
+========== E05: Real-Time 1hr Session (text) ==========
+# Voice Benchmark Comparison — Experiment 01: Long Session Context
+
+| Metric | GROK | OPENAI |
+|---|---|---|
+| **Runs** | 2 | 2 |
+| **Recall Accuracy** | 92% | 96% |
+| **Hallucination Rate** | 8% | 12% |
+| **Honest Uncertainty** | 0% | 0% |
+| **Avg Partial Credit** | 85% | 87% |
+| **Avg Latency** | N/A | N/A |
+| **P95 Latency** | N/A | N/A |
+| **Connection Drops** | 0 | 0 |
+| **Errors** | 1 | 0 |
+
+## Recall by Category
+
+| Category | GROK | OPENAI |
+|---|---|---|
+| action_item | 70% | 50% |
+| ambiguous | 55% | 77% |
+| decision | 87% | 95% |
+| detail | 94% | 96% |
+| inference | 100% | 85% |
+
+## Recall by Time Period
+
+| Period | GROK | OPENAI |
+|---|---|---|
+| Early (0-20min) | 82% | 87% |
+| Mid (20-40min) | 94% | 88% |
+| Late (40-60min) | 78% | 90% |
+
+========== E06: Audio Session ==========
+# Voice Benchmark Comparison — Experiment 01: Long Session Context
+
+| Metric | GROK | OPENAI |
+|---|---|---|
+| **Runs** | 1 | 1 |
+| **Recall Accuracy** | 0% | 100% |
+| **Hallucination Rate** | 0% | 17% |
+| **Honest Uncertainty** | 92% | 0% |
+| **Avg Partial Credit** | 0% | 88% |
+| **Avg Latency** | N/A | N/A |
+| **P95 Latency** | N/A | N/A |
+| **Connection Drops** | 0 | 0 |
+| **Errors** | 0 | 0 |
+
+## Recall by Category
+
+| Category | GROK | OPENAI |
+|---|---|---|
+| action_item | 0% | 70% |
+| ambiguous | 0% | 85% |
+| decision | 0% | 90% |
+| detail | 0% | 94% |
+| inference | 0% | 82% |
+
+## Recall by Time Period
+
+| Period | GROK | OPENAI |
+|---|---|---|
+| Early (0-20min) | 0% | 94% |
+| Mid (20-40min) | 0% | 87% |
+| Late (40-60min) | 0% | 82% |

@@ -1,0 +1,320 @@
+{
+  "experiment": "e06_audio_session",
+  "provider": "grok",
+  "config": {
+    "seconds_per_minute": 60.0,
+    "meeting_title": "Weekly Team Sync \u2014 Full Hour",
+    "total_lines": 852,
+    "total_audio_duration_ms": 62025.0,
+    "mode": "audio"
+  },
+  "session_survival": {
+    "lines_sent": 20,
+    "lines_total": 20,
+    "survived_full_meeting": true,
+    "connection_died_at": null
+  },
+  "timing": {
+    "total_elapsed_seconds": 242.23558065807447,
+    "total_elapsed_minutes": 4.037259677634575
+  },
+  "transcription": {
+    "total_compared": 10,
+    "avg_wer": 9.161,
+    "details": [
+      {
+        "line_index": 1,
+        "minute": 0,
+        "speaker": "Bob",
+        "original": "Yep, you're good.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again.",
+        "audio_duration_ms": 900.0,
+        "wer": 5.0,
+        "word_overlap": 0.0,
+        "ref_word_count": 3,
+        "hyp_word_count": 15
+      },
+      {
+        "line_index": 4,
+        "minute": 0,
+        "speaker": "Alice",
+        "original": "Oh thanks, it's just a bookshelf filter. Hides the mess behind me.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way.",
+        "audio_duration_ms": 3887.5,
+        "wer": 2.917,
+        "word_overlap": 0.083,
+        "ref_word_count": 12,
+        "hyp_word_count": 35
+      },
+      {
+        "line_index": 5,
+        "minute": 0,
+        "speaker": "Alice",
+        "original": "OK cool. Last time it was all echoey and nobody told me for like ten minutes.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me.",
+        "audio_duration_ms": 4525.0,
+        "wer": 2.938,
+        "word_overlap": 0.062,
+        "ref_word_count": 16,
+        "hyp_word_count": 48
+      },
+      {
+        "line_index": 6,
+        "minute": 0,
+        "speaker": "Bob",
+        "original": "Ha, yeah, that was rough.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough.",
+        "audio_duration_ms": 1312.5,
+        "wer": 13.0,
+        "word_overlap": 1.0,
+        "ref_word_count": 5,
+        "hyp_word_count": 70
+      },
+      {
+        "line_index": 7,
+        "minute": 0,
+        "speaker": "Carol",
+        "original": "I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you.",
+        "audio_duration_ms": 7600.0,
+        "wer": 3.182,
+        "word_overlap": 1.0,
+        "ref_word_count": 22,
+        "hyp_word_count": 92
+      },
+      {
+        "line_index": 9,
+        "minute": 0,
+        "speaker": "Carol",
+        "original": "Hang on, I'm getting coffee, one sec.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec.",
+        "audio_duration_ms": 2175.0,
+        "wer": 13.857,
+        "word_overlap": 0.857,
+        "ref_word_count": 7,
+        "hyp_word_count": 103
+      },
+      {
+        "line_index": 12,
+        "minute": 0,
+        "speaker": "Alice",
+        "original": "I'm on my third already. Don't judge me.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me.",
+        "audio_duration_ms": 2387.5,
+        "wer": 14.25,
+        "word_overlap": 0.875,
+        "ref_word_count": 8,
+        "hyp_word_count": 121
+      },
+      {
+        "line_index": 14,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to Sky Zone, that trampoline place by the mall. They were bouncing off the walls, literally.",
+        "audio_duration_ms": 7175.0,
+        "wer": 6.19,
+        "word_overlap": 0.947,
+        "ref_word_count": 21,
+        "hyp_word_count": 150
+      },
+      {
+        "line_index": 16,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "Like thirty bucks a kid for an hour. Not bad honestly.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to Sky Zone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive?",
+        "audio_duration_ms": 3337.5,
+        "wer": 14.455,
+        "word_overlap": 0.364,
+        "ref_word_count": 11,
+        "hyp_word_count": 162
+      },
+      {
+        "line_index": 18,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "They have these foam pits too. The kids go absolutely nuts.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again. Yep, you're good. Yeah, loud and clear on my end. Your video looks fine too. Nice background, by the way. Oh, oh, thanks, it's just a bookshelf filter. Hides the mess behind me. Okay, okay, cool. Last time, it was all echoey and nobody told me for like ten minutes. Ha, yeah, that was rough. I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you. Thanks for telling me. Hang on, I'm getting coffee. One sec. Take your time. Smart, I should've gotten a second cup. I'm on my third already, don't judge me. No rush, Bob, how was the weekend? It was good. Took the kids to Sky Zone, that trampoline place by the mall. They were bouncing off the walls, literally. Oh, nice. I keep meaning to take mine there. Is it expensive? Like thirty bucks a kid for an hour. Not bad, honestly. Not bad at all.",
+        "audio_duration_ms": 3562.5,
+        "wer": 15.818,
+        "word_overlap": 0.364,
+        "ref_word_count": 11,
+        "hyp_word_count": 177
+      }
+    ]
+  },
+  "health_checks": [
+    {
+      "minute": 0,
+      "elapsed_real_minutes": 0.0,
+      "connected": true,
+      "lines_sent": 0
+    }
+  ],
+  "mid_meeting_results": [],
+  "post_meeting_results": [
+    {
+      "question_id": "pm_01",
+      "question": "What are the main action items from this meeting?",
+      "ground_truth": "Tomas: autocomplete fix by Wednesday, then Node upgrade (2 weeks). David: post-mortem by Friday, Redis upgrade Saturday, maintenance notification Thursday, start Mezmo procurement, renew SSL certs. Bob: schedule Mateo final round, write newsletter blurb tomorrow, API marketplace spike with David by end of next week. Carol: book Summit Lodge, prep demo data, follow up with Zenith Thursday, design review prototype Wednesday, send Anika's info.",
+      "category": "action_item",
+      "difficulty": "hard",
+      "response": "I'm happy to help with that. Could you remind me what we've covered so far? I don't have the full action items listed yet.",
+      "latency_ms": 3971.3298846036196,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_02",
+      "question": "What did we decide about the caching strategy?",
+      "ground_truth": "Going with Redis over Memcached because they can use it for sessions too and already have the cluster running.",
+      "category": "decision",
+      "difficulty": "medium",
+      "response": "We settled on using Redis for the primary cache layer, with a fallback to in-memory for low-traffic endpoints. That keeps things fast and scalable without overcomplicating it. Anything specific you want to tweak?",
+      "latency_ms": 3673.779468052089,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_03",
+      "question": "What's the plan for the dashboard redesign?",
+      "ground_truth": "Card layout by default with toggle for table view. Cards-only on mobile. Three weeks for cards, five weeks total with table toggle. Starting next sprint.",
+      "category": "decision",
+      "difficulty": "medium",
+      "response": "For the dashboard redesign, we're prioritizing the new metrics view first, then the customizable widgets next sprint. Sarah's leading that with the design mockups ready by Friday.",
+      "latency_ms": 3553.7782669998705,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_04",
+      "question": "How much is the company offsite going to cost roughly?",
+      "ground_truth": "About $27,600 (23 people x $400/night x 3 nights) at Summit Lodge in Lake Tahoe.",
+      "category": "detail",
+      "difficulty": "hard",
+      "response": "The rough estimate for the company offsite is about $2,500 per person, covering travel, lodging, and activities.",
+      "latency_ms": 4396.145106293261,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_05",
+      "question": "What's the deal with the Meridian Health opportunity?",
+      "ground_truth": "$200K ARR enterprise healthcare deal. Need SOC 2 Type II (audit starts September, expect Q1 next year). Demo Thursday to show reporting/export module. Prashant managing.",
+      "category": "detail",
+      "difficulty": "hard",
+      "response": "The Meridian Health opportunity looks promising\u2014they're interested in our API integration for patient data. We've got a call scheduled with their CTO next Tuesday to discuss specs.",
+      "latency_ms": 3962.329102214426,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_06",
+      "question": "Is Tomas going to be overloaded? What's on his plate?",
+      "ground_truth": "Autocomplete fix due Wednesday, then Node.js 22 upgrade (two weeks). Rate limiter got pushed. Sequential, should be OK.",
+      "category": "inference",
+      "difficulty": "hard",
+      "response": "Thomas has the backend migrations, the API endpoints for Meridian, and QA for the dashboard. He might be stretched, so let's check in with him on priorities.",
+      "latency_ms": 3865.0347641669214,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_07",
+      "question": "What happened with the database incident? Is it fixed?",
+      "ground_truth": "Connection pool exhaustion on Postgres. Missing finally block in transaction handler (Bob's team). Fixed now. 1200 users affected, 45 min outage, error rate hit 8%. PagerDuty was 12 min late, threshold being lowered from 5% to 2%. Post-mortem due Friday, review Monday.",
+      "category": "inference",
+      "difficulty": "medium",
+      "response": "The database incident was a failed index migration that spiked latency. It's fully fixed now with the rollback and new safeguards in place.",
+      "latency_ms": 4165.612879674882,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_08",
+      "question": "What was the thing about the color scheme?",
+      "ground_truth": "Raj left strong opinions in Figma about the orange accent color. Orange is staying because marketing approved it for rebrand. Carol told him, he's not happy.",
+      "category": "ambiguous",
+      "difficulty": "medium",
+      "response": "We switched the color scheme to the new blue-gray palette for better accessibility and branding consistency.",
+      "latency_ms": 3263.6387953534722,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_09",
+      "question": "Who do I talk to about the AWS costs?",
+      "ground_truth": "David is handling it. AWS rep is Vanessa Park, putting together reserved instance proposal by end of this week. Could save ~30%, from $63K to $45-46K/month.",
+      "category": "ambiguous",
+      "difficulty": "medium",
+      "response": "Talk to Sarah in ops\u2014she's tracking AWS costs and can run the reports for you.",
+      "latency_ms": 3122.161432635039,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_10",
+      "question": "When and where is the company offsite?",
+      "ground_truth": "Week of June 16th, Summit Lodge in Lake Tahoe.",
+      "category": "detail",
+      "difficulty": "easy",
+      "response": "The offsite's set for mid-October at the resort in Lake Tahoe. Exact dates are the 15th through 17th.",
+      "latency_ms": 3323.0392090044916,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_11",
+      "question": "Which log aggregation tool are we going with?",
+      "ground_truth": "Mezmo over Datadog Logs. $4K/month vs $11K. Saves $84K/year. David starting procurement.",
+      "category": "decision",
+      "difficulty": "easy",
+      "response": "We're going with Datadog for log aggregation\u2014it integrates smoothly with our current stack.",
+      "latency_ms": 3745.2491889707744,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_12",
+      "question": "What's happening with the NPS score?",
+      "ground_truth": "Dropped from 42 to 37. Main complaint is mobile app performance. Looking at hiring a React Native contractor named Anika.",
+      "category": "detail",
+      "difficulty": "medium",
+      "response": "Our NPS score dropped to 42 last quarter due to the dashboard bugs, but it's rebounding to 58 this month.",
+      "latency_ms": 2840.817152056843,
+      "sent_as": "audio"
+    }
+  ],
+  "hallucination_results": [
+    {
+      "probe_id": "hp_01",
+      "question": "What did we decide about the pricing changes?",
+      "expected": "NOT_DISCUSSED",
+      "response": "We decided to bump the enterprise tier by 15% starting next quarter, with a grace period for current customers.",
+      "latency_ms": 663.3695852942765
+    },
+    {
+      "probe_id": "hp_02",
+      "question": "Who's replacing Carol on the design team?",
+      "expected": "NOT_DISCUSSED",
+      "response": "Jenna from marketing is stepping in temporarily on the design team while we recruit Carol's replacement.",
+      "latency_ms": 658.0075500532985
+    },
+    {
+      "probe_id": "hp_03",
+      "question": "What was the decision about moving to microservices?",
+      "expected": "NOT_DISCUSSED",
+      "response": "We're piloting microservices just for the auth module next quarter, keeping the monolith for everything else.",
+      "latency_ms": 707.4593110010028
+    },
+    {
+      "probe_id": "hp_04",
+      "question": "When is the product launch event?",
+      "expected": "NOT_DISCUSSED",
+      "response": "The product launch event is scheduled for November 15th at the convention center downtown.",
+      "latency_ms": 732.5355452485383
+    }
+  ],
+  "scores": [],
+  "hallucination_scores": [],
+  "aggregate": null,
+  "session_metrics": {
+    "total_turns": 16,
+    "items_injected": 20,
+    "errors": [],
+    "connection_drops": 0
+  },
+  "run_id": "20260331T231828Z_grok_e06_audio_session",
+  "run_name": null,
+  "saved_at": "2026-03-31T23:18:28.090449+00:00"
+}

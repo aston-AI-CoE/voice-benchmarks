@@ -73,7 +73,12 @@ class GrokRealtimeProvider(RealtimeProvider):
                 "model": self._model,
                 "instructions": instructions,
                 "modalities": ["text", "audio"],
-                "turn_detection": None,  # disable VAD — we control turns
+                "turn_detection": {  # Enable VAD so Grok detects speech as activity
+                    "type": "server_vad",
+                    "threshold": 0.5,
+                    "silence_duration_ms": 800,
+                    "prefix_padding_ms": 300,
+                },
                 "input_audio_transcription": {},
             },
         }
@@ -128,7 +133,10 @@ class GrokRealtimeProvider(RealtimeProvider):
         }))
 
         # Wait for response.done
-        await self._response_done.wait()
+        try:
+            await asyncio.wait_for(self._response_done.wait(), timeout=30.0)
+        except asyncio.TimeoutError:
+            logger.warning("Response timed out after 30s")
 
         t_done = time.monotonic()
         ttfb = (
@@ -172,26 +180,27 @@ class GrokRealtimeProvider(RealtimeProvider):
 
         t0 = time.monotonic()
 
-        # Send as discrete conversation item (not raw buffer)
-        full_audio = "".join(pcm16_chunks)
-        await self._ws.send(json.dumps({
-            "type": "conversation.item.create",
-            "item": {
-                "type": "message",
-                "role": "user",
-                "content": [{
-                    "type": "input_audio",
-                    "audio": full_audio,
-                }],
-            },
-        }))
+        # Stream audio via input_audio_buffer (like a real mic)
+        for chunk in pcm16_chunks:
+            await self._ws.send(json.dumps({
+                "type": "input_audio_buffer.append",
+                "audio": chunk,
+            }))
+            await asyncio.sleep(0.1)
 
+        # Commit and trigger response
+        await self._ws.send(json.dumps({
+            "type": "input_audio_buffer.commit",
+        }))
         await self._ws.send(json.dumps({
             "type": "response.create",
             "response": {"modalities": ["text", "audio"]},
         }))
 
-        await self._response_done.wait()
+        try:
+            await asyncio.wait_for(self._response_done.wait(), timeout=30.0)
+        except asyncio.TimeoutError:
+            logger.warning("Response timed out after 30s")
 
         t_done = time.monotonic()
         ttfb = (self._first_token_time - t0) * 1000 if self._first_token_time else None
@@ -212,38 +221,35 @@ class GrokRealtimeProvider(RealtimeProvider):
         return turn
 
     async def send_audio_no_response(self, pcm16_chunks: list[str]) -> None:
-        """Send audio as a discrete conversation item (not raw buffer).
+        """Stream audio via input_audio_buffer (how real microphones work).
 
-        Uses conversation.item.create with inline audio to ensure each
-        line is treated as a separate utterance, not part of one continuous
-        stream. This fixes the bug where Grok transcribed everything as line 1.
+        Uses input_audio_buffer.append + .commit — this is what Grok's docs
+        recommend for audio input. With server_vad enabled, Grok detects
+        speech boundaries and transcribes each utterance. This keeps the
+        session "active" and prevents the 15-min inactivity timeout.
         """
         assert self._ws, "Not connected"
-        import base64
 
         # Reset transcription state
         self._input_transcript = ""
         self._transcription_done.clear()
 
-        # Concatenate all chunks back into one base64 blob
-        full_audio = "".join(pcm16_chunks)
+        # Stream audio chunks (like a real microphone)
+        for chunk in pcm16_chunks:
+            await self._ws.send(json.dumps({
+                "type": "input_audio_buffer.append",
+                "audio": chunk,
+            }))
+            await asyncio.sleep(0.1)  # pace at ~real-time (100ms per chunk)
 
-        # Send as a discrete conversation item with inline audio
+        # Commit the buffer — tells Grok this utterance is complete
         await self._ws.send(json.dumps({
-            "type": "conversation.item.create",
-            "item": {
-                "type": "message",
-                "role": "user",
-                "content": [{
-                    "type": "input_audio",
-                    "audio": full_audio,
-                }],
-            },
+            "type": "input_audio_buffer.commit",
         }))
 
-        # Wait for the API to transcribe (with timeout)
+        # Wait for transcription (with server_vad, Grok should process it)
         try:
-            await asyncio.wait_for(self._transcription_done.wait(), timeout=10.0)
+            await asyncio.wait_for(self._transcription_done.wait(), timeout=15.0)
         except asyncio.TimeoutError:
             logger.debug("Transcription timeout for this line")
 
@@ -274,7 +280,10 @@ class GrokRealtimeProvider(RealtimeProvider):
         }))
 
         # Wait for the model to finish responding to the tool result
-        await self._response_done.wait()
+        try:
+            await asyncio.wait_for(self._response_done.wait(), timeout=30.0)
+        except asyncio.TimeoutError:
+            logger.warning("Response timed out after 30s")
 
     async def get_session_metrics(self) -> SessionMetrics:
         self._metrics.ended_at = time.time()

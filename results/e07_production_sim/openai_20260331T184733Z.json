@@ -1,0 +1,515 @@
+{
+  "experiment": "e07_production_sim",
+  "provider": "openai",
+  "config": {
+    "architecture": "production: STT session + fresh voice session per question",
+    "meeting_lines": 207,
+    "mid_questions": 4,
+    "post_questions": 12,
+    "questions_via": "audio",
+    "duration_minutes": 15
+  },
+  "session_survival": {
+    "stt_lines_sent": 207,
+    "stt_lines_total": 207,
+    "stt_survived": true,
+    "connection_died_at": null
+  },
+  "timing": {
+    "total_elapsed_seconds": 1095.4576172828674,
+    "total_elapsed_minutes": 18.257626954714457
+  },
+  "transcription": {
+    "total_compared": 201,
+    "avg_wer": 0.203,
+    "details": [
+      {
+        "line_index": 0,
+        "minute": 0,
+        "speaker": "Alice",
+        "original": "Hey hey, can you guys hear me? I think my audio might be weird again.",
+        "transcribed": "Hey, hey, can you guys hear me? I think my audio might be weird again.",
+        "wer": 0.067,
+        "word_overlap": 0.933,
+        "ref_word_count": 15,
+        "hyp_word_count": 15
+      },
+      {
+        "line_index": 1,
+        "minute": 0,
+        "speaker": "Bob",
+        "original": "Yep, you're good.",
+        "transcribed": "Yep, you're good.",
+        "wer": 0.0,
+        "word_overlap": 1.0,
+        "ref_word_count": 3,
+        "hyp_word_count": 3
+      },
+      {
+        "line_index": 2,
+        "minute": 0,
+        "speaker": "Carol",
+        "original": "Yeah, loud and clear on my end.",
+        "transcribed": "Yeah, loud and clear on my end.",
+        "wer": 0.0,
+        "word_overlap": 1.0,
+        "ref_word_count": 7,
+        "hyp_word_count": 7
+      },
+      {
+        "line_index": 3,
+        "minute": 0,
+        "speaker": "Bob",
+        "original": "Your video looks fine too. Nice background by the way.",
+        "transcribed": "Your video looks fine, too. Nice background, by the way.",
+        "wer": 0.2,
+        "word_overlap": 0.8,
+        "ref_word_count": 10,
+        "hyp_word_count": 10
+      },
+      {
+        "line_index": 4,
+        "minute": 0,
+        "speaker": "Alice",
+        "original": "Oh thanks, it's just a bookshelf filter. Hides the mess behind me.",
+        "transcribed": "Oh, thanks, it's just a bookshelf filter. Hides the mess behind me.",
+        "wer": 0.083,
+        "word_overlap": 0.917,
+        "ref_word_count": 12,
+        "hyp_word_count": 12
+      },
+      {
+        "line_index": 5,
+        "minute": 0,
+        "speaker": "Alice",
+        "original": "OK cool. Last time it was all echoey and nobody told me for like ten minutes.",
+        "transcribed": "Okay, cool. Last time, it was all echoey and nobody told me for like 10 minutes.",
+        "wer": 0.188,
+        "word_overlap": 0.812,
+        "ref_word_count": 16,
+        "hyp_word_count": 16
+      },
+      {
+        "line_index": 6,
+        "minute": 0,
+        "speaker": "Bob",
+        "original": "Ha, yeah, that was rough.",
+        "transcribed": "Ha, yeah, that was rough.",
+        "wer": 0.0,
+        "word_overlap": 1.0,
+        "ref_word_count": 5,
+        "hyp_word_count": 5
+      },
+      {
+        "line_index": 7,
+        "minute": 0,
+        "speaker": "Carol",
+        "original": "I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you.",
+        "transcribed": "I thought it was my headphones, honestly. I spent like five minutes fiddling with my settings before I realized it was you.",
+        "wer": 0.0,
+        "word_overlap": 1.0,
+        "ref_word_count": 22,
+        "hyp_word_count": 22
+      },
+      {
+        "line_index": 8,
+        "minute": 0,
+        "speaker": "Alice",
+        "original": "Great, thanks for telling me.",
+        "transcribed": "Great. Thanks for telling me.",
+        "wer": 0.2,
+        "word_overlap": 0.8,
+        "ref_word_count": 5,
+        "hyp_word_count": 5
+      },
+      {
+        "line_index": 9,
+        "minute": 0,
+        "speaker": "Carol",
+        "original": "Hang on, I'm getting coffee, one sec.",
+        "transcribed": "Hang on, I'm getting coffee. One sec.",
+        "wer": 0.143,
+        "word_overlap": 0.857,
+        "ref_word_count": 7,
+        "hyp_word_count": 7
+      },
+      {
+        "line_index": 10,
+        "minute": 0,
+        "speaker": "Alice",
+        "original": "Take your time.",
+        "transcribed": "Take your time.",
+        "wer": 0.0,
+        "word_overlap": 1.0,
+        "ref_word_count": 3,
+        "hyp_word_count": 3
+      },
+      {
+        "line_index": 11,
+        "minute": 0,
+        "speaker": "Bob",
+        "original": "Smart. I should've gotten a second cup.",
+        "transcribed": "Smart, I should have gotten a second cup.",
+        "wer": 0.429,
+        "word_overlap": 0.714,
+        "ref_word_count": 7,
+        "hyp_word_count": 8
+      },
+      {
+        "line_index": 12,
+        "minute": 0,
+        "speaker": "Alice",
+        "original": "I'm on my third already. Don't judge me.",
+        "transcribed": "I'm on my third already, don't judge me.",
+        "wer": 0.125,
+        "word_overlap": 0.875,
+        "ref_word_count": 8,
+        "hyp_word_count": 8
+      },
+      {
+        "line_index": 13,
+        "minute": 1,
+        "speaker": "Alice",
+        "original": "No rush. Bob, how was the weekend?",
+        "transcribed": "No rush. Bob, how was the weekend?",
+        "wer": 0.0,
+        "word_overlap": 1.0,
+        "ref_word_count": 7,
+        "hyp_word_count": 7
+      },
+      {
+        "line_index": 14,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "It was good. Took the kids to SkyZone, that trampoline place by the mall. They were bouncing off the walls, literally.",
+        "transcribed": "It was good. Took the kids to Sky Zone, that trampoline place by the mall. They were bouncing off the walls, literally.",
+        "wer": 0.095,
+        "word_overlap": 0.947,
+        "ref_word_count": 21,
+        "hyp_word_count": 22
+      },
+      {
+        "line_index": 15,
+        "minute": 1,
+        "speaker": "Alice",
+        "original": "Oh nice. I keep meaning to take mine there. Is it expensive?",
+        "transcribed": "Oh, nice. I keep meaning to take mine there. Is it expensive?",
+        "wer": 0.083,
+        "word_overlap": 0.917,
+        "ref_word_count": 12,
+        "hyp_word_count": 12
+      },
+      {
+        "line_index": 16,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "Like thirty bucks a kid for an hour. Not bad honestly.",
+        "transcribed": "Like 30 bucks a kid for an hour. Not bad, honestly.",
+        "wer": 0.182,
+        "word_overlap": 0.818,
+        "ref_word_count": 11,
+        "hyp_word_count": 11
+      },
+      {
+        "line_index": 17,
+        "minute": 1,
+        "speaker": "Alice",
+        "original": "Not bad at all.",
+        "transcribed": "Not bad at all.",
+        "wer": 0.0,
+        "word_overlap": 1.0,
+        "ref_word_count": 4,
+        "hyp_word_count": 4
+      },
+      {
+        "line_index": 18,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "They have these foam pits too. The kids go absolutely nuts.",
+        "transcribed": "They have these foam pits, too. The kids go absolutely nuts.",
+        "wer": 0.091,
+        "word_overlap": 0.909,
+        "ref_word_count": 11,
+        "hyp_word_count": 11
+      },
+      {
+        "line_index": 19,
+        "minute": 1,
+        "speaker": "Bob",
+        "original": "Yeah, and they sleep like rocks afterwards. It's the best thirty bucks I've ever spent.",
+        "transcribed": "Yeah, and they sleep like rocks afterwards. It's the best 30 bucks I've ever spent.",
+        "wer": 0.067,
+        "word_overlap": 0.933,
+        "ref_word_count": 15,
+        "hyp_word_count": 15
+      }
+    ]
+  },
+  "health_checks": [
+    {
+      "minute": 0,
+      "elapsed_real_minutes": 0.0,
+      "connected": true,
+      "lines_sent": 0,
+      "phase": "stt"
+    },
+    {
+      "minute": 5,
+      "elapsed_real_minutes": 4.6,
+      "connected": true,
+      "lines_sent": 62,
+      "phase": "stt"
+    },
+    {
+      "minute": 10,
+      "elapsed_real_minutes": 10.0,
+      "connected": true,
+      "lines_sent": 122,
+      "phase": "stt"
+    },
+    {
+      "minute": 15,
+      "elapsed_real_minutes": 17.1,
+      "connected": true,
+      "lines_sent": 196,
+      "phase": "stt"
+    }
+  ],
+  "mid_meeting_results": [
+    {
+      "minute": 7,
+      "elapsed_real_seconds": 427.38864903897047,
+      "question": "Hey Otto, what was the search latency before and after the new backend?",
+      "ground_truth": "p95 search latency went from 600ms to 140ms",
+      "response": "Before the new back end, search latency was around 600 milliseconds at the 95th percentile. After the new back end, it\u2019s down to about 140 milliseconds. So it\u2019s a huge improvement.",
+      "latency_ms": 4460.1787640713155,
+      "cold_start_ms": 542.7,
+      "context_lines": 89,
+      "context_tokens_approx": 1014,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 10,
+      "elapsed_real_seconds": 612.5776048339903,
+      "question": "Otto, who's fixing the autocomplete issue and when?",
+      "ground_truth": "Tomas Kovac, by Wednesday. It's pulling from the old index showing stale results.",
+      "response": "Before the new backend, the search latency at the 95th percentile was around 600 milliseconds. After the new backend, it's down to about 140 milliseconds. So that\u2019s a huge improvement, roughly four times faster.",
+      "latency_ms": 4588.146498892456,
+      "cold_start_ms": 414.8,
+      "context_lines": 123,
+      "context_tokens_approx": 1444,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 12,
+      "elapsed_real_seconds": 783.945526835043,
+      "question": "Hey Otto, what did we decide for caching? Redis or Memcached?",
+      "ground_truth": "Redis, because they can also use it for sessions and already have the cluster running",
+      "response": "Before the new backend, the search latency at the 95th percentile was around 600 milliseconds. After the new backend was launched, it improved to about 140 milliseconds, which is a huge improvement.",
+      "latency_ms": 4509.234992321581,
+      "cold_start_ms": 240.5,
+      "context_lines": 154,
+      "context_tokens_approx": 1858,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 14,
+      "elapsed_real_seconds": 967.4915830218233,
+      "question": "Otto, how long did the reindex take and how did we test the search launch?",
+      "ground_truth": "Reindex took 9 hours. They did a shadow deployment running old and new in parallel for 2 weeks. Caught 3 bugs including a unicode/emoji edge case.",
+      "response": "Before the new back end, the search latency was around 600 milliseconds at the 95th percentile. After the new back end, it's down to about 140 milliseconds. That\u2019s a huge improvement, about four times faster.",
+      "latency_ms": 4473.063703626394,
+      "cold_start_ms": 541.9,
+      "context_lines": 186,
+      "context_tokens_approx": 2291,
+      "sent_as": "audio"
+    }
+  ],
+  "post_meeting_results": [
+    {
+      "question_id": "pm_01",
+      "question": "What are the main action items from this meeting?",
+      "ground_truth": "Tomas: autocomplete fix by Wednesday, then Node upgrade (2 weeks). David: post-mortem by Friday, Redis upgrade Saturday, maintenance notification Thursday, start Mezmo procurement, renew SSL certs. Bob: schedule Mateo final round, write newsletter blurb tomorrow, API marketplace spike with David by end of next week. Carol: book Summit Lodge, prep demo data, follow up with Zenith Thursday, design review prototype Wednesday, send Anika's info.",
+      "category": "action_item",
+      "difficulty": "hard",
+      "response": "Sure! The main action items are:\n\n1. Thomas Kovac is working on fixing the autocomplete issue by Wednesday.\n\n2. David will set up a dashboard to monitor error rates after the search update.\n\n3. The team decided to go with Redis for caching, and Bob will share the benchmark numbers for that.\n\n4. Carol will send Bob the ticket numbers for the mobile search issues so they can investigate further.\n\n5. The team agreed to add CI improvements, including parallelizing test suites and adding visual regression tests.\n\n6. Carol\u2019s dashboard redesign will move forward with a toggle between card view and table view, and that\u2019s scheduled to take about five weeks in total.",
+      "latency_ms": 3735.0437161512673,
+      "cold_start_ms": 270.2,
+      "context_tokens_approx": 2563,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_02",
+      "question": "What did we decide about the caching strategy?",
+      "ground_truth": "Going with Redis over Memcached because they can use it for sessions too and already have the cluster running.",
+      "category": "decision",
+      "difficulty": "medium",
+      "response": "The team decided to go with Redis for caching. The main reasons were that we already have a Redis cluster running, so it\u2019s simpler to manage, and we can also use it for session storage. Everyone on the team agreed that it\u2019s the right call.",
+      "latency_ms": 3355.3496501408517,
+      "cold_start_ms": 246.3,
+      "context_tokens_approx": 2563,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_03",
+      "question": "What's the plan for the dashboard redesign?",
+      "ground_truth": "Card layout by default with toggle for table view. Cards-only on mobile. Three weeks for cards, five weeks total with table toggle. Starting next sprint.",
+      "category": "decision",
+      "difficulty": "medium",
+      "response": "The plan is to move to a card layout instead of the table view. User testing showed that newer users preferred the cards, but power users really want to keep their tables. So, the plan is to offer both options. Cards will be the default, but users can toggle to the table view if they prefer. It will take about five weeks total\u2014three weeks for the card layout, and two more weeks to implement the toggle for the table view. The design work is mostly done, and two developers are already assigned to work on it.",
+      "latency_ms": 3335.755167994648,
+      "cold_start_ms": 260.1,
+      "context_tokens_approx": 2563,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_04",
+      "question": "How much is the company offsite going to cost roughly?",
+      "ground_truth": "About $27,600 (23 people x $400/night x 3 nights) at Summit Lodge in Lake Tahoe.",
+      "category": "detail",
+      "difficulty": "hard",
+      "response": "That hasn\u2019t been discussed in the meeting so far. I don\u2019t have any info on the cost of the offsite. You might want to bring it up with the team.",
+      "latency_ms": 4161.933203227818,
+      "cold_start_ms": 252.3,
+      "context_tokens_approx": 2563,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_05",
+      "question": "What's the deal with the Meridian Health opportunity?",
+      "ground_truth": "$200K ARR enterprise healthcare deal. Need SOC 2 Type II (audit starts September, expect Q1 next year). Demo Thursday to show reporting/export module. Prashant managing.",
+      "category": "detail",
+      "difficulty": "hard",
+      "response": "That hasn't been discussed in the meeting so far. If it\u2019s important, we might need to bring it up with the team. Let me know if you want me to make a note or add it to the agenda.",
+      "latency_ms": 3913.594650104642,
+      "cold_start_ms": 265.0,
+      "context_tokens_approx": 2563,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_06",
+      "question": "Is Tomas going to be overloaded? What's on his plate?",
+      "ground_truth": "Autocomplete fix due Wednesday, then Node.js 22 upgrade (two weeks). Rate limiter got pushed. Sequential, should be OK.",
+      "category": "inference",
+      "difficulty": "hard",
+      "response": "From what we discussed, Thomas is currently working on the autocomplete fix, and that\u2019s a high priority task due by Wednesday. It was mentioned that his other project, the rate limiter, got pushed back because the autocomplete fix is more urgent. So right now, that\u2019s the main thing on his plate. After that, he\u2019ll eventually get back to the rate limiter. So as of now, it doesn\u2019t sound like he\u2019s overloaded, but we should keep an eye on it if more tasks come his way.",
+      "latency_ms": 3598.9506039768457,
+      "cold_start_ms": 252.5,
+      "context_tokens_approx": 2563,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_07",
+      "question": "What happened with the database incident? Is it fixed?",
+      "ground_truth": "Connection pool exhaustion on Postgres. Missing finally block in transaction handler (Bob's team). Fixed now. 1200 users affected, 45 min outage, error rate hit 8%. PagerDuty was 12 min late, threshold being lowered from 5% to 2%. Post-mortem due Friday, review Monday.",
+      "category": "inference",
+      "difficulty": "medium",
+      "response": "We haven\u2019t talked about any database incident so far in the meeting. The only incident discussed was related to the search backend and some issues with Elasticsearch, and that seems to be fixed now. If there\u2019s a database issue, it hasn\u2019t been brought up yet in this conversation.",
+      "latency_ms": 4194.779431913048,
+      "cold_start_ms": 314.0,
+      "context_tokens_approx": 2563,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_08",
+      "question": "What was the thing about the color scheme?",
+      "ground_truth": "Raj left strong opinions in Figma about the orange accent color. Orange is staying because marketing approved it for rebrand. Carol told him, he's not happy.",
+      "category": "ambiguous",
+      "difficulty": "medium",
+      "response": "Actually, the color scheme or specific design colors weren't discussed in the meeting. The focus was more on the layout\u2014switching from a table view to a card layout\u2014and how different user groups reacted to that. If you need more details about colors specifically, that wasn\u2019t covered in this conversation.",
+      "latency_ms": 2919.532628264278,
+      "cold_start_ms": 264.4,
+      "context_tokens_approx": 2563,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_09",
+      "question": "Who do I talk to about the AWS costs?",
+      "ground_truth": "David is handling it. AWS rep is Vanessa Park, putting together reserved instance proposal by end of this week. Could save ~30%, from $63K to $45-46K/month.",
+      "category": "ambiguous",
+      "difficulty": "medium",
+      "response": "That wasn\u2019t discussed in this meeting so far. But typically, you\u2019d want to check with whoever oversees infrastructure costs or finance related to cloud services. If you're not sure, you could ask Bob or David since they\u2019re discussing technical infrastructure decisions. They may know the right person.",
+      "latency_ms": 2656.0893710702658,
+      "cold_start_ms": 283.4,
+      "context_tokens_approx": 2563,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_10",
+      "question": "When and where is the company offsite?",
+      "ground_truth": "Week of June 16th, Summit Lodge in Lake Tahoe.",
+      "category": "detail",
+      "difficulty": "easy",
+      "response": "That hasn\u2019t been discussed in the meeting so far. You might want to check with the organizer or HR for those details.",
+      "latency_ms": 2733.4607881493866,
+      "cold_start_ms": 237.0,
+      "context_tokens_approx": 2563,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_11",
+      "question": "Which log aggregation tool are we going with?",
+      "ground_truth": "Mezmo over Datadog Logs. $4K/month vs $11K. Saves $84K/year. David starting procurement.",
+      "category": "decision",
+      "difficulty": "easy",
+      "response": "The log aggregation tool hasn\u2019t been discussed in this meeting so far. Let me know if you want me to follow up on that.",
+      "latency_ms": 4602.8648489154875,
+      "cold_start_ms": 237.0,
+      "context_tokens_approx": 2563,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_12",
+      "question": "What's happening with the NPS score?",
+      "ground_truth": "Dropped from 42 to 37. Main complaint is mobile app performance. Looking at hiring a React Native contractor named Anika.",
+      "category": "detail",
+      "difficulty": "medium",
+      "response": "The NPS score hasn\u2019t been specifically mentioned in the conversation so far. They\u2019ve mostly been talking about search performance improvements, some mobile bug reports, and a dashboard redesign. If you want more details on NPS, we might need to check in with the team or look at a different update.",
+      "latency_ms": 2362.349908798933,
+      "cold_start_ms": 249.1,
+      "context_tokens_approx": 2563,
+      "sent_as": "audio"
+    }
+  ],
+  "hallucination_results": [
+    {
+      "probe_id": "hp_01",
+      "question": "What did we decide about the pricing changes?",
+      "expected": "NOT_DISCUSSED",
+      "response": "I\u2019m not seeing any discussion or decisions about pricing changes in the conversation so far. If that\u2019s something you need to talk about, it hasn\u2019t come up yet in the meeting.",
+      "latency_ms": 317.5913607701659
+    },
+    {
+      "probe_id": "hp_02",
+      "question": "Who's replacing Carol on the design team?",
+      "expected": "NOT_DISCUSSED",
+      "response": "That hasn\u2019t been discussed in the meeting so far.",
+      "latency_ms": 374.7236100025475
+    },
+    {
+      "probe_id": "hp_03",
+      "question": "What was the decision about moving to microservices?",
+      "expected": "NOT_DISCUSSED",
+      "response": "That actually didn\u2019t come up in the discussion at all. They were mostly talking about the search backend, performance improvements, and frontend design changes, but no mention of moving to microservices.",
+      "latency_ms": 380.55962696671486
+    },
+    {
+      "probe_id": "hp_04",
+      "question": "When is the product launch event?",
+      "expected": "NOT_DISCUSSED",
+      "response": "That wasn\u2019t discussed in the meeting so far, so I\u2019m not sure when the product launch event is.",
+      "latency_ms": 653.2621923834085
+    }
+  ],
+  "scores": [],
+  "hallucination_scores": [],
+  "aggregate": null,
+  "stt_session_metrics": {
+    "items_injected": 207,
+    "errors": [],
+    "connection_drops": 0
+  },
+  "run_id": "20260331T184733Z_openai_e07_production_sim",
+  "run_name": null,
+  "saved_at": "2026-03-31T18:47:33.671141+00:00"
+}

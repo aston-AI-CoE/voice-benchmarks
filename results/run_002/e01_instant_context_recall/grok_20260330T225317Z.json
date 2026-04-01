@@ -1,0 +1,652 @@
+{
+  "experiment": "e01_instant_context_recall",
+  "provider": "grok",
+  "config": {
+    "meeting_script_version": "v1",
+    "num_planted_facts": 20,
+    "num_turns": 126,
+    "num_recall_questions": 20,
+    "num_hallucination_probes": 5,
+    "num_consistency_checks": 3,
+    "injection_delay": 0.05
+  },
+  "timing": {
+    "injection_time_s": 9.4
+  },
+  "recall_results": [
+    {
+      "fact_id": "name_01",
+      "question": "Who is the new hire starting next Monday, and where are they transferring from?",
+      "expected": "Priya Raghavan, transferring from the Zurich office.",
+      "actual": "The new hire starting Monday is Priya Raghavan, transferring from the Zurich office.",
+      "latency_ms": 594.1140670329332,
+      "full_response_ms": 1492.6360086537898,
+      "distractors": [
+        "Priya Sharma from Mumbai",
+        "Ravi Raghavan from Berlin",
+        "Priya Raghavan from the London office"
+      ]
+    },
+    {
+      "fact_id": "name_02",
+      "question": "Which SSO vendor did the team decide to go with, and what was the alternative they considered?",
+      "expected": "Descope was chosen over Auth0.",
+      "actual": "They decided to go with Descope for SSO, not Auth0. David mentioned Auth0 has more features but aggressive pricing past ten thousand MAUs.",
+      "latency_ms": 586.0009212046862,
+      "full_response_ms": 2500.089359935373,
+      "distractors": [
+        "Auth0 was chosen over Okta",
+        "Okta was chosen over Descope",
+        "Auth0 over Descope"
+      ]
+    },
+    {
+      "fact_id": "name_03",
+      "question": "Who is the security researcher that found the XSS vulnerability, and how did they report it?",
+      "expected": "Marcus Chen, reported through the bug bounty program.",
+      "actual": "The security researcher is Marcus Chen. He reported the XSS vulnerability through the bug bounty program.",
+      "latency_ms": 613.7726800516248,
+      "full_response_ms": 1898.7338398583233,
+      "distractors": [
+        "Michael Chen via email",
+        "Marcus Lee through HackerOne",
+        "Mark Chen through security@"
+      ]
+    },
+    {
+      "fact_id": "name_04",
+      "question": "What is the name of the new legal counsel, and which law firm are they from?",
+      "expected": "Jennifer Wu from Morrison & Foerster.",
+      "actual": "The new legal counsel is Jennifer Wu from Morrison and Foerster. She starts next Wednesday.",
+      "latency_ms": 610.5604795739055,
+      "full_response_ms": 1759.487546980381,
+      "distractors": [
+        "Jennifer Lee from Baker McKenzie",
+        "Jessica Wu from Latham & Watkins",
+        "Jennifer Wu from Davis Polk"
+      ]
+    },
+    {
+      "fact_id": "number_01",
+      "question": "What is the revised Q2 revenue target, and what was it before the revision?",
+      "expected": "Revised to $4.7 million, down from $5.2 million.",
+      "actual": "The Q2 revenue target was revised down to four point seven million from the original five point two million.",
+      "latency_ms": 572.3986038938165,
+      "full_response_ms": 1870.5066479742527,
+      "distractors": [
+        "$4.2M down from $5.0M",
+        "$4.7M down from $5.5M",
+        "$5.2M down from $5.7M"
+      ]
+    },
+    {
+      "fact_id": "number_02",
+      "question": "What is the company's current monthly burn rate?",
+      "expected": "$380,000 per month including new hires.",
+      "actual": "The monthly burn rate is three hundred and eighty thousand, with the new hires factored in.",
+      "latency_ms": 602.7292315848172,
+      "full_response_ms": 1640.7071077264845,
+      "distractors": [
+        "$350,000 per month",
+        "$420,000 per month",
+        "$380,000 excluding new hires"
+      ]
+    },
+    {
+      "fact_id": "number_03",
+      "question": "What API rate limit was decided for the enterprise tier?",
+      "expected": "1,200 requests per minute.",
+      "actual": "They set the API rate limit for the enterprise tier to twelve hundred requests per minute.",
+      "latency_ms": 614.8685063235462,
+      "full_response_ms": 1653.4904092550278,
+      "distractors": [
+        "1,000 requests per minute",
+        "1,500 requests per minute",
+        "1,200 requests per second"
+      ]
+    },
+    {
+      "fact_id": "number_04",
+      "question": "What crash rate threshold does the mobile app need to meet before launch?",
+      "expected": "Below 0.3%.",
+      "actual": "The mobile app crash rate needs to",
+      "latency_ms": 579.1594269685447,
+      "full_response_ms": 1035.3284534066916,
+      "distractors": [
+        "Below 0.5%",
+        "Below 0.1%",
+        "Below 1.0%"
+      ]
+    },
+    {
+      "fact_id": "decision_01",
+      "question": "What was decided about the v1 REST API, and by when?",
+      "expected": "Deprecating the v1 REST API by September 15th.",
+      "actual": "They're deprecating the v1 REST API by September fifteenth. They'll send the notice this week.",
+      "latency_ms": 597.3388766869903,
+      "full_response_ms": 1788.7570490129292,
+      "distractors": [
+        "Deprecating by October 1st",
+        "Deprecating by August 30th",
+        "Keeping v1 and deprecating v2"
+      ]
+    },
+    {
+      "fact_id": "decision_02",
+      "question": "What was the decision about the Kubernetes migration, and why?",
+      "expected": "Postponed until after the SOC 2 audit is complete.",
+      "actual": "They decided to hold off on the Kubernetes migration until after the SOC 2 audit. Bob said no point adding complexity right now, and David agreed the auditors want a stable environment.",
+      "latency_ms": 587.9512298852205,
+      "full_response_ms": 2915.089536923915,
+      "distractors": [
+        "Proceeding as planned in Q3",
+        "Cancelled entirely",
+        "Postponed until after the Series B"
+      ]
+    },
+    {
+      "fact_id": "decision_03",
+      "question": "What change was decided for the observability stack?",
+      "expected": "Switching from Datadog to Grafana Cloud.",
+      "actual": "They want to switch from Datadog to Grafana Cloud for observability to save costs. David mentioned",
+      "latency_ms": 574.2490058764815,
+      "full_response_ms": 1886.5740927867591,
+      "distractors": [
+        "Switching from New Relic to Datadog",
+        "Keeping Datadog but reducing usage",
+        "Switching to Splunk"
+      ]
+    },
+    {
+      "fact_id": "decision_04",
+      "question": "What feature flag system was chosen for the new checkout flow?",
+      "expected": "LaunchDarkly, since the company already has a contract with them.",
+      "actual": "They're using LaunchDarkly for the feature flags on the new checkout flow. They already have a contract and the SDK integrated.",
+      "latency_ms": 584.0657139196992,
+      "full_response_ms": 2092.3126190900803,
+      "distractors": [
+        "Split.io",
+        "Flagsmith",
+        "Custom built feature flag system"
+      ]
+    },
+    {
+      "fact_id": "preference_01",
+      "question": "Between the two prototypes discussed, which one did Alice prefer and why?",
+      "expected": "Alice prefers the Figma prototype over InVision because the interactions feel smoother.",
+      "actual": "Alice prefers the Figma prototype over",
+      "latency_ms": 601.9672001712024,
+      "full_response_ms": 1066.5245042182505,
+      "distractors": [
+        "Alice prefers InVision",
+        "Bob prefers Figma",
+        "Carol prefers the Sketch prototype"
+      ]
+    },
+    {
+      "fact_id": "preference_02",
+      "question": "What did Bob prefer for building internal tools?",
+      "expected": "Bob prefers Retool over building custom internal tools, citing lack of bandwidth.",
+      "actual": "Bob prefers using Retool over",
+      "latency_ms": 597.819450777024,
+      "full_response_ms": 922.4112709052861,
+      "distractors": [
+        "Bob prefers custom tools",
+        "Bob prefers Appsmith",
+        "Bob prefers building with React Admin"
+      ]
+    },
+    {
+      "fact_id": "preference_03",
+      "question": "What theme preference did the CEO express for the customer dashboard?",
+      "expected": "CEO wants dark theme by default, after getting feedback about bright white backgrounds in a demo.",
+      "actual": "The CEO wants the customer dashboard to use a dark theme by default.",
+      "latency_ms": 568.8002654351294,
+      "full_response_ms": 1348.1275481171906,
+      "distractors": [
+        "CEO wants light theme",
+        "CEO wants both options",
+        "CTO requested dark theme"
+      ]
+    },
+    {
+      "fact_id": "preference_04",
+      "question": "What TypeScript style guide did Carol want the team to adopt?",
+      "expected": "Airbnb TypeScript style guide, replacing the Google style guide they were using.",
+      "actual": "Carol wants to adopt the Airbnb style guide for TypeScript, instead of the Google one.",
+      "latency_ms": 600.2633939497173,
+      "full_response_ms": 1591.4554768241942,
+      "distractors": [
+        "Google style guide",
+        "Standard JS style guide",
+        "Microsoft TypeScript guidelines"
+      ]
+    },
+    {
+      "fact_id": "date_01",
+      "question": "When was the board meeting rescheduled to, and what was the original date?",
+      "expected": "Rescheduled to April 23rd, originally April 30th.",
+      "actual": "The board meeting was rescheduled to April twenty-third, originally the thirtieth.",
+      "latency_ms": 592.3542710952461,
+      "full_response_ms": 1528.9150732569396,
+      "distractors": [
+        "Moved to April 25th from May 1st",
+        "Moved to April 30th from April 23rd",
+        "Moved to May 1st"
+      ]
+    },
+    {
+      "fact_id": "date_02",
+      "question": "When is the penetration test scheduled, and when does staging need to be ready?",
+      "expected": "Penetration test week of May 12th, staging ready by May 9th.",
+      "actual": "The penetration test is scheduled for",
+      "latency_ms": 596.4121529832482,
+      "full_response_ms": 1200.624623335898,
+      "distractors": [
+        "May 15th, staging by May 10th",
+        "May 12th, staging by May 5th",
+        "June 1st, staging by May 25th"
+      ]
+    },
+    {
+      "fact_id": "date_03",
+      "question": "When does Black Friday preparation start, and what needs to be done beforehand?",
+      "expected": "October 1st, with performance optimizations due two weeks before that.",
+      "actual": "Black Friday prep starts October first. All performance optimizations need to be done",
+      "latency_ms": 589.0244618058205,
+      "full_response_ms": 1661.643025930971,
+      "distractors": [
+        "November 1st",
+        "September 15th",
+        "October 1st with optimizations due one week before"
+      ]
+    },
+    {
+      "fact_id": "date_04",
+      "question": "When is the Series B investor meeting, and when is the growth metrics deck due?",
+      "expected": "Investor meeting June 18th, growth deck due June 10th.",
+      "actual": "The Series B investor meeting is June eighteenth. The growth metrics deck is due by June tenth.",
+      "latency_ms": 586.1856071278453,
+      "full_response_ms": 1879.7915377654135,
+      "distractors": [
+        "Meeting July 1st, deck June 20th",
+        "Meeting June 18th, deck June 15th",
+        "Meeting June 10th"
+      ]
+    }
+  ],
+  "hallucination_results": [
+    {
+      "probe_id": "halluc_01",
+      "question": "What did Dave mention about the pricing changes for the enterprise plan?",
+      "expected": "NOT_DISCUSSED",
+      "actual": "That wasn't discussed in the meeting.",
+      "latency_ms": 580.0970187410712,
+      "full_response_ms": 932.9444789327681,
+      "description": "Dave is 'David' in the meeting, and no pricing changes for enterprise plan were discussed."
+    },
+    {
+      "probe_id": "halluc_02",
+      "question": "When is the AWS to Azure migration scheduled for?",
+      "expected": "NOT_DISCUSSED",
+      "actual": "That wasn't discussed in the meeting.",
+      "latency_ms": 592.9324361495674,
+      "full_response_ms": 974.0471728146076,
+      "description": "No cloud migration between providers was discussed at all."
+    },
+    {
+      "probe_id": "halluc_03",
+      "question": "What was the decision about the Python 2 to Python 3 migration?",
+      "expected": "NOT_DISCUSSED",
+      "actual": "That wasn't discussed in the meeting.",
+      "latency_ms": 575.2624818123877,
+      "full_response_ms": 945.9070158191025,
+      "description": "Python version migration was never discussed."
+    },
+    {
+      "probe_id": "halluc_04",
+      "question": "What did the team decide about the company offsite location?",
+      "expected": "NOT_DISCUSSED",
+      "actual": "That wasn't discussed in the meeting",
+      "latency_ms": 565.282660536468,
+      "full_response_ms": 987.0100459083915,
+      "description": "No company offsite was mentioned."
+    },
+    {
+      "probe_id": "halluc_05",
+      "question": "How many customer support tickets were reported last week?",
+      "expected": "NOT_DISCUSSED",
+      "actual": "That wasn't discussed in the meeting",
+      "latency_ms": 563.5830941610038,
+      "full_response_ms": 1053.8681978359818,
+      "description": "Support ticket numbers were never discussed."
+    }
+  ],
+  "consistency_results": [
+    {
+      "fact_id": "name_02",
+      "question": "Remind me \u2014 are we using Auth0 or Descope for the SSO integration?",
+      "expected": "Descope, not Auth0.",
+      "actual": "You're using Descope for the SSO integration, not Auth0.",
+      "latency_ms": 615.997158922255,
+      "full_response_ms": 1402.0298938266933
+    },
+    {
+      "fact_id": "number_01",
+      "question": "Can you confirm the Q2 revenue target number?",
+      "expected": "$4.7 million.",
+      "actual": "The revised Q2 revenue target is four",
+      "latency_ms": 600.7152777165174,
+      "full_response_ms": 1122.624509036541
+    },
+    {
+      "fact_id": "decision_01",
+      "question": "What's the deadline for the v1 API deprecation again?",
+      "expected": "September 15th.",
+      "actual": "The deadline for deprecating the v1",
+      "latency_ms": 595.8139621652663,
+      "full_response_ms": 1155.2810333669186
+    }
+  ],
+  "scores": [
+    {
+      "fact_id": "name_01",
+      "verdict": "correct",
+      "confidence": 1.0,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "The new hire starting Monday is Priya Raghavan, transferring from the Zurich office.",
+      "expected_text": "Priya Raghavan, transferring from the Zurich office.",
+      "rationale": "The response perfectly matches the expected answer with both the correct name (Priya Raghavan) and correct transfer location (Zurich office). Minor wording difference ('starting Monday' vs 'starting next Monday') does not affect the factual accuracy."
+    },
+    {
+      "fact_id": "name_02",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "They decided to go with Descope for SSO, not Auth0. David mentioned Auth0 has more features but aggressive pricing past ten thousand MAUs.",
+      "expected_text": "Descope was chosen over Auth0.",
+      "rationale": "Response correctly identifies Descope as the chosen vendor and Auth0 as the alternative. The additional detail about pricing reasoning aligns with typical business decision factors and doesn't contradict the ground truth."
+    },
+    {
+      "fact_id": "name_03",
+      "verdict": "correct",
+      "confidence": 1.0,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "The security researcher is Marcus Chen. He reported the XSS vulnerability through the bug bounty program.",
+      "expected_text": "Marcus Chen, reported through the bug bounty program.",
+      "rationale": "The response correctly identifies Marcus Chen as the security researcher and accurately states that he reported the XSS vulnerability through the bug bounty program. Both key pieces of information from the expected answer are present and correct."
+    },
+    {
+      "fact_id": "name_04",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "The new legal counsel is Jennifer Wu from Morrison and Foerster. She starts next Wednesday.",
+      "expected_text": "Jennifer Wu from Morrison & Foerster.",
+      "rationale": "The response correctly identifies Jennifer Wu from Morrison & Foerster, matching the expected answer exactly. The additional detail about starting 'next Wednesday' appears to be supplementary information rather than a hallucination, as it doesn't contradict the ground truth."
+    },
+    {
+      "fact_id": "number_01",
+      "verdict": "correct",
+      "confidence": 1.0,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "The Q2 revenue target was revised down to four point seven million from the original five point two million.",
+      "expected_text": "Revised to $4.7 million, down from $5.2 million.",
+      "rationale": "The response accurately states both the revised target ($4.7 million) and the original target ($5.2 million). The information matches the expected answer perfectly, just expressed in words rather than symbols (four point seven million vs $4.7 million)."
+    },
+    {
+      "fact_id": "number_02",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "The monthly burn rate is three hundred and eighty thousand, with the new hires factored in.",
+      "expected_text": "$380,000 per month including new hires.",
+      "rationale": "The response correctly states the burn rate as $380,000 and correctly notes that new hires are factored in, matching the ground truth exactly despite slightly different wording."
+    },
+    {
+      "fact_id": "number_03",
+      "verdict": "correct",
+      "confidence": 1.0,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "They set the API rate limit for the enterprise tier to twelve hundred requests per minute.",
+      "expected_text": "1,200 requests per minute.",
+      "rationale": "The response correctly states 1,200 requests per minute (written as 'twelve hundred'), which exactly matches the expected answer. The wording difference between '1,200' and 'twelve hundred' is minor and doesn't affect the factual accuracy."
+    },
+    {
+      "fact_id": "number_04",
+      "verdict": "honest_uncertainty",
+      "confidence": 1.0,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "The mobile app crash rate needs to",
+      "expected_text": "Below 0.3%.",
+      "rationale": "The response is incomplete and cuts off mid-sentence without providing any specific information about the crash rate threshold. This appears to be an incomplete response rather than a confident incorrect answer or hallucination."
+    },
+    {
+      "fact_id": "decision_01",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "They're deprecating the v1 REST API by September fifteenth. They'll send the notice this week.",
+      "expected_text": "Deprecating the v1 REST API by September 15th.",
+      "rationale": "The response correctly identifies that the v1 REST API is being deprecated by September 15th, which matches the expected answer exactly. The additional detail about sending a notice 'this week' is extra information not contradicted by the ground truth."
+    },
+    {
+      "fact_id": "decision_02",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "They decided to hold off on the Kubernetes migration until after the SOC 2 audit. Bob said no point adding complexity right now, and David agreed the auditors want a stable environment.",
+      "expected_text": "Postponed until after the SOC 2 audit is complete.",
+      "rationale": "The response correctly identifies that the Kubernetes migration was postponed until after the SOC 2 audit. It provides additional context about the reasoning (Bob's comment about complexity and David's point about auditors wanting stability) that supports the decision, which enhances rather than contradicts the core factual answer."
+    },
+    {
+      "fact_id": "decision_03",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "They want to switch from Datadog to Grafana Cloud for observability to save costs. David mentioned",
+      "expected_text": "Switching from Datadog to Grafana Cloud.",
+      "rationale": "The response correctly identifies the key change: switching from Datadog to Grafana Cloud. The additional context about cost savings and David's mention doesn't contradict the ground truth and provides relevant supporting detail."
+    },
+    {
+      "fact_id": "decision_04",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "They're using LaunchDarkly for the feature flags on the new checkout flow. They already have a contract and the SDK integrated.",
+      "expected_text": "LaunchDarkly, since the company already has a contract with them.",
+      "rationale": "The response correctly identifies LaunchDarkly as the feature flag system and mentions they already have a contract with them, which matches the ground truth exactly. The additional detail about the SDK being integrated is consistent and doesn't contradict the expected answer."
+    },
+    {
+      "fact_id": "preference_01",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.5,
+      "hallucinated": false,
+      "response_text": "Alice prefers the Figma prototype over",
+      "expected_text": "Alice prefers the Figma prototype over InVision because the interactions feel smoother.",
+      "rationale": "The response correctly identifies that Alice prefers the Figma prototype, which matches the expected answer. However, the response is incomplete - it cuts off mid-sentence and doesn't provide the reason (that interactions feel smoother). Gets the key person and preference right but missing the explanation."
+    },
+    {
+      "fact_id": "preference_02",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.5,
+      "hallucinated": false,
+      "response_text": "Bob prefers using Retool over",
+      "expected_text": "Bob prefers Retool over building custom internal tools, citing lack of bandwidth.",
+      "rationale": "The response correctly identifies that Bob prefers Retool, which is the key tool mentioned in the expected answer. However, the response appears incomplete (cuts off mid-sentence) and doesn't include the comparison aspect ('over building custom internal tools') or the reasoning ('citing lack of bandwidth'). Gets about half the key information."
+    },
+    {
+      "fact_id": "preference_03",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.7,
+      "hallucinated": false,
+      "response_text": "The CEO wants the customer dashboard to use a dark theme by default.",
+      "expected_text": "CEO wants dark theme by default, after getting feedback about bright white backgrounds in a demo.",
+      "rationale": "The response correctly identifies that the CEO wants dark theme by default, which is the main point. However, it misses the important context about why this preference was made - specifically that it was after receiving feedback about bright white backgrounds in a demo. This context provides valuable information about the decision-making process."
+    },
+    {
+      "fact_id": "preference_04",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "Carol wants to adopt the Airbnb style guide for TypeScript, instead of the Google one.",
+      "expected_text": "Airbnb TypeScript style guide, replacing the Google style guide they were using.",
+      "rationale": "The response correctly identifies that Carol wanted to adopt the Airbnb TypeScript style guide to replace the Google style guide they were using. All key details match the expected answer despite minor wording differences."
+    },
+    {
+      "fact_id": "date_01",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "The board meeting was rescheduled to April twenty-third, originally the thirtieth.",
+      "expected_text": "Rescheduled to April 23rd, originally April 30th.",
+      "rationale": "The response correctly identifies both key facts: rescheduled to April 23rd and originally April 30th. The only difference is the format (written out vs. numbers), which is a minor wording variation that doesn't affect the factual accuracy."
+    },
+    {
+      "fact_id": "date_02",
+      "verdict": "incorrect",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "The penetration test is scheduled for",
+      "expected_text": "Penetration test week of May 12th, staging ready by May 9th.",
+      "rationale": "The response is incomplete and cuts off mid-sentence without providing any of the requested information about the penetration test schedule or staging readiness date."
+    },
+    {
+      "fact_id": "date_03",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.7,
+      "hallucinated": false,
+      "response_text": "Black Friday prep starts October first. All performance optimizations need to be done",
+      "expected_text": "October 1st, with performance optimizations due two weeks before that.",
+      "rationale": "The response correctly identifies October 1st as the start date and mentions performance optimizations need to be done, but it's incomplete - it cuts off mid-sentence and doesn't specify the 'two weeks before' timing for the optimizations."
+    },
+    {
+      "fact_id": "date_04",
+      "verdict": "correct",
+      "confidence": 1.0,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "The Series B investor meeting is June eighteenth. The growth metrics deck is due by June tenth.",
+      "expected_text": "Investor meeting June 18th, growth deck due June 10th.",
+      "rationale": "The response correctly identifies both key pieces of information: Series B investor meeting on June 18th and growth metrics deck due June 10th. The dates match the expected answer exactly, with only minor wording differences (\"June eighteenth\" vs \"June 18th\" and \"June tenth\" vs \"June 10th\")."
+    }
+  ],
+  "hallucination_scores": [
+    {
+      "fact_id": "halluc_01",
+      "verdict": "honest_uncertainty",
+      "confidence": 1.0,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "That wasn't discussed in the meeting.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly identified that enterprise plan pricing changes were not discussed in the meeting, which matches the expected answer of 'NOT_DISCUSSED'. This shows appropriate uncertainty rather than fabricating information."
+    },
+    {
+      "fact_id": "halluc_02",
+      "verdict": "honest_uncertainty",
+      "confidence": 1.0,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "That wasn't discussed in the meeting.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly acknowledged that the AWS to Azure migration scheduling was not discussed in the meeting, which matches the expected answer of 'NOT_DISCUSSED'."
+    },
+    {
+      "fact_id": "halluc_03",
+      "verdict": "honest_uncertainty",
+      "confidence": 1.0,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "That wasn't discussed in the meeting.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly acknowledged that the Python 2 to Python 3 migration was not discussed in the meeting, matching the expected answer of 'NOT_DISCUSSED'. This demonstrates appropriate uncertainty rather than fabricating information."
+    },
+    {
+      "fact_id": "halluc_04",
+      "verdict": "honest_uncertainty",
+      "confidence": 1.0,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "That wasn't discussed in the meeting",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly identified that the company offsite location was not discussed in the meeting, which matches the expected answer of 'NOT_DISCUSSED'. This is appropriate honest uncertainty rather than fabricating details."
+    },
+    {
+      "fact_id": "halluc_05",
+      "verdict": "honest_uncertainty",
+      "confidence": 1.0,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "That wasn't discussed in the meeting",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly identified that customer support tickets were not discussed in the meeting, which matches the expected answer of 'NOT_DISCUSSED'. This shows appropriate uncertainty rather than fabricating information."
+    }
+  ],
+  "aggregate": {
+    "total_questions": 20,
+    "recall_accuracy": 0.9,
+    "hallucination_rate": 0.0,
+    "honest_uncertainty_rate": 0.05,
+    "avg_partial_credit": 0.82,
+    "by_category": {
+      "name": 1.0,
+      "number": 0.75,
+      "decision": 1.0,
+      "preference": 0.675,
+      "date": 0.675
+    },
+    "by_minute": {
+      "3": 1.0,
+      "28": 1.0,
+      "42": 1.0,
+      "56": 1.0,
+      "7": 1.0,
+      "33": 1.0,
+      "45": 1.0,
+      "58": 0.0,
+      "12": 1.0,
+      "37": 1.0,
+      "48": 1.0,
+      "55": 1.0,
+      "18": 0.5,
+      "38": 0.5,
+      "51": 0.7,
+      "57": 1.0,
+      "22": 1.0,
+      "40": 0.0,
+      "50": 0.7,
+      "59": 1.0
+    }
+  },
+  "session_metrics": {
+    "total_turns": 30,
+    "items_injected": 126,
+    "total_input_tokens": 0,
+    "total_output_tokens": 0,
+    "errors": [],
+    "connection_drops": 0
+  },
+  "run_id": "20260330T225317Z_grok_e01_instant_context_recall",
+  "run_name": "run_002",
+  "saved_at": "2026-03-30T22:53:17.967126+00:00"
+}

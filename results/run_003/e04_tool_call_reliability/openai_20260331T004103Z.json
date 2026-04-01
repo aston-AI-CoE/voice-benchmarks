@@ -1,0 +1,176 @@
+{
+  "experiment": "e04_tool_call_reliability",
+  "provider": "openai",
+  "config": {
+    "tool_name": "lookup_data",
+    "should_call_count": 8,
+    "should_not_call_count": 8
+  },
+  "should_call_results": [
+    {
+      "prompt": "Look up the latest sales numbers for Q2.",
+      "expected_category": "sales",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "latest sales numbers for Q2",
+        "category": "sales",
+        "correct_category": true
+      },
+      "response": ""
+    },
+    {
+      "prompt": "Search the database for customer complaints about shipping.",
+      "expected_category": "customers",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "customer complaints about shipping",
+        "category": "customers",
+        "correct_category": true
+      },
+      "response": ""
+    },
+    {
+      "prompt": "Can you query the inventory for items with less than 10 units in stock?",
+      "expected_category": "inventory",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "items with less than 10 units in stock",
+        "category": "inventory",
+        "correct_category": true
+      },
+      "response": ""
+    },
+    {
+      "prompt": "Pull up the employee records for the engineering department.",
+      "expected_category": "employees",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "employee records for engineering department",
+        "category": "employees",
+        "correct_category": true
+      },
+      "response": ""
+    },
+    {
+      "prompt": "Search for all orders placed in the last 24 hours.",
+      "expected_category": "sales",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "orders placed in the last 24 hours",
+        "category": "sales",
+        "correct_category": true
+      },
+      "response": ""
+    },
+    {
+      "prompt": "Look up how many active enterprise customers we have.",
+      "expected_category": "customers",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "active enterprise customers",
+        "category": "customers",
+        "correct_category": true
+      },
+      "response": ""
+    },
+    {
+      "prompt": "Query the database for products that are out of stock.",
+      "expected_category": "inventory",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "products that are out of stock",
+        "category": "inventory",
+        "correct_category": true
+      },
+      "response": ""
+    },
+    {
+      "prompt": "Find all employees who started this quarter.",
+      "expected_category": "employees",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "employees who started this quarter",
+        "category": "employees",
+        "correct_category": true
+      },
+      "response": ""
+    }
+  ],
+  "should_not_call_results": [
+    {
+      "prompt": "What is the capital of France?",
+      "tool_called": false,
+      "response": "The capital of France is Paris."
+    },
+    {
+      "prompt": "Explain what a database index is.",
+      "tool_called": false,
+      "response": "A database index is a structure that improves the speed of data retrieval operations on a database table. It works like an index in a book, allowing the database engine to find rows more quickly witho"
+    },
+    {
+      "prompt": "Tell me a joke about programming.",
+      "tool_called": false,
+      "response": "Why do programmers hate nature? Because it has too many bugs!"
+    },
+    {
+      "prompt": "What does SQL stand for?",
+      "tool_called": false,
+      "response": "SQL stands for Structured Query Language. It's a standard language used to manage and manipulate relational databases, helping users query, update, and organize data efficiently."
+    },
+    {
+      "prompt": "How does a hash table work?",
+      "tool_called": false,
+      "response": "A hash table stores data in key-value pairs. It uses a hash function to compute an index or hash code from the key, which determines where to store or retrieve the value. Because of the hashing proces"
+    },
+    {
+      "prompt": "What's the difference between REST and GraphQL?",
+      "tool_called": false,
+      "response": "REST and GraphQL are both ways to design APIs, but they have key differences.\n\nREST usually structures data into multiple endpoints, each corresponding to a resource. Clients often have to make multip"
+    },
+    {
+      "prompt": "Summarize the benefits of microservices.",
+      "tool_called": false,
+      "response": "Microservices offer several benefits:\n\nFirst, they allow for easier scalability since each service can be scaled independently. Second, they improve flexibility because different services can use diff"
+    },
+    {
+      "prompt": "What year was Python first released?",
+      "tool_called": false,
+      "response": "Python was first released in 1991."
+    }
+  ],
+  "aggregate": {
+    "true_positives": 8,
+    "false_negatives": 0,
+    "true_negatives": 8,
+    "false_positives": 0,
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0
+  },
+  "session_metrics": {
+    "total_input_tokens": 55036,
+    "total_output_tokens": 5597,
+    "errors": [],
+    "connection_drops": 0
+  },
+  "run_id": "20260331T004103Z_openai_e04_tool_call_reliability",
+  "run_name": "run_003",
+  "saved_at": "2026-03-31T00:41:03.977829+00:00"
+}

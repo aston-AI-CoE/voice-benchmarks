@@ -1,0 +1,68 @@
+Voice Benchmarks — run_001
+Date: Mon Mar 30 22:41:08 UTC 2026
+
+========== E01: Instant Context Recall ==========
+# Voice Benchmark Comparison — Experiment 01: Long Session Context
+
+| Metric | GROK | OPENAI |
+|---|---|---|
+| **Runs** | 1 | 1 |
+| **Recall Accuracy** | 100% | 100% |
+| **Hallucination Rate** | 10% | 0% |
+| **Honest Uncertainty** | 0% | 0% |
+| **Avg Partial Credit** | 96% | 98% |
+| **Avg Latency** | 680ms | 322ms |
+| **P95 Latency** | 760ms | 1094ms |
+| **Connection Drops** | 0 | 0 |
+| **Errors** | 0 | 0 |
+
+## Recall by Category
+
+| Category | GROK | OPENAI |
+|---|---|---|
+| date | 100% | 100% |
+| decision | 100% | 92% |
+| name | 100% | 100% |
+| number | 88% | 95% |
+| preference | 92% | 100% |
+
+## Recall by Time Period
+
+| Period | GROK | OPENAI |
+|---|---|---|
+| Early (0-20min) | 100% | 100% |
+| Mid (20-40min) | 95% | 97% |
+| Late (40-60min) | 95% | 97% |
+
+========== E05: Real-Time 1hr Session ==========
+# Voice Benchmark Comparison — Experiment 01: Long Session Context
+
+| Metric | GROK | OPENAI |
+|---|---|---|
+| **Runs** | 2 | 2 |
+| **Recall Accuracy** | 75% | 100% |
+| **Hallucination Rate** | 0% | 0% |
+| **Honest Uncertainty** | 0% | 0% |
+| **Avg Partial Credit** | 68% | 96% |
+| **Avg Latency** | 699ms | 773ms |
+| **P95 Latency** | 747ms | 884ms |
+| **Connection Drops** | 0 | 1 |
+| **Errors** | 1 | 0 |
+
+## Recall by Category
+
+| Category | GROK | OPENAI |
+|---|---|---|
+| date | 40% | 100% |
+| decision | 60% | 100% |
+| name | 83% | 90% |
+| number | 100% | 93% |
+| preference | 10% | 100% |
+
+## Recall by Time Period
+
+| Period | GROK | OPENAI |
+|---|---|---|
+| Early (0-20min) | 95% | 100% |
+| Mid (20-40min) | 52% | 100% |
+| Late (40-60min) | 57% | 88% |

@@ -1,0 +1,116 @@
+{
+  "experiment": "e05_realtime_session_1hr",
+  "provider": "grok",
+  "config": {
+    "seconds_per_minute": 60.0,
+    "num_segments": 12,
+    "num_facts": 12,
+    "num_pulse_checks": 4,
+    "num_hallucination_probes": 3
+  },
+  "session_survival": {
+    "segments_completed": 6,
+    "segments_total": 12,
+    "survived_full_session": false,
+    "connection_died_at": "segment 6 (min 30)",
+    "recall_phase_completed": false
+  },
+  "timing": {
+    "total_elapsed_seconds": 1801.7742974348366,
+    "total_elapsed_minutes": 30.029571623913945,
+    "target_minutes": 60,
+    "pacing_ratio": 1.0
+  },
+  "health_checks": [
+    {
+      "segment": 0,
+      "minute": 0,
+      "elapsed_real_seconds": 1.7611555317416787,
+      "connected": true
+    },
+    {
+      "segment": 1,
+      "minute": 5,
+      "elapsed_real_seconds": 301.7645100480877,
+      "connected": true
+    },
+    {
+      "segment": 2,
+      "minute": 10,
+      "elapsed_real_seconds": 601.7666190979071,
+      "connected": true
+    },
+    {
+      "segment": 3,
+      "minute": 15,
+      "elapsed_real_seconds": 901.7677447437309,
+      "connected": true
+    },
+    {
+      "segment": 4,
+      "minute": 20,
+      "elapsed_real_seconds": 1201.768865162041,
+      "connected": true
+    },
+    {
+      "segment": 5,
+      "minute": 25,
+      "elapsed_real_seconds": 1501.7707922901027,
+      "connected": true
+    },
+    {
+      "segment": 6,
+      "minute": 30,
+      "elapsed_real_seconds": 1801.7742516719736,
+      "connected": false
+    }
+  ],
+  "pulse_check_results": [
+    {
+      "segment": 2,
+      "minute": 14,
+      "question": "Quick \u2014 who is the new VP of Product that was mentioned earlier?",
+      "response": "The new VP of Product is Samantha Torres. She starts on March fifteenth.",
+      "latency_ms": 656.8225338123739,
+      "elapsed_real_seconds": 873.248952684924
+    },
+    {
+      "segment": 5,
+      "minute": 29,
+      "question": "Remind me \u2014 what was the query latency improvement Bob mentioned after the sharding migration?",
+      "response": "",
+      "latency_ms": null,
+      "elapsed_real_seconds": 1771.9005176667124
+    }
+  ],
+  "recall_results": [],
+  "hallucination_results": [],
+  "naturalness_results": [],
+  "scores": [],
+  "hallucination_scores": [],
+  "aggregate": null,
+  "session_metrics": {
+    "total_turns": 3,
+    "items_injected": 28,
+    "total_input_tokens": 0,
+    "total_output_tokens": 0,
+    "errors": [
+      {
+        "type": "error",
+        "event_id": "1d584812-247d-4ded-8194-47ad6cc11b38",
+        "error": {
+          "message": "Conversation timed out after 900.0 seconds due to inactivity",
+          "type": "timeout",
+          "event_id": "1d584812-247d-4ded-8194-47ad6cc11b38"
+        },
+        "code": "timeout",
+        "message": "Conversation timed out after 900.0 seconds due to inactivity",
+        "previous_item_id": null
+      }
+    ],
+    "connection_drops": 0
+  },
+  "run_id": "20260330T224108Z_grok_e05_realtime_session_1hr",
+  "run_name": "run_001",
+  "saved_at": "2026-03-30T22:41:08.461396+00:00"
+}

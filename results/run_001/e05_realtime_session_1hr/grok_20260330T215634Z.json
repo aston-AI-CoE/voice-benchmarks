@@ -1,0 +1,552 @@
+{
+  "experiment": "e05_realtime_session_1hr",
+  "provider": "grok",
+  "config": {
+    "seconds_per_minute": 5.0,
+    "num_segments": 12,
+    "num_facts": 12,
+    "num_pulse_checks": 4,
+    "num_hallucination_probes": 3
+  },
+  "session_survival": {
+    "segments_completed": 12,
+    "segments_total": 12,
+    "survived_full_session": true,
+    "connection_died_at": null,
+    "recall_phase_completed": true
+  },
+  "timing": {
+    "total_elapsed_seconds": 302.14462533406913,
+    "total_elapsed_minutes": 5.035743755567819,
+    "target_minutes": 60,
+    "pacing_ratio": 0.08333333333333333
+  },
+  "health_checks": [
+    {
+      "segment": 0,
+      "minute": 0,
+      "elapsed_real_seconds": 1.989098974969238,
+      "connected": true
+    },
+    {
+      "segment": 1,
+      "minute": 5,
+      "elapsed_real_seconds": 26.998033684212714,
+      "connected": true
+    },
+    {
+      "segment": 2,
+      "minute": 10,
+      "elapsed_real_seconds": 52.00220717396587,
+      "connected": true
+    },
+    {
+      "segment": 3,
+      "minute": 15,
+      "elapsed_real_seconds": 77.0037229899317,
+      "connected": true
+    },
+    {
+      "segment": 4,
+      "minute": 20,
+      "elapsed_real_seconds": 102.00668754335493,
+      "connected": true
+    },
+    {
+      "segment": 5,
+      "minute": 25,
+      "elapsed_real_seconds": 127.01440156018361,
+      "connected": true
+    },
+    {
+      "segment": 6,
+      "minute": 30,
+      "elapsed_real_seconds": 152.01558915432543,
+      "connected": true
+    },
+    {
+      "segment": 7,
+      "minute": 35,
+      "elapsed_real_seconds": 177.02263284707442,
+      "connected": true
+    },
+    {
+      "segment": 8,
+      "minute": 40,
+      "elapsed_real_seconds": 202.02537765400484,
+      "connected": true
+    },
+    {
+      "segment": 9,
+      "minute": 45,
+      "elapsed_real_seconds": 227.026675762143,
+      "connected": true
+    },
+    {
+      "segment": 10,
+      "minute": 50,
+      "elapsed_real_seconds": 252.0286273821257,
+      "connected": true
+    },
+    {
+      "segment": 11,
+      "minute": 55,
+      "elapsed_real_seconds": 277.0362195833586,
+      "connected": true
+    }
+  ],
+  "pulse_check_results": [
+    {
+      "segment": 2,
+      "minute": 14,
+      "question": "Quick \u2014 who is the new VP of Product that was mentioned earlier?",
+      "response": "The new VP of Product is Samantha Torres. She starts March fifteenth.",
+      "latency_ms": 681.6994859836996,
+      "elapsed_real_seconds": 76.02835188619792
+    },
+    {
+      "segment": 5,
+      "minute": 29,
+      "question": "Remind me \u2014 what was the query latency improvement Bob mentioned after the sharding migration?",
+      "response": "Bob said query latency dropped from ninety-two milliseconds average to thirty-one milliseconds. That's a solid three-X improvement.",
+      "latency_ms": 980.9677028097212,
+      "elapsed_real_seconds": 151.80402302136645
+    },
+    {
+      "segment": 8,
+      "minute": 44,
+      "question": "What was the decision about the billing section from the settings redesign?",
+      "response": "Carol said they moved the billing section out of settings into its own top-level page, since users were having trouble finding it.",
+      "latency_ms": 687.6479708589613,
+      "elapsed_real_seconds": 226.75005079898983
+    },
+    {
+      "segment": 11,
+      "minute": 59,
+      "question": "What's the current monthly AWS bill and what's driving the increase?",
+      "response": "The monthly AWS bill is at forty-seven thousand dollars, up twenty-three percent from last quarter, mainly from the new GPU instances for ML.",
+      "latency_ms": 711.5053758025169,
+      "elapsed_real_seconds": 302.14450240600854
+    }
+  ],
+  "recall_results": [
+    {
+      "fact_id": "rt_01",
+      "segment": 0,
+      "minute": 2,
+      "category": "name",
+      "question": "Who is the new VP of Product and when do they start?",
+      "expected": "New VP of Product is Samantha Torres, starting March 15th.",
+      "actual": "Samantha Torres is the new VP of Product. She starts on March fifteenth.",
+      "latency_ms": 695.8579211495817,
+      "full_response_ms": 1589.0916460193694,
+      "distractors": [
+        "Sarah Torres starting April 1st",
+        "Samantha Torres starting March 1st"
+      ]
+    },
+    {
+      "fact_id": "rt_02",
+      "segment": 1,
+      "minute": 7,
+      "category": "number",
+      "question": "What was the query latency improvement after the database sharding?",
+      "expected": "Query latency dropped from 92ms to 31ms after database sharding.",
+      "actual": "Query latency dropped from ninety-two milliseconds average to thirty-one milliseconds. Huge win.",
+      "latency_ms": 747.1703561022878,
+      "full_response_ms": 1824.800802860409,
+      "distractors": [
+        "From 120ms to 45ms",
+        "From 92ms to 55ms",
+        "From 80ms to 31ms"
+      ]
+    },
+    {
+      "fact_id": "rt_03",
+      "segment": 2,
+      "minute": 12,
+      "category": "decision",
+      "question": "What was the decision about the billing section in the settings redesign?",
+      "expected": "Billing moved from settings to its own top-level page due to user discoverability issues.",
+      "actual": "They moved the billing section out of settings into its own top-level page. Users were struggling to find it there.",
+      "latency_ms": 736.4135538227856,
+      "full_response_ms": 2166.964864823967,
+      "distractors": [
+        "Keep billing in settings but add a shortcut",
+        "Remove billing page entirely"
+      ]
+    },
+    {
+      "fact_id": "rt_04",
+      "segment": 3,
+      "minute": 17,
+      "category": "name",
+      "question": "What are the details of the Horizon Health deal and who is the point of contact?",
+      "expected": "Horizon Health deal closed. 3-year contract. Technical lead Rafael Mendez is main contact.",
+      "actual": "Horizon Health closed a three-year contract yesterday. Rafael Mendez, their technical",
+      "latency_ms": 727.9873210936785,
+      "full_response_ms": 1847.6045620627701,
+      "distractors": [
+        "2-year contract, contact is Roberto Mendez",
+        "3-year, contact is Rafael Martinez"
+      ]
+    },
+    {
+      "fact_id": "rt_05",
+      "segment": 4,
+      "minute": 22,
+      "category": "number",
+      "question": "What is the current monthly AWS bill and why has it increased?",
+      "expected": "AWS bill is $47,000/month, up 23% from last quarter, driven by GPU instances for ML.",
+      "actual": "It's at forty-seven thousand dollars per month, up twenty-three percent from last quarter, mainly due to the new GPU instances for ML.",
+      "latency_ms": 710.4870518669486,
+      "full_response_ms": 2473.8775878213346,
+      "distractors": [
+        "$52K/month up 15% from storage",
+        "$47K/month up 23% from bandwidth"
+      ]
+    },
+    {
+      "fact_id": "rt_06",
+      "segment": 5,
+      "minute": 27,
+      "category": "date",
+      "question": "When is the ISO 27001 audit and when are evidence packages due?",
+      "expected": "ISO 27001 audit on August 7th, evidence packages due July 24th.",
+      "actual": "The ISO 27001 audit is August seventh, with evidence packages due by",
+      "latency_ms": 667.1795076690614,
+      "full_response_ms": 1801.982396747917,
+      "distractors": [
+        "Audit September 1st, evidence August 15th",
+        "Audit August 7th, evidence August 1st"
+      ]
+    },
+    {
+      "fact_id": "rt_07",
+      "segment": 6,
+      "minute": 32,
+      "category": "decision",
+      "question": "What is the top requested feature and when is it planned to ship?",
+      "expected": "Real-time dashboard collaboration is the top feature, committed for Q3 sprint 4.",
+      "actual": "Real-time collaboration on dashboards is the top",
+      "latency_ms": 661.0220628790557,
+      "full_response_ms": 1449.6642220765352,
+      "distractors": [
+        "Dark mode in Q3 sprint 2",
+        "Real-time collab in Q4 sprint 1"
+      ]
+    },
+    {
+      "fact_id": "rt_08",
+      "segment": 7,
+      "minute": 37,
+      "category": "preference",
+      "question": "What was Bob's preference for the Salesforce data sync approach and why?",
+      "expected": "Bob prefers Salesforce Bulk API v2 over REST API for data sync due to better rate limit handling.",
+      "actual": "Bob prefers using the Salesforce",
+      "latency_ms": 700.0085571780801,
+      "full_response_ms": 1185.0897469557822,
+      "distractors": [
+        "Prefers REST API for simplicity",
+        "Prefers SOAP API for reliability"
+      ]
+    },
+    {
+      "fact_id": "rt_09",
+      "segment": 8,
+      "minute": 42,
+      "category": "name",
+      "question": "Who is the senior frontend candidate and where are they coming from?",
+      "expected": "Senior frontend candidate is Yuki Tanaka from Stripe, passed system design round.",
+      "actual": "Yuki Tanaka from Stripe\u2014she",
+      "latency_ms": 704.6880461275578,
+      "full_response_ms": 1221.2192812003195,
+      "distractors": [
+        "Yuki Yamada from Square",
+        "Yuki Tanaka from Shopify"
+      ]
+    },
+    {
+      "fact_id": "rt_10",
+      "segment": 9,
+      "minute": 47,
+      "category": "number",
+      "question": "What were the latest monthly active user numbers and the growth rate?",
+      "expected": "MAU reached 142,000, up 18% month over month, best growth all year.",
+      "actual": "Monthly active users hit one hundred forty-two thousand last week, up eighteen percent month over month.",
+      "latency_ms": 668.9840201288462,
+      "full_response_ms": 1893.9229752868414,
+      "distractors": [
+        "128K up 12%",
+        "142K up 22%",
+        "150K up 18%"
+      ]
+    },
+    {
+      "fact_id": "rt_11",
+      "segment": 10,
+      "minute": 52,
+      "category": "decision",
+      "question": "What is the NovaTech situation and what's the plan to address it?",
+      "expected": "NovaTech churn risk, export timeout fix needed by next Friday, dedicating 2 engineers.",
+      "actual": "NovaTech is threatening to churn over an",
+      "latency_ms": 685.4019681923091,
+      "full_response_ms": 1444.7650969959795,
+      "distractors": [
+        "NovaTech wants a discount",
+        "NovaTech export fix in two weeks with 1 engineer"
+      ]
+    },
+    {
+      "fact_id": "rt_12",
+      "segment": 11,
+      "minute": 57,
+      "category": "date",
+      "question": "When is the all-hands, what's the theme, and what's the format?",
+      "expected": "All-hands April 11th 2PM Pacific, theme 'Building for Scale', 3-minute lightning talks per team lead.",
+      "actual": "All-hands is April eleventh at two PM",
+      "latency_ms": 686.0409090295434,
+      "full_response_ms": 1217.4035250209272,
+      "distractors": [
+        "April 18th, 'Customer First', 5-minute talks",
+        "April 11th, 'Building for Scale', 10-minute talks"
+      ]
+    }
+  ],
+  "hallucination_results": [
+    {
+      "probe_id": "halluc_rt_01",
+      "question": "What did the team decide about switching from PostgreSQL to MongoDB?",
+      "expected": "NOT_DISCUSSED",
+      "actual": "Nothing was discussed about switching from PostgreSQL",
+      "latency_ms": 668.476449791342
+    },
+    {
+      "probe_id": "halluc_rt_02",
+      "question": "When is the company holiday party?",
+      "expected": "NOT_DISCUSSED",
+      "actual": "No mention of a company holiday party.",
+      "latency_ms": 716.774380300194
+    },
+    {
+      "probe_id": "halluc_rt_03",
+      "question": "What was the decision about the mobile app redesign?",
+      "expected": "NOT_DISCUSSED",
+      "actual": "No discussion about a mobile app redesign",
+      "latency_ms": 745.9873789921403
+    }
+  ],
+  "naturalness_results": [
+    {
+      "prompt": "Thanks for keeping track of all that. Can you give me a quick two-sentence summary of the most important takeaways?",
+      "response": "Key wins include the Horizon Health three-year deal closing, database sharding slashing query latency to thirty-one milliseconds, and MAUs hitting one hundred forty-two thousand with eighteen percent growth. Action items cover dedicating engineers to NovaTech's export fix by next Friday, prepping for the ISO audit in August, and shipping real-time dashboard collab in Q3 sprint four.",
+      "latency_ms": 686.1721156165004,
+      "full_response_ms": 5816.132437903434
+    },
+    {
+      "prompt": "What was the general mood of the meeting \u2014 was it positive, stressful, or neutral?",
+      "response": "The mood was definitely positive\u2014lots of excitement over wins like the Horizon deal, MAU growth, and the sharding success. Even with escalations like NovaTech, everyone seemed energized and action-oriented.",
+      "latency_ms": 672.1172020770609,
+      "full_response_ms": 3362.6656071282923
+    },
+    {
+      "prompt": "If you had to pick one action item that's most urgent, what would it be?",
+      "response": "The most urgent is fixing NovaTech's export timeout by next Friday to prevent churn\u2014Bob's dedicating two engineers.",
+      "latency_ms": 675.9463869966567,
+      "full_response_ms": 2160.55508563295
+    }
+  ],
+  "scores": [
+    {
+      "fact_id": "rt_01",
+      "verdict": "correct",
+      "confidence": 1.0,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "Samantha Torres is the new VP of Product. She starts on March fifteenth.",
+      "expected_text": "New VP of Product is Samantha Torres, starting March 15th.",
+      "rationale": "The response correctly identifies Samantha Torres as the new VP of Product and accurately states she starts on March 15th (written as 'March fifteenth'). All key factual information matches the expected answer perfectly."
+    },
+    {
+      "fact_id": "rt_02",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "Query latency dropped from ninety-two milliseconds average to thirty-one milliseconds. Huge win.",
+      "expected_text": "Query latency dropped from 92ms to 31ms after database sharding.",
+      "rationale": "The response accurately states the query latency dropped from 92ms to 31ms, matching the ground truth exactly. The information is presented in written form (ninety-two milliseconds, thirty-one milliseconds) rather than numeric, but conveys the same factual content."
+    },
+    {
+      "fact_id": "rt_03",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "They moved the billing section out of settings into its own top-level page. Users were struggling to find it there.",
+      "expected_text": "Billing moved from settings to its own top-level page due to user discoverability issues.",
+      "rationale": "The response accurately captures both key elements: billing was moved from settings to its own top-level page, and the reason was user discoverability issues ('struggling to find it'). The wording is slightly different but the factual content matches perfectly."
+    },
+    {
+      "fact_id": "rt_04",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.8,
+      "hallucinated": false,
+      "response_text": "Horizon Health closed a three-year contract yesterday. Rafael Mendez, their technical",
+      "expected_text": "Horizon Health deal closed. 3-year contract. Technical lead Rafael Mendez is main contact.",
+      "rationale": "Response correctly identifies the 3-year contract and Rafael Mendez as contact, but appears incomplete (cuts off mid-sentence) and adds 'yesterday' which wasn't in the ground truth. Missing the detail about Rafael being the 'technical lead' and 'main contact'."
+    },
+    {
+      "fact_id": "rt_05",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "It's at forty-seven thousand dollars per month, up twenty-three percent from last quarter, mainly due to the new GPU instances for ML.",
+      "expected_text": "AWS bill is $47,000/month, up 23% from last quarter, driven by GPU instances for ML.",
+      "rationale": "The response accurately captures all key details: $47,000/month amount, 23% increase from last quarter, and GPU instances for ML as the cause. The wording is slightly different but conveys identical factual information."
+    },
+    {
+      "fact_id": "rt_06",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.5,
+      "hallucinated": false,
+      "response_text": "The ISO 27001 audit is August seventh, with evidence packages due by",
+      "expected_text": "ISO 27001 audit on August 7th, evidence packages due July 24th.",
+      "rationale": "Response correctly identifies the audit date as August 7th but appears to be cut off mid-sentence when stating the evidence package due date, missing the key detail of July 24th."
+    },
+    {
+      "fact_id": "rt_07",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.5,
+      "hallucinated": false,
+      "response_text": "Real-time collaboration on dashboards is the top",
+      "expected_text": "Real-time dashboard collaboration is the top feature, committed for Q3 sprint 4.",
+      "rationale": "Response correctly identifies real-time dashboard collaboration as the top feature but cuts off mid-sentence and completely misses the timing information (Q3 sprint 4). Got roughly half the key details."
+    },
+    {
+      "fact_id": "rt_08",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.1,
+      "hallucinated": false,
+      "response_text": "Bob prefers using the Salesforce",
+      "expected_text": "Bob prefers Salesforce Bulk API v2 over REST API for data sync due to better rate limit handling.",
+      "rationale": "Response is incomplete and cuts off mid-sentence. It correctly identifies that Bob has a preference regarding Salesforce but fails to specify what that preference is (Bulk API v2) or the reasoning (better rate limit handling). No hallucination occurred since no false information was stated."
+    },
+    {
+      "fact_id": "rt_09",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.7,
+      "hallucinated": false,
+      "response_text": "Yuki Tanaka from Stripe\u2014she",
+      "expected_text": "Senior frontend candidate is Yuki Tanaka from Stripe, passed system design round.",
+      "rationale": "Response correctly identifies the candidate name (Yuki Tanaka) and company (Stripe), which are the two most important details. However, it's incomplete - cutting off mid-sentence and missing the information about passing the system design round. No hallucination present, just incomplete recall."
+    },
+    {
+      "fact_id": "rt_10",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "Monthly active users hit one hundred forty-two thousand last week, up eighteen percent month over month.",
+      "expected_text": "MAU reached 142,000, up 18% month over month, best growth all year.",
+      "rationale": "Response correctly states MAU of 142,000 and 18% month-over-month growth. Only minor difference is saying 'last week' instead of being a monthly figure, but the core factual information matches perfectly."
+    },
+    {
+      "fact_id": "rt_11",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.3,
+      "hallucinated": false,
+      "response_text": "NovaTech is threatening to churn over an",
+      "expected_text": "NovaTech churn risk, export timeout fix needed by next Friday, dedicating 2 engineers.",
+      "rationale": "Response correctly identifies NovaTech as having a churn threat/risk but is incomplete - cuts off mid-sentence and doesn't mention the export timeout issue, Friday deadline, or 2 engineers plan. Gets the main concern right but missing most key details."
+    },
+    {
+      "fact_id": "rt_12",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.3,
+      "hallucinated": false,
+      "response_text": "All-hands is April eleventh at two PM",
+      "expected_text": "All-hands April 11th 2PM Pacific, theme 'Building for Scale', 3-minute lightning talks per team lead.",
+      "rationale": "The response correctly identifies the date (April 11th) and time (2PM Pacific), but completely omits the theme 'Building for Scale' and the format detail about 3-minute lightning talks per team lead. Only got about 1/3 of the required information."
+    }
+  ],
+  "hallucination_scores": [
+    {
+      "fact_id": "halluc_rt_01",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "Nothing was discussed about switching from PostgreSQL",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly identified that nothing was discussed about switching from PostgreSQL to MongoDB, which matches the expected answer of NOT_DISCUSSED. This is appropriate honest uncertainty rather than fabricating information."
+    },
+    {
+      "fact_id": "halluc_rt_02",
+      "verdict": "honest_uncertainty",
+      "confidence": 1.0,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "No mention of a company holiday party.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly identified that no company holiday party was mentioned/discussed, which matches the expected answer of NOT_DISCUSSED. This is appropriate honest uncertainty rather than fabricating details."
+    },
+    {
+      "fact_id": "halluc_rt_03",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "No discussion about a mobile app redesign",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly identified that a mobile app redesign was not discussed, matching the expected answer of 'NOT_DISCUSSED'. This demonstrates appropriate uncertainty rather than fabricating information."
+    }
+  ],
+  "aggregate": {
+    "total_questions": 12,
+    "recall_accuracy": 0.75,
+    "hallucination_rate": 0.0,
+    "honest_uncertainty_rate": 0.0,
+    "avg_partial_credit": 0.6833333333333332,
+    "by_category": {
+      "name": 0.8333333333333334,
+      "number": 1.0,
+      "decision": 0.6,
+      "date": 0.4,
+      "preference": 0.1
+    },
+    "by_minute": {
+      "2": 1.0,
+      "7": 1.0,
+      "12": 1.0,
+      "17": 0.8,
+      "22": 1.0,
+      "27": 0.5,
+      "32": 0.5,
+      "37": 0.1,
+      "42": 0.7,
+      "47": 1.0,
+      "52": 0.3,
+      "57": 0.3
+    }
+  },
+  "session_metrics": {
+    "total_turns": 24,
+    "items_injected": 57,
+    "total_input_tokens": 0,
+    "total_output_tokens": 0,
+    "errors": [],
+    "connection_drops": 0
+  },
+  "run_id": "20260330T215634Z_grok_e05_realtime_session_1hr",
+  "run_name": "run_001",
+  "saved_at": "2026-03-30T21:56:34.181317+00:00"
+}

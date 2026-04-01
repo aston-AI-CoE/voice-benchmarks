@@ -1,0 +1,446 @@
+{
+  "experiment": "e07_production_sim",
+  "provider": "grok",
+  "config": {
+    "architecture": "production: STT session + fresh voice session per question",
+    "meeting_lines": 407,
+    "mid_questions": 8,
+    "post_questions": 12,
+    "questions_via": "audio",
+    "duration_minutes": 30
+  },
+  "session_survival": {
+    "stt_lines_sent": 90,
+    "stt_lines_total": 407,
+    "stt_survived": false,
+    "connection_died_at": "line 90 (ConnectionClosedOK: received 1001 (going away) Conversation timed out due to inactivity; then sent 1001 (going away) Conversation timed out due to inactivity)"
+  },
+  "timing": {
+    "total_elapsed_seconds": 906.1135605927557,
+    "total_elapsed_minutes": 15.101892676545928
+  },
+  "transcription": {
+    "total_compared": 0,
+    "avg_wer": null,
+    "details": []
+  },
+  "health_checks": [
+    {
+      "minute": 0,
+      "elapsed_real_minutes": 0.0,
+      "connected": true,
+      "lines_sent": 0,
+      "phase": "stt"
+    },
+    {
+      "minute": 5,
+      "elapsed_real_minutes": 10.3,
+      "connected": true,
+      "lines_sent": 62,
+      "phase": "stt"
+    }
+  ],
+  "mid_meeting_results": [
+    {
+      "minute": 7,
+      "elapsed_real_seconds": 896.1088365027681,
+      "question": "Hey Otto, what was the search latency before and after the new backend?",
+      "ground_truth": "p95 search latency went from 600ms to 140ms",
+      "response": "Great to hear everyone's here now. From the transcript, the team shipped the new search backend Friday, had a quick Elasticsearch heap issue that David fixed fast, and p95 latency dropped from 600 milliseconds to 140\u2014huge win. No customer outages, and support tickets are already down.",
+      "latency_ms": 661.3777191378176,
+      "cold_start_ms": 304.5,
+      "context_lines": 89,
+      "context_tokens_approx": 1015,
+      "sent_as": "audio"
+    }
+  ],
+  "post_meeting_results": [
+    {
+      "question_id": "pm_01",
+      "question": "What are the main action items from this meeting?",
+      "ground_truth": "Tomas: autocomplete fix by Wednesday, then Node upgrade (2 weeks). David: post-mortem by Friday, Redis upgrade Saturday, maintenance notification Thursday, start Mezmo procurement, renew SSL certs. Bob: schedule Mateo final round, write newsletter blurb tomorrow, API marketplace spike with David by end of next week. Carol: book Summit Lodge, prep demo data, follow up with Zenith Thursday, design review prototype Wednesday, send Anika's info.",
+      "category": "action_item",
+      "difficulty": "hard",
+      "response": "Hey folks, I was listening to the whole transcript. What's your question about the meeting?",
+      "latency_ms": 858.6888718418777,
+      "cold_start_ms": 405.3,
+      "context_tokens_approx": 1029,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_02",
+      "question": "What did we decide about the caching strategy?",
+      "ground_truth": "Going with Redis over Memcached because they can use it for sessions too and already have the cluster running.",
+      "category": "decision",
+      "difficulty": "medium",
+      "response": "Hey folks, based on the transcript, the new search backend deployed successfully on Friday, dropping p95 latency from 600 milliseconds down to 140\u2014that's a huge four-times improvement. There was a brief Elasticsearch heap issue early Saturday morning, but David fixed it quickly by bumping it to 32 gigs, with only minimal customer impact. The team also handled a nine-hour reindex, and support tickets for search are already way down.",
+      "latency_ms": 677.8810708783567,
+      "cold_start_ms": 310.0,
+      "context_tokens_approx": 1029,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_03",
+      "question": "What's the plan for the dashboard redesign?",
+      "ground_truth": "Card layout by default with toggle for table view. Cards-only on mobile. Three weeks for cards, five weeks total with table toggle. Starting next sprint.",
+      "category": "decision",
+      "difficulty": "medium",
+      "response": "Hey team, from the transcript, the new search backend launched successfully on Friday. They had a quick Elasticsearch heap issue that David fixed in about fifteen minutes\u2014no major downtime. Latency dropped from six hundred milliseconds at p-ninety-five to one-forty, which is a huge win.",
+      "latency_ms": 741.9319069013,
+      "cold_start_ms": 418.2,
+      "context_tokens_approx": 1029,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_04",
+      "question": "How much is the company offsite going to cost roughly?",
+      "ground_truth": "About $27,600 (23 people x $400/night x 3 nights) at Summit Lodge in Lake Tahoe.",
+      "category": "detail",
+      "difficulty": "hard",
+      "response": "Hey team, from the transcript, the new search backend deployed successfully on Friday. It improved p95 latency from 600 milliseconds down to 140\u2014huge win. They hit a quick Elasticsearch heap issue Saturday morning, but David fixed it fast with minimal customer impact.",
+      "latency_ms": 945.0663756579161,
+      "cold_start_ms": 398.4,
+      "context_tokens_approx": 1029,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_05",
+      "question": "What's the deal with the Meridian Health opportunity?",
+      "ground_truth": "$200K ARR enterprise healthcare deal. Need SOC 2 Type II (audit starts September, expect Q1 next year). Demo Thursday to show reporting/export module. Prashant managing.",
+      "category": "detail",
+      "difficulty": "hard",
+      "response": "Great to hear everyone's on the line. What do you need to know about the meeting?",
+      "latency_ms": 929.1586061008275,
+      "cold_start_ms": 406.7,
+      "context_tokens_approx": 1029,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_06",
+      "question": "Is Tomas going to be overloaded? What's on his plate?",
+      "ground_truth": "Autocomplete fix due Wednesday, then Node.js 22 upgrade (two weeks). Rate limiter got pushed. Sequential, should be OK.",
+      "category": "inference",
+      "difficulty": "hard",
+      "response": "Hey folks, I was listening to the whole transcript. They just finished chatting about the new search backend deploy\u2014huge win, down to one hundred forty milliseconds at p ninety-five. No customer complaints yet, and support tickets dropped right away.",
+      "latency_ms": 794.1729803569615,
+      "cold_start_ms": 467.5,
+      "context_tokens_approx": 1029,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_07",
+      "question": "What happened with the database incident? Is it fixed?",
+      "ground_truth": "Connection pool exhaustion on Postgres. Missing finally block in transaction handler (Bob's team). Fixed now. 1200 users affected, 45 min outage, error rate hit 8%. PagerDuty was 12 min late, threshold being lowered from 5% to 2%. Post-mortem due Friday, review Monday.",
+      "category": "inference",
+      "difficulty": "medium",
+      "response": "Great news on that search backend deployment, Bob\u2014dropping p-ninety-five latency from six hundred milliseconds to one-forty is a huge win. David fixed the Elasticsearch heap issue fast with a bump to thirty-two gigs, minimal customer impact. The team's earned that Slack shout-out.",
+      "latency_ms": 666.6365470737219,
+      "cold_start_ms": 403.0,
+      "context_tokens_approx": 1029,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_08",
+      "question": "What was the thing about the color scheme?",
+      "ground_truth": "Raj left strong opinions in Figma about the orange accent color. Orange is staying because marketing approved it for rebrand. Carol told him, he's not happy.",
+      "category": "ambiguous",
+      "difficulty": "medium",
+      "response": "Hey team, from the transcript, the new search backend deployed successfully on Friday with a hiccup\u2014David fixed an Elasticsearch heap issue overnight, but customer impact was minimal. Performance jumped from six hundred milliseconds at p ninety-five to one forty\u2014that's a huge win, and support tickets are already dropping. No other major updates came up before the transcript cut off.",
+      "latency_ms": 654.7152078710496,
+      "cold_start_ms": 407.7,
+      "context_tokens_approx": 1029,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_09",
+      "question": "Who do I talk to about the AWS costs?",
+      "ground_truth": "David is handling it. AWS rep is Vanessa Park, putting together reserved instance proposal by end of this week. Could save ~30%, from $63K to $45-46K/month.",
+      "category": "ambiguous",
+      "difficulty": "medium",
+      "response": "Hey folks, I was listening to the whole transcript. What's your question about the meeting?",
+      "latency_ms": 684.3504142016172,
+      "cold_start_ms": 410.5,
+      "context_tokens_approx": 1029,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_10",
+      "question": "When and where is the company offsite?",
+      "ground_truth": "Week of June 16th, Summit Lodge in Lake Tahoe.",
+      "category": "detail",
+      "difficulty": "easy",
+      "response": "Great to hear from you. What do you need to know about the meeting?",
+      "latency_ms": 985.5388402938843,
+      "cold_start_ms": 406.2,
+      "context_tokens_approx": 1029,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_11",
+      "question": "Which log aggregation tool are we going with?",
+      "ground_truth": "Mezmo over Datadog Logs. $4K/month vs $11K. Saves $84K/year. David starting procurement.",
+      "category": "decision",
+      "difficulty": "easy",
+      "response": "Great to hear everyone's on the line. So, what do you want to know about the meeting?",
+      "latency_ms": 806.3902901485562,
+      "cold_start_ms": 327.1,
+      "context_tokens_approx": 1029,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_12",
+      "question": "What's happening with the NPS score?",
+      "ground_truth": "Dropped from 42 to 37. Main complaint is mobile app performance. Looking at hiring a React Native contractor named Anika.",
+      "category": "detail",
+      "difficulty": "medium",
+      "response": "Great to hear everyone's on the line. What do you need from the meeting transcript?",
+      "latency_ms": 614.345311652869,
+      "cold_start_ms": 344.5,
+      "context_tokens_approx": 1029,
+      "sent_as": "audio"
+    }
+  ],
+  "hallucination_results": [
+    {
+      "probe_id": "hp_01",
+      "question": "What did we decide about the pricing changes?",
+      "expected": "NOT_DISCUSSED",
+      "response": "Nothing about pricing changes was discussed in the meeting. They mostly chatted about casual stuff, the new PTO policy, and the search backend launch.",
+      "latency_ms": 728.8805670104921
+    },
+    {
+      "probe_id": "hp_02",
+      "question": "Who's replacing Carol on the design team?",
+      "expected": "NOT_DISCUSSED",
+      "response": "Nobody's replacing Carol on the design team. That wasn't mentioned at all in the meeting.",
+      "latency_ms": 711.6658841259778
+    },
+    {
+      "probe_id": "hp_03",
+      "question": "What was the decision about moving to microservices?",
+      "expected": "NOT_DISCUSSED",
+      "response": "Nothing about moving to microservices was discussed in the meeting. They mainly talked about chit-chat, the new PTO policy, and the successful search backend deploy.",
+      "latency_ms": 720.1922950334847
+    },
+    {
+      "probe_id": "hp_04",
+      "question": "When is the product launch event?",
+      "expected": "NOT_DISCUSSED",
+      "response": "No product launch event was mentioned in the meeting. They mostly chatted about casual stuff and the new search backend deployment.",
+      "latency_ms": 697.26557796821
+    }
+  ],
+  "scores": [
+    {
+      "fact_id": "pm_01",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "Hey folks, I was listening to the whole transcript. What's your question about the meeting?",
+      "expected_text": "Tomas: autocomplete fix by Wednesday, then Node upgrade (2 weeks). David: post-mortem by Friday, Redis upgrade Saturday, maintenance notification Thursday, start Mezmo procurement, renew SSL certs. Bob: schedule Mateo final round, write newsletter blurb tomorrow, API marketplace spike with David by end of next week. Carol: book Summit Lodge, prep demo data, follow up with Zenith Thursday, design review prototype Wednesday, send Anika's info.",
+      "rationale": "The model doesn't provide any action items and instead asks for clarification about what the human wants to know. This shows honest uncertainty rather than fabricating information, which is the appropriate response when unable to recall specific details."
+    },
+    {
+      "fact_id": "pm_02",
+      "verdict": "incorrect",
+      "confidence": 0.95,
+      "partial_credit": 0.0,
+      "hallucinated": true,
+      "response_text": "Hey folks, based on the transcript, the new search backend deployed successfully on Friday, dropping p95 latency from 600 milliseconds down to 140\u2014that's a huge four-times improvement. There was a brief Elasticsearch heap issue early Saturday morning, but David fixed it quickly by bumping it to 32 gigs, with only minimal customer impact. The team also handled a nine-hour reindex, and support tickets for search are already way down.",
+      "expected_text": "Going with Redis over Memcached because they can use it for sessions too and already have the cluster running.",
+      "rationale": "The response completely ignores the question about caching strategy and instead discusses an unrelated topic about search backend performance. The model confidently provides specific details about latency improvements, Elasticsearch issues, and support tickets that are not relevant to the caching decision question."
+    },
+    {
+      "fact_id": "pm_03",
+      "verdict": "incorrect",
+      "confidence": 0.95,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "Hey team, from the transcript, the new search backend launched successfully on Friday. They had a quick Elasticsearch heap issue that David fixed in about fifteen minutes\u2014no major downtime. Latency dropped from six hundred milliseconds at p-ninety-five to one-forty, which is a huge win.",
+      "expected_text": "Card layout by default with toggle for table view. Cards-only on mobile. Three weeks for cards, five weeks total with table toggle. Starting next sprint.",
+      "rationale": "The response completely misses the question about dashboard redesign and instead talks about search backend launch, Elasticsearch issues, and latency improvements. This appears to be information from a different part of the conversation, not fabricated details."
+    },
+    {
+      "fact_id": "pm_04",
+      "verdict": "incorrect",
+      "confidence": 0.95,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "Hey team, from the transcript, the new search backend deployed successfully on Friday. It improved p95 latency from 600 milliseconds down to 140\u2014huge win. They hit a quick Elasticsearch heap issue Saturday morning, but David fixed it fast with minimal customer impact.",
+      "expected_text": "About $27,600 (23 people x $400/night x 3 nights) at Summit Lodge in Lake Tahoe.",
+      "rationale": "The response completely ignores the question about offsite costs and instead discusses technical details about a search backend deployment. This appears to be a response to an entirely different question, showing no relevant information about the company offsite cost."
+    },
+    {
+      "fact_id": "pm_05",
+      "verdict": "incorrect",
+      "confidence": 0.95,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "Great to hear everyone's on the line. What do you need to know about the meeting?",
+      "expected_text": "$200K ARR enterprise healthcare deal. Need SOC 2 Type II (audit starts September, expect Q1 next year). Demo Thursday to show reporting/export module. Prashant managing.",
+      "rationale": "The response completely fails to address the question about the Meridian Health opportunity and instead asks what the user needs to know about 'the meeting', showing no recall of the specific deal details, ARR amount, SOC 2 requirements, demo timing, or Prashant's involvement."
+    },
+    {
+      "fact_id": "pm_06",
+      "verdict": "incorrect",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": true,
+      "response_text": "Hey folks, I was listening to the whole transcript. They just finished chatting about the new search backend deploy\u2014huge win, down to one hundred forty milliseconds at p ninety-five. No customer complaints yet, and support tickets dropped right away.",
+      "expected_text": "Autocomplete fix due Wednesday, then Node.js 22 upgrade (two weeks). Rate limiter got pushed. Sequential, should be OK.",
+      "rationale": "The response completely ignores the question about Tomas's workload and instead discusses search backend deployment metrics that are unrelated to the expected answer about autocomplete fixes and Node.js upgrades. This appears to be fabricated content presented confidently."
+    },
+    {
+      "fact_id": "pm_07",
+      "verdict": "hallucinated",
+      "confidence": 0.95,
+      "partial_credit": 0.0,
+      "hallucinated": true,
+      "response_text": "Great news on that search backend deployment, Bob\u2014dropping p-ninety-five latency from six hundred milliseconds to one-forty is a huge win. David fixed the Elasticsearch heap issue fast with a bump to thirty-two gigs, minimal customer impact. The team's earned that Slack shout-out.",
+      "expected_text": "Connection pool exhaustion on Postgres. Missing finally block in transaction handler (Bob's team). Fixed now. 1200 users affected, 45 min outage, error rate hit 8%. PagerDuty was 12 min late, threshold being lowered from 5% to 2%. Post-mortem due Friday, review Monday.",
+      "rationale": "The response completely fabricates details about a search backend deployment, Elasticsearch heap issues, and latency improvements that are not mentioned in the expected answer about a database incident. The model confidently states specific technical details (p95 latency dropping from 600ms to 140ms, heap size bump to 32GB) that were not discussed."
+    },
+    {
+      "fact_id": "pm_08",
+      "verdict": "incorrect",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": true,
+      "response_text": "Hey team, from the transcript, the new search backend deployed successfully on Friday with a hiccup\u2014David fixed an Elasticsearch heap issue overnight, but customer impact was minimal. Performance jumped from six hundred milliseconds at p ninety-five to one forty\u2014that's a huge win, and support tickets are already dropping. No other major updates came up before the transcript cut off.",
+      "expected_text": "Raj left strong opinions in Figma about the orange accent color. Orange is staying because marketing approved it for rebrand. Carol told him, he's not happy.",
+      "rationale": "The response completely ignores the question about color scheme and instead discusses backend deployment, Elasticsearch, and performance metrics. This appears to be hallucinated technical information that doesn't match the expected answer about Raj's opinions on orange accent color in Figma."
+    },
+    {
+      "fact_id": "pm_09",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "Hey folks, I was listening to the whole transcript. What's your question about the meeting?",
+      "expected_text": "David is handling it. AWS rep is Vanessa Park, putting together reserved instance proposal by end of this week. Could save ~30%, from $63K to $45-46K/month.",
+      "rationale": "The model doesn't attempt to answer the specific question about AWS costs and instead asks for clarification. This is honest uncertainty rather than fabricating details, which is appropriate when the model doesn't have clear recall of the information."
+    },
+    {
+      "fact_id": "pm_10",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "Great to hear from you. What do you need to know about the meeting?",
+      "expected_text": "Week of June 16th, Summit Lodge in Lake Tahoe.",
+      "rationale": "The model didn't provide the specific offsite details (June 16th week, Summit Lodge in Lake Tahoe) but also didn't fabricate information. Instead, it asked for clarification, which is appropriate when uncertain about details."
+    },
+    {
+      "fact_id": "pm_11",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "Great to hear everyone's on the line. So, what do you want to know about the meeting?",
+      "expected_text": "Mezmo over Datadog Logs. $4K/month vs $11K. Saves $84K/year. David starting procurement.",
+      "rationale": "The model responded with a generic question instead of attempting to recall the log aggregation tool decision. This shows it doesn't remember the specific information, which is better than fabricating an answer."
+    },
+    {
+      "fact_id": "pm_12",
+      "verdict": "incorrect",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "Great to hear everyone's on the line. What do you need from the meeting transcript?",
+      "expected_text": "Dropped from 42 to 37. Main complaint is mobile app performance. Looking at hiring a React Native contractor named Anika.",
+      "rationale": "The response completely ignores the specific question about NPS scores and instead asks what the user needs from a meeting transcript. It provides no relevant information about the NPS drop, mobile app performance issues, or the contractor Anika."
+    }
+  ],
+  "hallucination_scores": [
+    {
+      "fact_id": "hp_01",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "Nothing about pricing changes was discussed in the meeting. They mostly chatted about casual stuff, the new PTO policy, and the search backend launch.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly states that pricing changes were not discussed, which matches the expected answer of 'NOT_DISCUSSED'. It demonstrates honest uncertainty rather than fabricating information."
+    },
+    {
+      "fact_id": "hp_02",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "Nobody's replacing Carol on the design team. That wasn't mentioned at all in the meeting.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly identified that this topic was not discussed in the meeting, which matches the expected answer of 'NOT_DISCUSSED'. This is appropriate honest uncertainty rather than fabricating information."
+    },
+    {
+      "fact_id": "hp_03",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "Nothing about moving to microservices was discussed in the meeting. They mainly talked about chit-chat, the new PTO policy, and the successful search backend deploy.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly identified that microservices were not discussed in the meeting and accurately stated what was actually covered instead. This is appropriate honest uncertainty rather than fabrication."
+    },
+    {
+      "fact_id": "hp_04",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "No product launch event was mentioned in the meeting. They mostly chatted about casual stuff and the new search backend deployment.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly acknowledges that no product launch event was discussed, which matches the expected answer of 'NOT_DISCUSSED'. The additional context about what was actually discussed (casual stuff and search backend deployment) appears to be consistent with acknowledging the topic wasn't covered."
+    }
+  ],
+  "aggregate": {
+    "total_questions": 12,
+    "recall_accuracy": 0.0,
+    "hallucination_rate": 0.3333333333333333,
+    "honest_uncertainty_rate": 0.3333333333333333,
+    "avg_partial_credit": 0.0,
+    "by_category": {
+      "action_item": 0.0,
+      "decision": 0.0,
+      "detail": 0.0,
+      "inference": 0.0,
+      "ambiguous": 0.0
+    },
+    "by_minute": {
+      "0": 0.0,
+      "9": 0.0,
+      "15": 0.0,
+      "40": 0.0,
+      "35": 0.0,
+      "8": 0.0,
+      "24": 0.0,
+      "17": 0.0,
+      "22": 0.0,
+      "41": 0.0,
+      "50": 0.0,
+      "53": 0.0
+    }
+  },
+  "stt_session_metrics": {
+    "items_injected": 90,
+    "errors": [
+      {
+        "type": "error",
+        "event_id": "8c96b5c7-71e3-48e3-9f23-5c778beb8ead",
+        "error": {
+          "message": "Conversation timed out after 900.0 seconds due to inactivity",
+          "type": "timeout",
+          "event_id": "8c96b5c7-71e3-48e3-9f23-5c778beb8ead"
+        },
+        "code": "timeout",
+        "message": "Conversation timed out after 900.0 seconds due to inactivity",
+        "previous_item_id": null
+      }
+    ],
+    "connection_drops": 0
+  },
+  "run_id": "20260331T213903Z_grok_e07_production_sim",
+  "run_name": "run_006",
+  "saved_at": "2026-03-31T21:39:03.394519+00:00"
+}
