@@ -1,0 +1,102 @@
+Voice Benchmarks — run_012
+Date: Wed Apr  1 21:30:31 UTC 2026
+Failures: 0/20
+
+========== E01: Instant Context Recall ==========
+# Voice Benchmark Comparison — Experiment 01: Long Session Context
+
+| Metric | OPENAI |
+|---|---|
+| **Runs** | 1 |
+| **Recall Accuracy** | 100% |
+| **Hallucination Rate** | 0% |
+| **Honest Uncertainty** | 0% |
+| **Avg Partial Credit** | 97% |
+| **Avg Latency** | 863ms |
+| **P95 Latency** | 2126ms |
+| **Connection Drops** | 0 |
+| **Errors** | 0 |
+
+## Recall by Category
+
+| Category | OPENAI |
+|---|---|
+| date | 100% |
+| decision | 100% |
+| name | 100% |
+| number | 92% |
+| preference | 92% |
+
+## Recall by Time Period
+
+| Period | OPENAI |
+|---|---|
+| Early (0-20min) | 100% |
+| Mid (20-40min) | 95% |
+| Late (40-60min) | 97% |
+
+========== E06: Always-Streaming Audio (OpenAI) ==========
+# Voice Benchmark Comparison — Experiment 01: Long Session Context
+
+| Metric | OPENAI |
+|---|---|
+| **Runs** | 3 |
+| **Recall Accuracy** | 38% |
+| **Hallucination Rate** | 25% |
+| **Honest Uncertainty** | 33% |
+| **Avg Partial Credit** | 32% |
+| **Avg Latency** | N/A |
+| **P95 Latency** | N/A |
+| **Connection Drops** | 0 |
+| **Errors** | 8 |
+
+## Recall by Category
+
+| Category | OPENAI |
+|---|---|
+| action_item | 20% |
+| ambiguous | 42% |
+| decision | 57% |
+| detail | 1% |
+| inference | 52% |
+
+## Recall by Time Period
+
+| Period | OPENAI |
+|---|---|
+| Early (0-20min) | 57% |
+| Mid (20-40min) | 25% |
+| Late (40-60min) | 0% |
+
+========== E07: Production Sim ==========
+# Voice Benchmark Comparison — Experiment 01: Long Session Context
+
+| Metric | OPENAI |
+|---|---|
+| **Runs** | 3 |
+| **Recall Accuracy** | 43% |
+| **Hallucination Rate** | 14% |
+| **Honest Uncertainty** | 31% |
+| **Avg Partial Credit** | 34% |
+| **Avg Latency** | N/A |
+| **P95 Latency** | N/A |
+| **Connection Drops** | 0 |
+| **Errors** | 0 |
+
+## Recall by Category
+
+| Category | OPENAI |
+|---|---|
+| action_item | 20% |
+| ambiguous | 52% |
+| decision | 57% |
+| detail | 1% |
+| inference | 52% |
+
+## Recall by Time Period
+
+| Period | OPENAI |
+|---|---|
+| Early (0-20min) | 62% |
+| Mid (20-40min) | 22% |
+| Late (40-60min) | 1% |
