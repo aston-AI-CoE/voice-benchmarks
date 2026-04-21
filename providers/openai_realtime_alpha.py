@@ -133,20 +133,19 @@ class OpenAIRealtimeAlphaProvider(OpenAIRealtimeProvider):
                 confirmed_effort = (
                     event.get("session", {}).get("reasoning", {}).get("effort", "?")
                 )
-                # Check whether VAD was actually disabled
-                td = event.get("session", {}).get("turn_detection")
-                if td is None or (isinstance(td, dict) and td.get("type") == "none"):
-                    self._vad_active = False
-                    logger.info(
-                        "Session confirmed — model=%s, reasoning=%s, VAD=disabled",
-                        confirmed_model, confirmed_effort,
-                    )
-                else:
-                    self._vad_active = True
-                    logger.info(
-                        "Session confirmed — model=%s, reasoning=%s, VAD=active (turn_detection=%s)",
-                        confirmed_model, confirmed_effort, td,
-                    )
+                # Only update _vad_active if we haven't already set it via an
+                # error path (e.g. turn_detection rejection already set it True).
+                # session.updated after a failed turn_detection retry omits the
+                # field entirely (td=None), which must NOT be read as VAD=off.
+                if not self._vad_active:
+                    td = event.get("session", {}).get("turn_detection")
+                    if td is not None and not (isinstance(td, dict) and td.get("type") == "none"):
+                        self._vad_active = True
+                logger.info(
+                    "Session confirmed — model=%s, reasoning=%s, VAD=%s",
+                    confirmed_model, confirmed_effort,
+                    "active" if self._vad_active else "disabled",
+                )
                 break
 
             if etype == "error":
