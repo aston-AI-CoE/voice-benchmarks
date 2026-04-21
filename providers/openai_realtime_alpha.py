@@ -69,6 +69,7 @@ class OpenAIRealtimeAlphaProvider(OpenAIRealtimeProvider):
         self._commentary_text = ""
         self._item_phases: dict[str, str] = {}  # item_id -> "commentary" | "final_answer"
         self._vad_active = True  # assume VAD on until session confirms otherwise
+        self._transcription_supported: bool | None = None  # None = not yet known
 
     @property
     def name(self) -> str:
@@ -115,6 +116,9 @@ class OpenAIRealtimeAlphaProvider(OpenAIRealtimeProvider):
                 # if so, we fall back to VAD-resilient audio methods below.
                 "turn_detection": {"type": "none"},
                 "reasoning": {"effort": self._reasoning_effort},
+                # Request input audio transcription. Alpha may reject this field;
+                # if rejected we skip the transcription wait in send_audio_no_response.
+                "input_audio_transcription": {"model": "whisper-1"},
             },
         }
         if tools:
@@ -141,26 +145,38 @@ class OpenAIRealtimeAlphaProvider(OpenAIRealtimeProvider):
                     td = event.get("session", {}).get("turn_detection")
                     if td is not None and not (isinstance(td, dict) and td.get("type") == "none"):
                         self._vad_active = True
+                # Confirm whether input_audio_transcription was accepted.
+                # Only set if still unknown (rejection path sets it to False already).
+                if self._transcription_supported is None:
+                    iat = event.get("session", {}).get("input_audio_transcription")
+                    self._transcription_supported = iat is not None
                 logger.info(
-                    "Session confirmed — model=%s, reasoning=%s, VAD=%s",
+                    "Session confirmed — model=%s, reasoning=%s, VAD=%s, transcription=%s",
                     confirmed_model, confirmed_effort,
                     "active" if self._vad_active else "disabled",
+                    "supported" if self._transcription_supported else "NOT supported (server rejected)",
                 )
                 break
 
             if etype == "error":
                 err_code = event.get("error", {}).get("code", "")
                 err_param = event.get("error", {}).get("param", "")
-                # If alpha rejected turn_detection, log and continue — we'll
-                # handle VAD via resilient audio methods instead of aborting.
                 if err_code == "unknown_parameter" and "turn_detection" in err_param:
                     logger.warning(
-                        "Alpha rejected turn_detection field — server VAD will be active. "
-                        "Audio methods will operate in VAD-resilient mode."
+                        "Alpha rejected turn_detection — server VAD will be active."
                     )
                     self._vad_active = True
-                    # Re-send session config without turn_detection
                     del session_config["session"]["turn_detection"]
+                    await self._ws.send(json.dumps(session_config))
+                    continue
+                if err_code == "unknown_parameter" and "input_audio_transcription" in err_param:
+                    # Server-side rejection confirmed — not a code bug.
+                    logger.warning(
+                        "Alpha rejected input_audio_transcription (server-side) — "
+                        "transcription unavailable; E07 will use original text fallback."
+                    )
+                    self._transcription_supported = False
+                    del session_config["session"]["input_audio_transcription"]
                     await self._ws.send(json.dumps(session_config))
                     continue
                 raise RuntimeError(f"OpenAI alpha session error: {event}")
@@ -332,12 +348,13 @@ class OpenAIRealtimeAlphaProvider(OpenAIRealtimeProvider):
 
         await self._commit_audio()
 
-        # Wait for transcription (alpha doesn't support input_audio_transcription,
-        # so this always times out — E07 falls back to original text, which is correct).
-        try:
-            await asyncio.wait_for(self._transcription_done.wait(), timeout=3.0)
-        except asyncio.TimeoutError:
-            pass
+        # Wait for transcription only if the server confirmed support during connect().
+        # If rejected (server-side), skip entirely — original text fallback is used.
+        if self._transcription_supported:
+            try:
+                await asyncio.wait_for(self._transcription_done.wait(), timeout=10.0)
+            except asyncio.TimeoutError:
+                pass
 
         # If VAD triggered a response, drain it so it doesn't interfere with
         # subsequent calls. Short timeout — we don't want to block the meeting stream.

@@ -1,0 +1,564 @@
+{
+  "experiment": "e07_production_sim",
+  "provider": "openai-alpha[low]",
+  "config": {
+    "architecture": "production: STT session + fresh voice session per question",
+    "meeting_lines": 737,
+    "mid_questions": 13,
+    "post_questions": 12,
+    "questions_via": "audio",
+    "duration_minutes": 55
+  },
+  "session_survival": {
+    "stt_lines_sent": 392,
+    "stt_lines_total": 737,
+    "stt_survived": false,
+    "connection_died_at": "line 392 (ConnectionClosedOK: received 1001 (going away) Your session hit the maximum duration of 60 minutes.; then sent 1001 (going away) Your session hit the maximum duration of 60 minutes.)"
+  },
+  "timing": {
+    "total_elapsed_seconds": 3602.1604685401544,
+    "total_elapsed_minutes": 60.03600780900258
+  },
+  "transcription": {
+    "total_compared": 0,
+    "avg_wer": null,
+    "details": []
+  },
+  "health_checks": [
+    {
+      "minute": 0,
+      "elapsed_real_minutes": 0.0,
+      "connected": true,
+      "lines_sent": 0,
+      "phase": "stt"
+    },
+    {
+      "minute": 5,
+      "elapsed_real_minutes": 9.8,
+      "connected": true,
+      "lines_sent": 62,
+      "phase": "stt"
+    },
+    {
+      "minute": 10,
+      "elapsed_real_minutes": 19.7,
+      "connected": true,
+      "lines_sent": 122,
+      "phase": "stt"
+    },
+    {
+      "minute": 15,
+      "elapsed_real_minutes": 31.3,
+      "connected": true,
+      "lines_sent": 196,
+      "phase": "stt"
+    },
+    {
+      "minute": 20,
+      "elapsed_real_minutes": 39.8,
+      "connected": true,
+      "lines_sent": 257,
+      "phase": "stt"
+    },
+    {
+      "minute": 25,
+      "elapsed_real_minutes": 50.4,
+      "connected": true,
+      "lines_sent": 329,
+      "phase": "stt"
+    },
+    {
+      "minute": 30,
+      "elapsed_real_minutes": 59.0,
+      "connected": true,
+      "lines_sent": 386,
+      "phase": "stt"
+    }
+  ],
+  "mid_meeting_results": [
+    {
+      "minute": 7,
+      "elapsed_real_seconds": 881.4545260025188,
+      "question": "Hey Otto, what was the search latency before and after the new backend?",
+      "ground_truth": "p95 search latency went from 600ms to 140ms",
+      "response": "Before the new backend, search latency was about six hundred milliseconds at the ninety fifth percentile. After the change, it dropped to about one hundred forty milliseconds.",
+      "latency_ms": 4541.1684503778815,
+      "cold_start_ms": 671.3,
+      "context_lines": 89,
+      "context_tokens_approx": 1015,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 10,
+      "elapsed_real_seconds": 1202.5428445916623,
+      "question": "Otto, who's fixing the autocomplete issue and when?",
+      "ground_truth": "Tomas Kovac, by Wednesday. It's pulling from the old index showing stale results.",
+      "response": "Tomas Kovac is handling the autocomplete fix, and he said he\u2019d have it done by Wednesday.",
+      "latency_ms": 2808.759231120348,
+      "cold_start_ms": 285.8,
+      "context_lines": 123,
+      "context_tokens_approx": 1442,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 12,
+      "elapsed_real_seconds": 1483.67484520562,
+      "question": "Hey Otto, what did we decide for caching? Redis or Memcached?",
+      "ground_truth": "Redis, because they can also use it for sessions and already have the cluster running",
+      "response": "We decided on Redis. The reason was that we already have a Redis cluster running, and it can also be used for the session store, so it\u2019s one less thing to manage and no extra cost since it\u2019s already in place.",
+      "latency_ms": 4129.607756622136,
+      "cold_start_ms": 304.9,
+      "context_lines": 154,
+      "context_tokens_approx": 1841,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 14,
+      "elapsed_real_seconds": 1796.8003643099219,
+      "question": "Otto, how long did the reindex take and how did we test the search launch?",
+      "ground_truth": "Reindex took 9 hours. They did a shadow deployment running old and new in parallel for 2 weeks. Caught 3 bugs including a unicode/emoji edge case.",
+      "response": "The reindex took about nine hours. They kicked it off Friday evening, checked on it periodically, and it finished around midnight.\n\nFor testing, they did a shadow deployment. They ran the old and new systems in parallel for two weeks and compared results. They said it caught three bugs, including a nasty unicode and emoji edge case, and the extra compute cost was described as maybe a couple hundred bucks for those two weeks.",
+      "latency_ms": 5564.940861426294,
+      "cold_start_ms": 536.9,
+      "context_lines": 186,
+      "context_tokens_approx": 2274,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 18,
+      "elapsed_real_seconds": 2157.4969203835353,
+      "question": "Hey Otto, what's the timeline for the dashboard redesign Carol mentioned?",
+      "ground_truth": "Cards in 3 weeks, toggle for table view adds 2 more, 5 weeks total. Cards only on mobile.",
+      "response": "Carol said the cards view is about three weeks, and adding the table toggle adds two more weeks, so five weeks total for the full thing. She also said they can start next sprint.",
+      "latency_ms": 3966.860114596784,
+      "cold_start_ms": 620.6,
+      "context_lines": 230,
+      "context_tokens_approx": 2851,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 22,
+      "elapsed_real_seconds": 2776.954598055221,
+      "question": "Otto, what were the accessibility audit results? How many issues?",
+      "ground_truth": "14 violations, mostly contrast issues in sidebar and missing ARIA labels on modals",
+      "response": "The accessibility audit found fourteen violations. Most were contrast issues in the sidebar, plus some missing ARIA labels on modals.",
+      "latency_ms": 4594.439089298248,
+      "cold_start_ms": 624.8,
+      "context_lines": 299,
+      "context_tokens_approx": 3667,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 26,
+      "elapsed_real_seconds": 3118.936792893335,
+      "question": "Hey Otto, how much was the cloud bill and why did it jump?",
+      "ground_truth": "$63K for February, up from $51K. GPU instances for ML and idle staging environments left running over the weekend ($4K waste)",
+      "response": "The cloud bill was sixty three thousand dollars, and it jumped from fifty one thousand last month. The increase came mainly from GPU instances for the ML pipeline, which are around twenty thousand, plus about four thousand from three staging environments that were left running over the weekend.",
+      "latency_ms": 3192.2539696097374,
+      "cold_start_ms": 306.0,
+      "context_lines": 340,
+      "context_tokens_approx": 4205,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 29,
+      "elapsed_real_seconds": 3429.0532305100933,
+      "question": "Otto, what happened in the Thursday night incident? How bad was it?",
+      "ground_truth": "Postgres connection pool exhausted, missing finally block, 1200 users affected, 45 min outage, error rate hit 8%, PagerDuty was 12 min late",
+      "response": "The Thursday night incident was a database connection pool issue on the primary Postgres instance. The app was opening connections and not releasing them because of a missing finally block in the transaction handler, so the connection pool got exhausted. It took about forty five minutes to diagnose. Around twelve hundred users were affected, and the error rate hit about eight percent during the outage. They fixed the bug, added a connection pool monitor that alerts at eighty percent usage, and planned to lower the alert threshold to two percent to catch it sooner.",
+      "latency_ms": 3808.543151244521,
+      "cold_start_ms": 354.7,
+      "context_lines": 375,
+      "context_tokens_approx": 4635,
+      "sent_as": "audio"
+    }
+  ],
+  "post_meeting_results": [
+    {
+      "question_id": "pm_01",
+      "question": "What are the main action items from this meeting?",
+      "ground_truth": "Tomas: autocomplete fix by Wednesday, then Node upgrade (2 weeks). David: post-mortem by Friday, Redis upgrade Saturday, maintenance notification Thursday, start Mezmo procurement, renew SSL certs. Bob: schedule Mateo final round, write newsletter blurb tomorrow, API marketplace spike with David by end of next week. Carol: book Summit Lodge, prep demo data, follow up with Zenith Thursday, design review prototype Wednesday, send Anika's info.",
+      "category": "action_item",
+      "difficulty": "hard",
+      "response": "Here are the main action items that came out of the meeting. Tomas Kovac is handling the autocomplete fix so stale suggestions are resolved, with a target of Wednesday. Bob will share the before and after benchmark numbers in Slack and investigate the mobile empty-results bug with Carol\u2019s ticket numbers. David will set up the error-rate dashboard, finish the staging auto-termination Lambda by the end of the week, and write the Thursday-night incident post-mortem by Friday, with a review meeting on Monday. David will also send the customer maintenance notice by Thursday for the Redis upgrade, run the Redis upgrade during the Saturday maintenance window, verify the cluster topology and replication expectations, and rotate the database credentials this week. Carol will put together the accessibility fix plan this week and present the notification preferences mock during the Wednesday design review. Bob and David will pursue CI improvements and on-call training next week to reduce burnout and improve coverage.",
+      "latency_ms": 4987.792152911425,
+      "cold_start_ms": 371.8,
+      "context_tokens_approx": 4871,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_02",
+      "question": "What did we decide about the caching strategy?",
+      "ground_truth": "Going with Redis over Memcached because they can use it for sessions too and already have the cluster running.",
+      "category": "decision",
+      "difficulty": "medium",
+      "response": "They decided to use Redis instead of Memcached, mainly because they can also use Redis for the session store and they already have a Redis cluster, so it\u2019s simpler to manage and no additional cost.",
+      "latency_ms": 2677.197246812284,
+      "cold_start_ms": 510.8,
+      "context_tokens_approx": 4871,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_03",
+      "question": "What's the plan for the dashboard redesign?",
+      "ground_truth": "Card layout by default with toggle for table view. Cards-only on mobile. Three weeks for cards, five weeks total with table toggle. Starting next sprint.",
+      "category": "decision",
+      "difficulty": "medium",
+      "response": "They\u2019re moving the dashboard to a card layout, but they\u2019re also going to keep a table view as an option because power users strongly prefer it. The plan they discussed is cards first in about three weeks, then the table toggle adds around two more weeks, so roughly five weeks total. On mobile, it would just be cards, no toggle, because the table view doesn\u2019t work well on small screens.",
+      "latency_ms": 2763.11098318547,
+      "cold_start_ms": 346.6,
+      "context_tokens_approx": 4871,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_04",
+      "question": "How much is the company offsite going to cost roughly?",
+      "ground_truth": "About $27,600 (23 people x $400/night x 3 nights) at Summit Lodge in Lake Tahoe.",
+      "category": "detail",
+      "difficulty": "hard",
+      "response": "They didn\u2019t say an exact offsite cost in the transcript. The only hint is someone said the potential savings \u201cwould basically pay for the offsite. Twice,\u201d but there\u2019s no dollar figure given for the offsite itself.",
+      "latency_ms": 4657.631639391184,
+      "cold_start_ms": 314.9,
+      "context_tokens_approx": 4871,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_05",
+      "question": "What's the deal with the Meridian Health opportunity?",
+      "ground_truth": "$200K ARR enterprise healthcare deal. Need SOC 2 Type II (audit starts September, expect Q1 next year). Demo Thursday to show reporting/export module. Prashant managing.",
+      "category": "detail",
+      "difficulty": "hard",
+      "response": "I don\u2019t see any mention of a Meridian Health opportunity in the transcript, so I can\u2019t say what the deal is based on this meeting. If that\u2019s a separate opportunity, it just didn\u2019t come up here.",
+      "latency_ms": 3582.0065857842565,
+      "cold_start_ms": 313.6,
+      "context_tokens_approx": 4871,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_06",
+      "question": "Is Tomas going to be overloaded? What's on his plate?",
+      "ground_truth": "Autocomplete fix due Wednesday, then Node.js 22 upgrade (two weeks). Rate limiter got pushed. Sequential, should be OK.",
+      "category": "inference",
+      "difficulty": "hard",
+      "response": "From the transcript, Tomas Kovac is currently working on the autocomplete fix because it\u2019s customer-facing, and it\u2019s expected to be done by Wednesday. The rate limiter work was pushed to make room for this. I don\u2019t see anything else assigned to him in the discussion, so I can\u2019t say for sure whether he\u2019s overloaded beyond that one task.",
+      "latency_ms": 3978.126467205584,
+      "cold_start_ms": 322.8,
+      "context_tokens_approx": 4871,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_07",
+      "question": "What happened with the database incident? Is it fixed?",
+      "ground_truth": "Connection pool exhaustion on Postgres. Missing finally block in transaction handler (Bob's team). Fixed now. 1200 users affected, 45 min outage, error rate hit 8%. PagerDuty was 12 min late, threshold being lowered from 5% to 2%. Post-mortem due Friday, review Monday.",
+      "category": "inference",
+      "difficulty": "medium",
+      "response": "Yeah, it\u2019s fixed. The primary Postgres connection pool got exhausted because a missing finally block in the transaction handler meant some connections weren\u2019t being released when errors happened. They added the missing finally block and a connection pool monitor that alerts when usage goes above eighty percent. They also plan to lower the error-rate alert threshold from five percent to two percent to catch issues earlier, and David is writing a blameless post-mortem that\u2019s due Friday with a review meeting on Monday.",
+      "latency_ms": 3171.397928148508,
+      "cold_start_ms": 304.7,
+      "context_tokens_approx": 4871,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_08",
+      "question": "What was the thing about the color scheme?",
+      "ground_truth": "Raj left strong opinions in Figma about the orange accent color. Orange is staying because marketing approved it for rebrand. Carol told him, he's not happy.",
+      "category": "ambiguous",
+      "difficulty": "medium",
+      "response": "Raj left some strong comments in Figma about the orange accent color, basically a bit of a rant. But the team said the orange is staying because marketing already approved it for the rebrand. Carol described it as a warm tangerine and said it\u2019s actually nice, even though Raj wasn\u2019t thrilled.",
+      "latency_ms": 2393.49801838398,
+      "cold_start_ms": 306.0,
+      "context_tokens_approx": 4871,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_09",
+      "question": "Who do I talk to about the AWS costs?",
+      "ground_truth": "David is handling it. AWS rep is Vanessa Park, putting together reserved instance proposal by end of this week. Could save ~30%, from $63K to $45-46K/month.",
+      "category": "ambiguous",
+      "difficulty": "medium",
+      "response": "Talk to Vanessa Park. She\u2019s the AWS rep David mentioned, and she\u2019s preparing a reserved instance proposal that should come by the end of this week.",
+      "latency_ms": 2907.5581980869174,
+      "cold_start_ms": 279.2,
+      "context_tokens_approx": 4871,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_10",
+      "question": "When and where is the company offsite?",
+      "ground_truth": "Week of June 16th, Summit Lodge in Lake Tahoe.",
+      "category": "detail",
+      "difficulty": "easy",
+      "response": "They didn\u2019t discuss when or where the company offsite is. It only came up as a quick reference about cost, not as an actual plan.",
+      "latency_ms": 3201.1596150696278,
+      "cold_start_ms": 294.3,
+      "context_tokens_approx": 4871,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_11",
+      "question": "Which log aggregation tool are we going with?",
+      "ground_truth": "Mezmo over Datadog Logs. $4K/month vs $11K. Saves $84K/year. David starting procurement.",
+      "category": "decision",
+      "difficulty": "easy",
+      "response": "That didn\u2019t come up in the transcript. They talked about logs being unhelpful during the incident, but they didn\u2019t pick or even mention a log aggregation tool.",
+      "latency_ms": 3683.312591165304,
+      "cold_start_ms": 312.1,
+      "context_tokens_approx": 4871,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_12",
+      "question": "What's happening with the NPS score?",
+      "ground_truth": "Dropped from 42 to 37. Main complaint is mobile app performance. Looking at hiring a React Native contractor named Anika.",
+      "category": "detail",
+      "difficulty": "medium",
+      "response": "NPS didn\u2019t come up in the transcript. There\u2019s no NPS score discussed, no trend, and no action items tied to it.",
+      "latency_ms": 2609.375358559191,
+      "cold_start_ms": 287.6,
+      "context_tokens_approx": 4871,
+      "sent_as": "audio"
+    }
+  ],
+  "hallucination_results": [
+    {
+      "probe_id": "hp_01",
+      "question": "What did we decide about the pricing changes?",
+      "expected": "NOT_DISCUSSED",
+      "response": "Pricing changes weren\u2019t discussed in this meeting. There was talk about costs like the cloud bill and savings from reserved instances, but nothing about changing product pricing.",
+      "latency_ms": 567.9727820679545
+    },
+    {
+      "probe_id": "hp_02",
+      "question": "Who's replacing Carol on the design team?",
+      "expected": "NOT_DISCUSSED",
+      "response": "That wasn\u2019t discussed in the meeting, so there\u2019s no information about anyone replacing Carol on the design team.",
+      "latency_ms": 495.71129214018583
+    },
+    {
+      "probe_id": "hp_03",
+      "question": "What was the decision about moving to microservices?",
+      "expected": "NOT_DISCUSSED",
+      "response": "That didn\u2019t come up in the transcript, so there wasn\u2019t any decision about moving to microservices.",
+      "latency_ms": 942.6079355180264
+    },
+    {
+      "probe_id": "hp_04",
+      "question": "When is the product launch event?",
+      "expected": "NOT_DISCUSSED",
+      "response": "That didn\u2019t come up in the transcript, so I don\u2019t have a date or any details for a product launch event. If you want, I can help you draft a quick message to ask the team.",
+      "latency_ms": 618.8251385465264
+    }
+  ],
+  "scores": [
+    {
+      "fact_id": "pm_01",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.6,
+      "hallucinated": true,
+      "response_text": "Here are the main action items that came out of the meeting. Tomas Kovac is handling the autocomplete fix so stale suggestions are resolved, with a target of Wednesday. Bob will share the before and after benchmark numbers in Slack and investigate the mobile empty-results bug with Carol\u2019s ticket numbers. David will set up the error-rate dashboard, finish the staging auto-termination Lambda by the end of the week, and write the Thursday-night incident post-mortem by Friday, with a review meeting on Monday. David will also send the customer maintenance notice by Thursday for the Redis upgrade, run the Redis upgrade during the Saturday maintenance window, verify the cluster topology and replication expectations, and rotate the database credentials this week. Carol will put together the accessibility fix plan this week and present the notification preferences mock during the Wednesday design review. Bob and David will pursue CI improvements and on-call training next week to reduce burnout and improve coverage.",
+      "expected_text": "Tomas: autocomplete fix by Wednesday, then Node upgrade (2 weeks). David: post-mortem by Friday, Redis upgrade Saturday, maintenance notification Thursday, start Mezmo procurement, renew SSL certs. Bob: schedule Mateo final round, write newsletter blurb tomorrow, API marketplace spike with David by end of next week. Carol: book Summit Lodge, prep demo data, follow up with Zenith Thursday, design review prototype Wednesday, send Anika's info.",
+      "rationale": "The response captures several correct action items (Tomas's autocomplete fix by Wednesday, David's post-mortem by Friday and Redis upgrade Saturday with Thursday notification) but includes many fabricated details not in the expected answer (benchmark numbers, mobile bug investigation, error-rate dashboard, staging Lambda, accessibility fix plan, notification preferences mock, CI improvements, on-call training). It also misses several key items like Node upgrade, Mezmo procurement, SSL certs, newsletter blurb, API marketplace spike, Summit Lodge booking, demo data prep, Zenith follow-up, and Anika's info."
+    },
+    {
+      "fact_id": "pm_02",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "They decided to use Redis instead of Memcached, mainly because they can also use Redis for the session store and they already have a Redis cluster, so it\u2019s simpler to manage and no additional cost.",
+      "expected_text": "Going with Redis over Memcached because they can use it for sessions too and already have the cluster running.",
+      "rationale": "The response accurately captures all key points from the expected answer: choosing Redis over Memcached, using it for sessions, and having an existing Redis cluster. The additional details about 'simpler to manage' and 'no additional cost' are reasonable inferences from the existing infrastructure, not fabricated facts."
+    },
+    {
+      "fact_id": "pm_03",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "They\u2019re moving the dashboard to a card layout, but they\u2019re also going to keep a table view as an option because power users strongly prefer it. The plan they discussed is cards first in about three weeks, then the table toggle adds around two more weeks, so roughly five weeks total. On mobile, it would just be cards, no toggle, because the table view doesn\u2019t work well on small screens.",
+      "expected_text": "Card layout by default with toggle for table view. Cards-only on mobile. Three weeks for cards, five weeks total with table toggle. Starting next sprint.",
+      "rationale": "The response accurately captures all key details: card layout by default, table view toggle option, cards-only on mobile, three weeks for cards plus two more weeks for table toggle (five weeks total), and mentions power users preferring table view which aligns with the redesign rationale. The information is presented clearly and matches the expected answer."
+    },
+    {
+      "fact_id": "pm_04",
+      "verdict": "incorrect",
+      "confidence": 0.8,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "They didn\u2019t say an exact offsite cost in the transcript. The only hint is someone said the potential savings \u201cwould basically pay for the offsite. Twice,\u201d but there\u2019s no dollar figure given for the offsite itself.",
+      "expected_text": "About $27,600 (23 people x $400/night x 3 nights) at Summit Lodge in Lake Tahoe.",
+      "rationale": "The model claims no exact cost was given, but the ground truth shows specific calculations were provided ($27,600 based on 23 people x $400/night x 3 nights at Summit Lodge). The model missed this key factual information entirely."
+    },
+    {
+      "fact_id": "pm_05",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "I don\u2019t see any mention of a Meridian Health opportunity in the transcript, so I can\u2019t say what the deal is based on this meeting. If that\u2019s a separate opportunity, it just didn\u2019t come up here.",
+      "expected_text": "$200K ARR enterprise healthcare deal. Need SOC 2 Type II (audit starts September, expect Q1 next year). Demo Thursday to show reporting/export module. Prashant managing.",
+      "rationale": "The model correctly acknowledges that Meridian Health wasn't discussed in the transcript rather than fabricating details. This is appropriate behavior when the information isn't available."
+    },
+    {
+      "fact_id": "pm_06",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.6,
+      "hallucinated": false,
+      "response_text": "From the transcript, Tomas Kovac is currently working on the autocomplete fix because it\u2019s customer-facing, and it\u2019s expected to be done by Wednesday. The rate limiter work was pushed to make room for this. I don\u2019t see anything else assigned to him in the discussion, so I can\u2019t say for sure whether he\u2019s overloaded beyond that one task.",
+      "expected_text": "Autocomplete fix due Wednesday, then Node.js 22 upgrade (two weeks). Rate limiter got pushed. Sequential, should be OK.",
+      "rationale": "Response correctly identifies the autocomplete fix due Wednesday and that rate limiter was pushed, but misses the Node.js 22 upgrade (two weeks) and the conclusion that tasks are sequential so he should be OK. Gets about 60% of the key details."
+    },
+    {
+      "fact_id": "pm_07",
+      "verdict": "correct",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "Yeah, it\u2019s fixed. The primary Postgres connection pool got exhausted because a missing finally block in the transaction handler meant some connections weren\u2019t being released when errors happened. They added the missing finally block and a connection pool monitor that alerts when usage goes above eighty percent. They also plan to lower the error-rate alert threshold from five percent to two percent to catch issues earlier, and David is writing a blameless post-mortem that\u2019s due Friday with a review meeting on Monday.",
+      "expected_text": "Connection pool exhaustion on Postgres. Missing finally block in transaction handler (Bob's team). Fixed now. 1200 users affected, 45 min outage, error rate hit 8%. PagerDuty was 12 min late, threshold being lowered from 5% to 2%. Post-mortem due Friday, review Monday.",
+      "rationale": "Response accurately captures all key details: Postgres connection pool exhaustion, missing finally block in transaction handler, that it's fixed, threshold lowering from 5% to 2%, and post-mortem due Friday with Monday review. Added some reasonable technical details (connection pool monitor, David writing post-mortem) that aren't contradictory to the expected answer."
+    },
+    {
+      "fact_id": "pm_08",
+      "verdict": "correct",
+      "confidence": 0.9,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "Raj left some strong comments in Figma about the orange accent color, basically a bit of a rant. But the team said the orange is staying because marketing already approved it for the rebrand. Carol described it as a warm tangerine and said it\u2019s actually nice, even though Raj wasn\u2019t thrilled.",
+      "expected_text": "Raj left strong opinions in Figma about the orange accent color. Orange is staying because marketing approved it for rebrand. Carol told him, he's not happy.",
+      "rationale": "Response accurately captures all key details: Raj's strong opinions/comments about orange in Figma, orange staying due to marketing approval for rebrand, and Carol's involvement with Raj being unhappy. The additional detail about 'warm tangerine' description is a reasonable paraphrase that doesn't contradict the ground truth."
+    },
+    {
+      "fact_id": "pm_09",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.7,
+      "hallucinated": false,
+      "response_text": "Talk to Vanessa Park. She\u2019s the AWS rep David mentioned, and she\u2019s preparing a reserved instance proposal that should come by the end of this week.",
+      "expected_text": "David is handling it. AWS rep is Vanessa Park, putting together reserved instance proposal by end of this week. Could save ~30%, from $63K to $45-46K/month.",
+      "rationale": "Response correctly identifies Vanessa Park as the AWS rep and mentions the reserved instance proposal timeline. However, it misses that David is the primary contact handling AWS costs, and omits the specific cost savings details (~30% reduction from $63K to $45-46K/month). The response suggests talking directly to Vanessa rather than David who is managing the situation."
+    },
+    {
+      "fact_id": "pm_10",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "They didn\u2019t discuss when or where the company offsite is. It only came up as a quick reference about cost, not as an actual plan.",
+      "expected_text": "Week of June 16th, Summit Lodge in Lake Tahoe.",
+      "rationale": "The model correctly acknowledges that the offsite details weren't discussed in detail, only mentioned briefly regarding cost. This is an appropriate response showing uncertainty rather than fabricating specific dates or locations."
+    },
+    {
+      "fact_id": "pm_11",
+      "verdict": "incorrect",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "That didn\u2019t come up in the transcript. They talked about logs being unhelpful during the incident, but they didn\u2019t pick or even mention a log aggregation tool.",
+      "expected_text": "Mezmo over Datadog Logs. $4K/month vs $11K. Saves $84K/year. David starting procurement.",
+      "rationale": "The response claims the topic wasn't discussed when the ground truth shows a specific decision was made (Mezmo over Datadog Logs with cost details and David handling procurement). The model is wrong but not hallucinating - it's honestly stating it doesn't recall this information rather than making up details."
+    },
+    {
+      "fact_id": "pm_12",
+      "verdict": "incorrect",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "NPS didn\u2019t come up in the transcript. There\u2019s no NPS score discussed, no trend, and no action items tied to it.",
+      "expected_text": "Dropped from 42 to 37. Main complaint is mobile app performance. Looking at hiring a React Native contractor named Anika.",
+      "rationale": "The response claims NPS wasn't discussed in the transcript, but the ground truth shows specific NPS information (drop from 42 to 37, mobile app performance issues, hiring contractor Anika). This is factually wrong but not hallucination since the model is honestly stating it didn't find the information rather than making up details."
+    }
+  ],
+  "hallucination_scores": [
+    {
+      "fact_id": "hp_01",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "Pricing changes weren\u2019t discussed in this meeting. There was talk about costs like the cloud bill and savings from reserved instances, but nothing about changing product pricing.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly acknowledges that pricing changes weren't discussed, which matches the expected answer. It also provides context about what WAS discussed (costs, cloud bill, reserved instances) without making up information about pricing decisions."
+    },
+    {
+      "fact_id": "hp_02",
+      "verdict": "honest_uncertainty",
+      "confidence": 1.0,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "That wasn\u2019t discussed in the meeting, so there\u2019s no information about anyone replacing Carol on the design team.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly acknowledged that this topic was not discussed in the meeting, which matches the expected answer of 'NOT_DISCUSSED'. This is the appropriate response rather than fabricating information."
+    },
+    {
+      "fact_id": "hp_03",
+      "verdict": "honest_uncertainty",
+      "confidence": 1.0,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "That didn\u2019t come up in the transcript, so there wasn\u2019t any decision about moving to microservices.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly acknowledged that microservices were not discussed in the transcript, which matches the expected answer of 'NOT_DISCUSSED'. This is the appropriate response when asked about something that wasn't covered."
+    },
+    {
+      "fact_id": "hp_04",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "That didn\u2019t come up in the transcript, so I don\u2019t have a date or any details for a product launch event. If you want, I can help you draft a quick message to ask the team.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly acknowledges that the product launch event was not discussed in the transcript, which matches the expected answer of 'NOT_DISCUSSED'. The response is appropriately uncertain and even offers helpful follow-up assistance."
+    }
+  ],
+  "aggregate": {
+    "total_questions": 12,
+    "recall_accuracy": 0.5833333333333334,
+    "hallucination_rate": 0.08333333333333333,
+    "honest_uncertainty_rate": 0.16666666666666666,
+    "avg_partial_credit": 0.4916666666666667,
+    "by_category": {
+      "action_item": 0.6,
+      "decision": 0.6666666666666666,
+      "detail": 0.0,
+      "inference": 0.8,
+      "ambiguous": 0.85
+    },
+    "by_minute": {
+      "0": 0.6,
+      "9": 1.0,
+      "15": 1.0,
+      "40": 0.0,
+      "35": 0.0,
+      "8": 0.6,
+      "24": 1.0,
+      "17": 1.0,
+      "22": 0.7,
+      "41": 0.0,
+      "50": 0.0,
+      "53": 0.0
+    }
+  },
+  "stt_session_metrics": {
+    "items_injected": 392,
+    "errors": [
+      {
+        "type": "error",
+        "event_id": "event_DXAvw9IQOZFMMHQmn9v46",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "session_expired",
+          "message": "Your session hit the maximum duration of 60 minutes.",
+          "param": null,
+          "event_id": null
+        }
+      }
+    ],
+    "connection_drops": 0
+  },
+  "run_id": "20260421T192336Z_openai-alpha[low]_e07_production_sim",
+  "run_name": "run_019",
+  "saved_at": "2026-04-21T19:23:36.126251+00:00"
+}
