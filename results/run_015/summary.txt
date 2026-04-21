@@ -1,0 +1,107 @@
+Alpha Benchmarks — run_015
+Model: gpt-realtime-alpha-dolphin-6
+Date: Tue Apr 21 00:31:23 UTC 2026
+Efforts tested: minimal low medium high
+Failures: 0/21
+
+========== E01: Instant Context Recall ==========
+# Voice Benchmark Comparison — Experiment 01: Long Session Context
+
+| Metric | OPENAI-ALPHA[HIGH] | OPENAI-ALPHA[LOW] | OPENAI-ALPHA[MEDIUM] | OPENAI-ALPHA[MINIMAL] |
+|---|---|---|---|---|
+| **Runs** | 1 | 1 | 1 | 1 |
+| **Recall Accuracy** | 100% | 100% | 100% | 100% |
+| **Hallucination Rate** | 0% | 0% | 0% | 0% |
+| **Honest Uncertainty** | 0% | 0% | 0% | 0% |
+| **Avg Partial Credit** | 96% | 95% | 94% | 97% |
+| **Avg Latency** | 504ms | 614ms | 409ms | 539ms |
+| **P95 Latency** | 2004ms | 1410ms | 1038ms | 1398ms |
+| **Connection Drops** | 0 | 0 | 0 | 0 |
+| **Errors** | 0 | 0 | 0 | 0 |
+
+## Recall by Category
+
+| Category | OPENAI-ALPHA[HIGH] | OPENAI-ALPHA[LOW] | OPENAI-ALPHA[MEDIUM] | OPENAI-ALPHA[MINIMAL] |
+|---|---|---|---|---|
+| date | 100% | 100% | 100% | 100% |
+| decision | 92% | 92% | 92% | 100% |
+| name | 100% | 100% | 100% | 100% |
+| number | 95% | 92% | 92% | 92% |
+| preference | 92% | 92% | 85% | 92% |
+
+## Recall by Time Period
+
+| Period | OPENAI-ALPHA[HIGH] | OPENAI-ALPHA[LOW] | OPENAI-ALPHA[MEDIUM] | OPENAI-ALPHA[MINIMAL] |
+|---|---|---|---|---|
+| Early (0-20min) | 100% | 100% | 100% | 100% |
+| Mid (20-40min) | 97% | 95% | 95% | 95% |
+| Late (40-60min) | 95% | 95% | 92% | 97% |
+
+========== E03: Response Latency ==========
+(no results)
+
+========== E06: Always-Streaming Audio ==========
+# Voice Benchmark Comparison — Experiment 01: Long Session Context
+
+| Metric | OPENAI-ALPHA[LOW] | OPENAI-ALPHA[MEDIUM] |
+|---|---|---|
+| **Runs** | 2 | 2 |
+| **Recall Accuracy** | 0% | 0% |
+| **Hallucination Rate** | 0% | 0% |
+| **Honest Uncertainty** | 92% | 75% |
+| **Avg Partial Credit** | 0% | 0% |
+| **Avg Latency** | N/A | N/A |
+| **P95 Latency** | N/A | N/A |
+| **Connection Drops** | 0 | 1 |
+| **Errors** | 269 | 191 |
+
+## Recall by Category
+
+| Category | OPENAI-ALPHA[LOW] | OPENAI-ALPHA[MEDIUM] |
+|---|---|---|
+| action_item | 0% | 0% |
+| ambiguous | 0% | 0% |
+| decision | 0% | 0% |
+| detail | 0% | 0% |
+| inference | 0% | 0% |
+
+## Recall by Time Period
+
+| Period | OPENAI-ALPHA[LOW] | OPENAI-ALPHA[MEDIUM] |
+|---|---|---|
+| Early (0-20min) | 0% | 0% |
+| Mid (20-40min) | 0% | 0% |
+| Late (40-60min) | 0% | 0% |
+
+========== E07: Production Sim ==========
+# Voice Benchmark Comparison — Experiment 01: Long Session Context
+
+| Metric | OPENAI-ALPHA[LOW] | OPENAI-ALPHA[MEDIUM] |
+|---|---|---|
+| **Runs** | 2 | 2 |
+| **Recall Accuracy** | 8% | 8% |
+| **Hallucination Rate** | 0% | 0% |
+| **Honest Uncertainty** | 62% | 71% |
+| **Avg Partial Credit** | 5% | 5% |
+| **Avg Latency** | N/A | N/A |
+| **P95 Latency** | N/A | N/A |
+| **Connection Drops** | 0 | 0 |
+| **Errors** | 0 | 0 |
+
+## Recall by Category
+
+| Category | OPENAI-ALPHA[LOW] | OPENAI-ALPHA[MEDIUM] |
+|---|---|---|
+| action_item | 0% | 0% |
+| ambiguous | 2% | 0% |
+| decision | 0% | 0% |
+| detail | 0% | 0% |
+| inference | 30% | 32% |
+
+## Recall by Time Period
+
+| Period | OPENAI-ALPHA[LOW] | OPENAI-ALPHA[MEDIUM] |
+|---|---|---|
+| Early (0-20min) | 12% | 13% |
+| Mid (20-40min) | 1% | 0% |
+| Late (40-60min) | 0% | 0% |

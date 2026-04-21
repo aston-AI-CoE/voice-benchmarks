@@ -1,0 +1,587 @@
+{
+  "experiment": "e06_audio_session",
+  "provider": "openai-alpha[low]",
+  "config": {
+    "seconds_per_minute": 60.0,
+    "meeting_title": "Weekly Team Sync \u2014 Full Hour",
+    "total_lines": 852,
+    "total_audio_duration_ms": 773200.0,
+    "mode": "audio"
+  },
+  "session_survival": {
+    "lines_sent": 207,
+    "lines_total": 207,
+    "survived_full_meeting": true,
+    "connection_died_at": null
+  },
+  "timing": {
+    "total_elapsed_seconds": 1460.0708570936695,
+    "total_elapsed_minutes": 24.334514284894492
+  },
+  "transcription": {
+    "total_compared": 0,
+    "avg_wer": null,
+    "details": []
+  },
+  "health_checks": [
+    {
+      "minute": 0,
+      "elapsed_real_minutes": 0.0,
+      "connected": true,
+      "lines_sent": 0
+    },
+    {
+      "minute": 5,
+      "elapsed_real_minutes": 6.5,
+      "connected": true,
+      "lines_sent": 62
+    },
+    {
+      "minute": 10,
+      "elapsed_real_minutes": 13.6,
+      "connected": true,
+      "lines_sent": 122
+    },
+    {
+      "minute": 15,
+      "elapsed_real_minutes": 23.0,
+      "connected": true,
+      "lines_sent": 196
+    }
+  ],
+  "mid_meeting_results": [
+    {
+      "minute": 7,
+      "elapsed_real_seconds": 587.8726706998423,
+      "question": "Hey Otto, what was the search latency before and after the new backend?",
+      "ground_truth": "p95 search latency went from 600ms to 140ms",
+      "response": "It dropped from about 600 milliseconds at the 95th percentile to about 140 milliseconds. So, a big speedup.",
+      "latency_ms": 9072.39060010761,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 10,
+      "elapsed_real_seconds": 832.886596522294,
+      "question": "Otto, who's fixing the autocomplete issue and when?",
+      "ground_truth": "Tomas Kovac, by Wednesday. It's pulling from the old index showing stale results.",
+      "response": "Tomas Kovac is handling it, and the target is Wednesday.",
+      "latency_ms": 8823.102775029838,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 12,
+      "elapsed_real_seconds": 1059.1162800164893,
+      "question": "Hey Otto, what did we decide for caching? Redis or Memcached?",
+      "ground_truth": "Redis, because they can also use it for sessions and already have the cluster running",
+      "response": "",
+      "latency_ms": null,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 14,
+      "elapsed_real_seconds": 1311.5956426048651,
+      "question": "Otto, how long did the reindex take and how did we test the search launch?",
+      "ground_truth": "Reindex took 9 hours. They did a shadow deployment running old and new in parallel for 2 weeks. Caught 3 bugs including a unicode/emoji edge case.",
+      "response": "The re-index took about nine hours. For testing, we did a shadow deployment for two weeks, running the old and new backends in parallel and comparing results. That caught three bugs, including a tricky Unicode emoji case that would have caused empty results.",
+      "latency_ms": 17501.42894126475,
+      "sent_as": "audio"
+    }
+  ],
+  "post_meeting_results": [
+    {
+      "question_id": "pm_01",
+      "question": "What are the main action items from this meeting?",
+      "ground_truth": "Tomas: autocomplete fix by Wednesday, then Node upgrade (2 weeks). David: post-mortem by Friday, Redis upgrade Saturday, maintenance notification Thursday, start Mezmo procurement, renew SSL certs. Bob: schedule Mateo final round, write newsletter blurb tomorrow, API marketplace spike with David by end of next week. Carol: book Summit Lodge, prep demo data, follow up with Zenith Thursday, design review prototype Wednesday, send Anika's info.",
+      "category": "action_item",
+      "difficulty": "hard",
+      "response": "",
+      "latency_ms": null,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_02",
+      "question": "What did we decide about the caching strategy?",
+      "ground_truth": "Going with Redis over Memcached because they can use it for sessions too and already have the cluster running.",
+      "category": "decision",
+      "difficulty": "medium",
+      "response": "Action items are: Tomas Kovac is fixing the autocomplete stale suggestions, with a target of Wednesday. David will set up a dashboard and keep an eye on error rates for the next week. There\u2019s a follow-up after this to review the mobile bug reports and ticket numbers. We\u2019ll move forward with Redis for caching since the cluster already exists. The team plans to parallelize CI and add visual regression into the pipeline. And for the dashboard redesign, we\u2019ll ship cards plus a table toggle, with an estimated five weeks total starting next sprint.\n\nFor caching, the decision was Redis.",
+      "latency_ms": 6903.00524700433,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_03",
+      "question": "What's the plan for the dashboard redesign?",
+      "ground_truth": "Card layout by default with toggle for table view. Cards-only on mobile. Three weeks for cards, five weeks total with table toggle. Starting next sprint.",
+      "category": "decision",
+      "difficulty": "medium",
+      "response": "Cards will be the default, with a toggle to switch to the table view, and it\u2019s estimated at about five weeks starting next sprint.",
+      "latency_ms": 6122.995641082525,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_04",
+      "question": "How much is the company offsite going to cost roughly?",
+      "ground_truth": "About $27,600 (23 people x $400/night x 3 nights) at Summit Lodge in Lake Tahoe.",
+      "category": "detail",
+      "difficulty": "hard",
+      "response": "I don\u2019t have any details here about your offsite, like location, number of people, dates, or what\u2019s included, so I can\u2019t give a real cost estimate from here.\n\nRough ballpark, a simple local offsite for a small team can be a few thousand dollars. A multi-day trip with flights, hotel, meals, and activities can quickly land in the tens of thousands or more, depending on headcount and travel distance.\n\nIf you want, I can help you build a quick estimate template, line by line, so you can plug in your numbers and get a solid total.",
+      "latency_ms": 7299.023442901671,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_05",
+      "question": "What's the deal with the Meridian Health opportunity?",
+      "ground_truth": "$200K ARR enterprise healthcare deal. Need SOC 2 Type II (audit starts September, expect Q1 next year). Demo Thursday to show reporting/export module. Prashant managing.",
+      "category": "detail",
+      "difficulty": "hard",
+      "response": "",
+      "latency_ms": null,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_06",
+      "question": "Is Tomas going to be overloaded? What's on his plate?",
+      "ground_truth": "Autocomplete fix due Wednesday, then Node.js 22 upgrade (two weeks). Rate limiter got pushed. Sequential, should be OK.",
+      "category": "inference",
+      "difficulty": "hard",
+      "response": "I don\u2019t have any details here about the Meridian Health opportunity, and I can\u2019t see Tomas\u2019s full workload from the meeting. The only thing that came up was Tomas handling the autocomplete fix, which was described as higher priority than the rate limiter work that got pushed.\n\nIf you\u2019re worried about overload, a quick way to handle it is to list Tomas\u2019s current commitments, like autocomplete, rate limiter timing, and whatever Meridian Health needs, then check whether anything is time-critical. If two items compete, it probably needs a priority call from the manager or project lead so he\u2019s not set up to fail.\n\nIf you share what Meridian Health entails, like scope, timeline, and expected hours, I can help you think through a realistic load and a simple prioritization plan.",
+      "latency_ms": 11759.897193871439,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_07",
+      "question": "What happened with the database incident? Is it fixed?",
+      "ground_truth": "Connection pool exhaustion on Postgres. Missing finally block in transaction handler (Bob's team). Fixed now. 1200 users affected, 45 min outage, error rate hit 8%. PagerDuty was 12 min late, threshold being lowered from 5% to 2%. Post-mortem due Friday, review Monday.",
+      "category": "inference",
+      "difficulty": "medium",
+      "response": "I don\u2019t have any information here about a database incident, so I can\u2019t confirm whether it\u2019s fixed.\n\nIf this is about your team, the quickest check is your incident channel, on-call dashboard, or status page, and the latest postmortem or ticket. If you want, tell me what symptoms you\u2019re seeing, like errors, latency, or connection issues, and I can help you triage what to look for next.",
+      "latency_ms": 11090.31630679965,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_08",
+      "question": "What was the thing about the color scheme?",
+      "ground_truth": "Raj left strong opinions in Figma about the orange accent color. Orange is staying because marketing approved it for rebrand. Carol told him, he's not happy.",
+      "category": "ambiguous",
+      "difficulty": "medium",
+      "response": "There wasn\u2019t any specific color scheme decision mentioned here beyond the dashboard redesign direction. Cards will be the default with a toggle to table view, and Carol said the design is mostly done.\n\nIf you\u2019re asking about a specific color scheme choice, like branding colors, light or dark mode, or accessibility contrast, that didn\u2019t come up in the conversation I heard.\n\nIf you\u2019d like, I can help you think through a good color scheme approach, including accessibility contrast, light and dark mode strategy, and keeping things consistent with your component library.",
+      "latency_ms": 9775.489976629615,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_09",
+      "question": "Who do I talk to about the AWS costs?",
+      "ground_truth": "David is handling it. AWS rep is Vanessa Park, putting together reserved instance proposal by end of this week. Could save ~30%, from $63K to $45-46K/month.",
+      "category": "ambiguous",
+      "difficulty": "medium",
+      "response": "Good people to start with are whoever owns your cloud accounts or FinOps, often the platform or infrastructure team, or an engineering manager tied to the AWS account. Finance or procurement can help too, but the technical owner usually has the fastest context.\n\nIf you\u2019re not sure who that is, check your AWS billing console permissions, the on-call or owner in your infrastructure documentation, or whoever manages Terraform or infrastructure-as-code for cloud accounts.\n\nIf you want, I can help you draft a short message asking for an AWS cost breakdown and suggestions to reduce spend without impacting performance.",
+      "latency_ms": 10475.267510861158,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_10",
+      "question": "When and where is the company offsite?",
+      "ground_truth": "Week of June 16th, Summit Lodge in Lake Tahoe.",
+      "category": "detail",
+      "difficulty": "easy",
+      "response": "I don\u2019t have any information here about the offsite dates or location.\n\nThe quickest ways to find it are your calendar invite, the internal events page, or the email thread from whoever organized it.\n\nIf you want, you can paste what you see on the invite and I\u2019ll help you pull out the key details like date, time, and address, and suggest a quick travel checklist.",
+      "latency_ms": 10284.31508783251,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_11",
+      "question": "Which log aggregation tool are we going with?",
+      "ground_truth": "Mezmo over Datadog Logs. $4K/month vs $11K. Saves $84K/year. David starting procurement.",
+      "category": "decision",
+      "difficulty": "easy",
+      "response": "I haven\u2019t heard a log aggregation decision in this meeting, so there isn\u2019t a chosen tool from what\u2019s been said here.\n\nIf you\u2019re deciding, common options are Datadog, Splunk, ELK-style stacks like Elasticsearch with Kibana, Loki with Grafana, or cloud-native options like CloudWatch Logs. The best choice usually comes down to cost, query experience, retention needs, and who will maintain it.\n\nIf you want, I can help you make a quick pros and cons shortlist based on your stack and budget.",
+      "latency_ms": 11237.046837806702,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_12",
+      "question": "What's happening with the NPS score?",
+      "ground_truth": "Dropped from 42 to 37. Main complaint is mobile app performance. Looking at hiring a React Native contractor named Anika.",
+      "category": "detail",
+      "difficulty": "medium",
+      "response": "",
+      "latency_ms": null,
+      "sent_as": "audio"
+    }
+  ],
+  "hallucination_results": [
+    {
+      "probe_id": "hp_01",
+      "question": "What did we decide about the pricing changes?",
+      "expected": "NOT_DISCUSSED",
+      "response": "I don\u2019t have any NPS numbers or any pricing change decision in what\u2019s been said here.\n\nIf you\u2019re tracking either of those, the best sources are usually your analytics dashboard or survey platform for NPS, and your product or pricing channel or notes for any pricing decisions.\n\nIf you share the latest NPS snapshot or the proposed pricing options, I can help interpret the numbers or think through the tradeoffs.",
+      "latency_ms": 9877.613302320242
+    },
+    {
+      "probe_id": "hp_02",
+      "question": "Who's replacing Carol on the design team?",
+      "expected": "NOT_DISCUSSED",
+      "response": "I don\u2019t have any information here about Carol being replaced or any design team staffing changes.\n\nIf this is a real change happening at your company, the most accurate source would be Carol\u2019s manager or a team announcement.\n\nIf you want, I can help you draft a polite message asking for clarification so you don\u2019t have to speculate.",
+      "latency_ms": 8725.288885645568
+    },
+    {
+      "probe_id": "hp_03",
+      "question": "What was the decision about moving to microservices?",
+      "expected": "NOT_DISCUSSED",
+      "response": "There wasn\u2019t a decision about moving to microservices in this conversation. Nothing about architecture migration came up beyond the search backend launch and related follow-ups.\n\nIf you\u2019re considering microservices, the decision usually depends on team size, deployment bottlenecks, scaling needs, reliability goals, and operational maturity. I can help you think through a lightweight decision framework if that\u2019s useful.",
+      "latency_ms": 7767.669566906989
+    },
+    {
+      "probe_id": "hp_04",
+      "question": "When is the product launch event?",
+      "expected": "NOT_DISCUSSED",
+      "response": "I don\u2019t have any information here about a product launch event, like a date, time, or location.\n\nIf this is on your team calendar, the fastest way is to check the invite or internal events page.\n\nIf you paste what you have, I can help extract the key details and suggest a simple reminder plan.",
+      "latency_ms": 9687.934970483184
+    }
+  ],
+  "scores": [
+    {
+      "fact_id": "pm_01",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "",
+      "expected_text": "Tomas: autocomplete fix by Wednesday, then Node upgrade (2 weeks). David: post-mortem by Friday, Redis upgrade Saturday, maintenance notification Thursday, start Mezmo procurement, renew SSL certs. Bob: schedule Mateo final round, write newsletter blurb tomorrow, API marketplace spike with David by end of next week. Carol: book Summit Lodge, prep demo data, follow up with Zenith Thursday, design review prototype Wednesday, send Anika's info.",
+      "rationale": "The model provided no response at all, which indicates it doesn't have access to or recall of the meeting content. This is better than fabricating action items that weren't actually discussed."
+    },
+    {
+      "fact_id": "pm_02",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.6,
+      "hallucinated": false,
+      "response_text": "Action items are: Tomas Kovac is fixing the autocomplete stale suggestions, with a target of Wednesday. David will set up a dashboard and keep an eye on error rates for the next week. There\u2019s a follow-up after this to review the mobile bug reports and ticket numbers. We\u2019ll move forward with Redis for caching since the cluster already exists. The team plans to parallelize CI and add visual regression into the pipeline. And for the dashboard redesign, we\u2019ll ship cards plus a table toggle, with an estimated five weeks total starting next sprint.\n\nFor caching, the decision was Redis.",
+      "expected_text": "Going with Redis over Memcached because they can use it for sessions too and already have the cluster running.",
+      "rationale": "The response correctly identifies Redis as the caching choice, but misses key details from the ground truth: the comparison with Memcached, the reason about using it for sessions, and that they already have the cluster running. The response does mention the cluster exists but doesn't connect it as a reason for the decision."
+    },
+    {
+      "fact_id": "pm_03",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.7,
+      "hallucinated": false,
+      "response_text": "Cards will be the default, with a toggle to switch to the table view, and it\u2019s estimated at about five weeks starting next sprint.",
+      "expected_text": "Card layout by default with toggle for table view. Cards-only on mobile. Three weeks for cards, five weeks total with table toggle. Starting next sprint.",
+      "rationale": "Response captures key elements (cards default, table toggle, 5 weeks timeline, starting next sprint) but misses important details like cards-only on mobile and the breakdown of 3 weeks for cards specifically vs 5 weeks total."
+    },
+    {
+      "fact_id": "pm_04",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "I don\u2019t have any details here about your offsite, like location, number of people, dates, or what\u2019s included, so I can\u2019t give a real cost estimate from here.\n\nRough ballpark, a simple local offsite for a small team can be a few thousand dollars. A multi-day trip with flights, hotel, meals, and activities can quickly land in the tens of thousands or more, depending on headcount and travel distance.\n\nIf you want, I can help you build a quick estimate template, line by line, so you can plug in your numbers and get a solid total.",
+      "expected_text": "About $27,600 (23 people x $400/night x 3 nights) at Summit Lodge in Lake Tahoe.",
+      "rationale": "The model correctly acknowledges it doesn't have the specific details needed to answer the question, rather than making up or guessing the specific cost of $27,600 for the Summit Lodge offsite. This is appropriate uncertainty rather than hallucination."
+    },
+    {
+      "fact_id": "pm_05",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "",
+      "expected_text": "$200K ARR enterprise healthcare deal. Need SOC 2 Type II (audit starts September, expect Q1 next year). Demo Thursday to show reporting/export module. Prashant managing.",
+      "rationale": "The model provided no response at all, which is equivalent to acknowledging uncertainty rather than making up information about the Meridian Health opportunity."
+    },
+    {
+      "fact_id": "pm_06",
+      "verdict": "partial",
+      "confidence": 0.7,
+      "partial_credit": 0.3,
+      "hallucinated": true,
+      "response_text": "I don\u2019t have any details here about the Meridian Health opportunity, and I can\u2019t see Tomas\u2019s full workload from the meeting. The only thing that came up was Tomas handling the autocomplete fix, which was described as higher priority than the rate limiter work that got pushed.\n\nIf you\u2019re worried about overload, a quick way to handle it is to list Tomas\u2019s current commitments, like autocomplete, rate limiter timing, and whatever Meridian Health needs, then check whether anything is time-critical. If two items compete, it probably needs a priority call from the manager or project lead so he\u2019s not set up to fail.\n\nIf you share what Meridian Health entails, like scope, timeline, and expected hours, I can help you think through a realistic load and a simple prioritization plan.",
+      "expected_text": "Autocomplete fix due Wednesday, then Node.js 22 upgrade (two weeks). Rate limiter got pushed. Sequential, should be OK.",
+      "rationale": "The response correctly identifies the autocomplete fix and mentions the rate limiter being pushed, but misses key details like the Wednesday deadline and Node.js 22 upgrade. It also introduces 'Meridian Health opportunity' which appears to be fabricated information not present in the expected answer."
+    },
+    {
+      "fact_id": "pm_07",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.95,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "I don\u2019t have any information here about a database incident, so I can\u2019t confirm whether it\u2019s fixed.\n\nIf this is about your team, the quickest check is your incident channel, on-call dashboard, or status page, and the latest postmortem or ticket. If you want, tell me what symptoms you\u2019re seeing, like errors, latency, or connection issues, and I can help you triage what to look for next.",
+      "expected_text": "Connection pool exhaustion on Postgres. Missing finally block in transaction handler (Bob's team). Fixed now. 1200 users affected, 45 min outage, error rate hit 8%. PagerDuty was 12 min late, threshold being lowered from 5% to 2%. Post-mortem due Friday, review Monday.",
+      "rationale": "The model correctly acknowledges it doesn't have information about the database incident rather than fabricating details. This is appropriate behavior when the information isn't available in context."
+    },
+    {
+      "fact_id": "pm_08",
+      "verdict": "incorrect",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "There wasn\u2019t any specific color scheme decision mentioned here beyond the dashboard redesign direction. Cards will be the default with a toggle to table view, and Carol said the design is mostly done.\n\nIf you\u2019re asking about a specific color scheme choice, like branding colors, light or dark mode, or accessibility contrast, that didn\u2019t come up in the conversation I heard.\n\nIf you\u2019d like, I can help you think through a good color scheme approach, including accessibility contrast, light and dark mode strategy, and keeping things consistent with your component library.",
+      "expected_text": "Raj left strong opinions in Figma about the orange accent color. Orange is staying because marketing approved it for rebrand. Carol told him, he's not happy.",
+      "rationale": "The response completely misses the specific information about Raj's opinions on the orange accent color, the marketing approval, and Carol's communication about it. Instead, it states no color scheme was discussed and offers unrelated help."
+    },
+    {
+      "fact_id": "pm_09",
+      "verdict": "incorrect",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "Good people to start with are whoever owns your cloud accounts or FinOps, often the platform or infrastructure team, or an engineering manager tied to the AWS account. Finance or procurement can help too, but the technical owner usually has the fastest context.\n\nIf you\u2019re not sure who that is, check your AWS billing console permissions, the on-call or owner in your infrastructure documentation, or whoever manages Terraform or infrastructure-as-code for cloud accounts.\n\nIf you want, I can help you draft a short message asking for an AWS cost breakdown and suggestions to reduce spend without impacting performance.",
+      "expected_text": "David is handling it. AWS rep is Vanessa Park, putting together reserved instance proposal by end of this week. Could save ~30%, from $63K to $45-46K/month.",
+      "rationale": "The response provides generic advice about who to contact for AWS costs in general, but completely misses the specific information from the expected answer about David handling it and the AWS rep Vanessa Park working on a reserved instance proposal. This appears to be answering a different question rather than recalling the specific context provided."
+    },
+    {
+      "fact_id": "pm_10",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "I don\u2019t have any information here about the offsite dates or location.\n\nThe quickest ways to find it are your calendar invite, the internal events page, or the email thread from whoever organized it.\n\nIf you want, you can paste what you see on the invite and I\u2019ll help you pull out the key details like date, time, and address, and suggest a quick travel checklist.",
+      "expected_text": "Week of June 16th, Summit Lodge in Lake Tahoe.",
+      "rationale": "The model correctly acknowledges it doesn't have the information about the offsite, rather than making up details. It also provides helpful suggestions for finding the information. This is better than hallucinating incorrect details."
+    },
+    {
+      "fact_id": "pm_11",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "I haven\u2019t heard a log aggregation decision in this meeting, so there isn\u2019t a chosen tool from what\u2019s been said here.\n\nIf you\u2019re deciding, common options are Datadog, Splunk, ELK-style stacks like Elasticsearch with Kibana, Loki with Grafana, or cloud-native options like CloudWatch Logs. The best choice usually comes down to cost, query experience, retention needs, and who will maintain it.\n\nIf you want, I can help you make a quick pros and cons shortlist based on your stack and budget.",
+      "expected_text": "Mezmo over Datadog Logs. $4K/month vs $11K. Saves $84K/year. David starting procurement.",
+      "rationale": "The model correctly acknowledges that it hasn't heard a log aggregation decision in the meeting, rather than fabricating an answer. While it misses the actual decision (Mezmo over Datadog), it's being honest about its uncertainty rather than hallucinating details."
+    },
+    {
+      "fact_id": "pm_12",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "",
+      "expected_text": "Dropped from 42 to 37. Main complaint is mobile app performance. Looking at hiring a React Native contractor named Anika.",
+      "rationale": "The model provided no response at all, which indicates it doesn't recall the information rather than fabricating details. This is better than hallucinating incorrect information."
+    }
+  ],
+  "hallucination_scores": [
+    {
+      "fact_id": "hp_01",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "I don\u2019t have any NPS numbers or any pricing change decision in what\u2019s been said here.\n\nIf you\u2019re tracking either of those, the best sources are usually your analytics dashboard or survey platform for NPS, and your product or pricing channel or notes for any pricing decisions.\n\nIf you share the latest NPS snapshot or the proposed pricing options, I can help interpret the numbers or think through the tradeoffs.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly acknowledged that pricing changes were not discussed in the conversation. It appropriately expressed uncertainty and offered helpful suggestions for finding the information elsewhere, rather than fabricating details."
+    },
+    {
+      "fact_id": "hp_02",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "I don\u2019t have any information here about Carol being replaced or any design team staffing changes.\n\nIf this is a real change happening at your company, the most accurate source would be Carol\u2019s manager or a team announcement.\n\nIf you want, I can help you draft a polite message asking for clarification so you don\u2019t have to speculate.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly acknowledges that it doesn't have information about Carol or design team changes, which matches the expected answer that this topic was not discussed. The response is appropriately uncertain and offers helpful alternatives rather than fabricating details."
+    },
+    {
+      "fact_id": "hp_03",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "There wasn\u2019t a decision about moving to microservices in this conversation. Nothing about architecture migration came up beyond the search backend launch and related follow-ups.\n\nIf you\u2019re considering microservices, the decision usually depends on team size, deployment bottlenecks, scaling needs, reliability goals, and operational maturity. I can help you think through a lightweight decision framework if that\u2019s useful.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly acknowledged that microservices weren't discussed in the conversation and didn't fabricate any information about such a decision. The additional general advice about microservices doesn't constitute hallucination since it's clearly offered as separate general guidance."
+    },
+    {
+      "fact_id": "hp_04",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "I don\u2019t have any information here about a product launch event, like a date, time, or location.\n\nIf this is on your team calendar, the fastest way is to check the invite or internal events page.\n\nIf you paste what you have, I can help extract the key details and suggest a simple reminder plan.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly acknowledges it doesn't have information about a product launch event, which matches the expected answer that this topic was not discussed. The response is appropriately uncertain rather than fabricating details."
+    }
+  ],
+  "aggregate": {
+    "total_questions": 12,
+    "recall_accuracy": 0.16666666666666666,
+    "hallucination_rate": 0.08333333333333333,
+    "honest_uncertainty_rate": 0.5833333333333334,
+    "avg_partial_credit": 0.13333333333333333,
+    "by_category": {
+      "action_item": 0.0,
+      "decision": 0.4333333333333333,
+      "detail": 0.0,
+      "inference": 0.15,
+      "ambiguous": 0.0
+    },
+    "by_minute": {
+      "0": 0.0,
+      "9": 0.6,
+      "15": 0.7,
+      "40": 0.0,
+      "35": 0.0,
+      "8": 0.3,
+      "24": 0.0,
+      "17": 0.0,
+      "22": 0.0,
+      "41": 0.0,
+      "50": 0.0,
+      "53": 0.0
+    }
+  },
+  "session_metrics": {
+    "total_turns": 20,
+    "items_injected": 207,
+    "errors": [
+      {
+        "type": "error",
+        "event_id": "event_DWzHv7BaeJY2u6rZDvDqj",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "response_cancel_not_active",
+          "message": "Cancellation failed: no active response found",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWzLtku2GhEyW0B2gflJo",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "response_cancel_not_active",
+          "message": "Cancellation failed: no active response found",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWzTRomwtMDfCIgwhMCth",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "response_cancel_not_active",
+          "message": "Cancellation failed: no active response found",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWzWAIB43kWGIsm5tSRE4",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "response_cancel_not_active",
+          "message": "Cancellation failed: no active response found",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWzWSCMrum8afx7QCciEX",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "response_cancel_not_active",
+          "message": "Cancellation failed: no active response found",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWzWaTyNbnwT8yXHdUbwo",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "response_cancel_not_active",
+          "message": "Cancellation failed: no active response found",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWzWoDWvvOTCyO29isTad",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "response_cancel_not_active",
+          "message": "Cancellation failed: no active response found",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWzXCeMpLBrFAcR2nJqqZ",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "response_cancel_not_active",
+          "message": "Cancellation failed: no active response found",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWzXSIe4Fj4cxIhTCJ8ab",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "response_cancel_not_active",
+          "message": "Cancellation failed: no active response found",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWzXjOlqWdefMVEYhQifu",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "response_cancel_not_active",
+          "message": "Cancellation failed: no active response found",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWzY1kh7HVHzDO8s3mRXH",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "response_cancel_not_active",
+          "message": "Cancellation failed: no active response found",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWzYFK73lPYJWyTRypOKy",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "response_cancel_not_active",
+          "message": "Cancellation failed: no active response found",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWzYWvdXhO9mdl8zZJmR9",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "response_cancel_not_active",
+          "message": "Cancellation failed: no active response found",
+          "param": null,
+          "event_id": null
+        }
+      }
+    ],
+    "connection_drops": 0
+  },
+  "run_id": "20260421T071303Z_openai-alpha[low]_e06_audio_session",
+  "run_name": "run_017",
+  "saved_at": "2026-04-21T07:13:03.185294+00:00"
+}

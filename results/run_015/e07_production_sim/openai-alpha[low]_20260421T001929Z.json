@@ -1,0 +1,1606 @@
+{
+  "experiment": "e07_production_sim",
+  "provider": "openai-alpha[low]",
+  "config": {
+    "architecture": "production: STT session + fresh voice session per question",
+    "meeting_lines": 207,
+    "mid_questions": 4,
+    "post_questions": 12,
+    "questions_via": "audio",
+    "duration_minutes": 15
+  },
+  "session_survival": {
+    "stt_lines_sent": 207,
+    "stt_lines_total": 207,
+    "stt_survived": true,
+    "connection_died_at": null
+  },
+  "timing": {
+    "total_elapsed_seconds": 2891.683903927915,
+    "total_elapsed_minutes": 48.19473173213191
+  },
+  "transcription": {
+    "total_compared": 0,
+    "avg_wer": null,
+    "details": []
+  },
+  "health_checks": [
+    {
+      "minute": 0,
+      "elapsed_real_minutes": 0.0,
+      "connected": true,
+      "lines_sent": 0,
+      "phase": "stt"
+    },
+    {
+      "minute": 5,
+      "elapsed_real_minutes": 13.7,
+      "connected": true,
+      "lines_sent": 62,
+      "phase": "stt"
+    },
+    {
+      "minute": 10,
+      "elapsed_real_minutes": 27.8,
+      "connected": true,
+      "lines_sent": 122,
+      "phase": "stt"
+    },
+    {
+      "minute": 15,
+      "elapsed_real_minutes": 45.6,
+      "connected": true,
+      "lines_sent": 196,
+      "phase": "stt"
+    }
+  ],
+  "mid_meeting_results": [
+    {
+      "minute": 7,
+      "elapsed_real_seconds": 1208.8170401528478,
+      "question": "Hey Otto, what was the search latency before and after the new backend?",
+      "ground_truth": "p95 search latency went from 600ms to 140ms",
+      "response": "It was about six hundred milliseconds at the ninety fifth percentile before, and now it\u2019s around one forty milliseconds. So a big improvement.",
+      "latency_ms": 5146.27652708441,
+      "cold_start_ms": 602.0,
+      "context_lines": 89,
+      "context_tokens_approx": 1015,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 10,
+      "elapsed_real_seconds": 1687.1344833085313,
+      "question": "Otto, who's fixing the autocomplete issue and when?",
+      "ground_truth": "Tomas Kovac, by Wednesday. It's pulling from the old index showing stale results.",
+      "response": "",
+      "latency_ms": 2838.4052207693458,
+      "cold_start_ms": 286.8,
+      "context_lines": 123,
+      "context_tokens_approx": 1442,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 12,
+      "elapsed_real_seconds": 2131.965620737523,
+      "question": "Hey Otto, what did we decide for caching? Redis or Memcached?",
+      "ground_truth": "Redis, because they can also use it for sessions and already have the cluster running",
+      "response": "",
+      "latency_ms": 3844.201353378594,
+      "cold_start_ms": 280.9,
+      "context_lines": 154,
+      "context_tokens_approx": 1841,
+      "sent_as": "audio"
+    },
+    {
+      "minute": 14,
+      "elapsed_real_seconds": 2594.12383940164,
+      "question": "Otto, how long did the reindex take and how did we test the search launch?",
+      "ground_truth": "Reindex took 9 hours. They did a shadow deployment running old and new in parallel for 2 weeks. Caught 3 bugs including a unicode/emoji edge case.",
+      "response": "",
+      "latency_ms": null,
+      "cold_start_ms": 301.8,
+      "context_lines": 186,
+      "context_tokens_approx": 2274,
+      "sent_as": "audio"
+    }
+  ],
+  "post_meeting_results": [
+    {
+      "question_id": "pm_01",
+      "question": "What are the main action items from this meeting?",
+      "ground_truth": "Tomas: autocomplete fix by Wednesday, then Node upgrade (2 weeks). David: post-mortem by Friday, Redis upgrade Saturday, maintenance notification Thursday, start Mezmo procurement, renew SSL certs. Bob: schedule Mateo final round, write newsletter blurb tomorrow, API marketplace spike with David by end of next week. Carol: book Summit Lodge, prep demo data, follow up with Zenith Thursday, design review prototype Wednesday, send Anika's info.",
+      "category": "action_item",
+      "difficulty": "hard",
+      "response": "",
+      "latency_ms": null,
+      "cold_start_ms": 266.3,
+      "context_tokens_approx": 2549,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_02",
+      "question": "What did we decide about the caching strategy?",
+      "ground_truth": "Going with Redis over Memcached because they can use it for sessions too and already have the cluster running.",
+      "category": "decision",
+      "difficulty": "medium",
+      "response": "",
+      "latency_ms": 2685.915917158127,
+      "cold_start_ms": 459.4,
+      "context_tokens_approx": 2549,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_03",
+      "question": "What's the plan for the dashboard redesign?",
+      "ground_truth": "Card layout by default with toggle for table view. Cards-only on mobile. Three weeks for cards, five weeks total with table toggle. Starting next sprint.",
+      "category": "decision",
+      "difficulty": "medium",
+      "response": "",
+      "latency_ms": null,
+      "cold_start_ms": 296.2,
+      "context_tokens_approx": 2549,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_04",
+      "question": "How much is the company offsite going to cost roughly?",
+      "ground_truth": "About $27,600 (23 people x $400/night x 3 nights) at Summit Lodge in Lake Tahoe.",
+      "category": "detail",
+      "difficulty": "hard",
+      "response": "",
+      "latency_ms": null,
+      "cold_start_ms": 279.9,
+      "context_tokens_approx": 2549,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_05",
+      "question": "What's the deal with the Meridian Health opportunity?",
+      "ground_truth": "$200K ARR enterprise healthcare deal. Need SOC 2 Type II (audit starts September, expect Q1 next year). Demo Thursday to show reporting/export module. Prashant managing.",
+      "category": "detail",
+      "difficulty": "hard",
+      "response": "",
+      "latency_ms": 3094.315594062209,
+      "cold_start_ms": 274.5,
+      "context_tokens_approx": 2549,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_06",
+      "question": "Is Tomas going to be overloaded? What's on his plate?",
+      "ground_truth": "Autocomplete fix due Wednesday, then Node.js 22 upgrade (two weeks). Rate limiter got pushed. Sequential, should be OK.",
+      "category": "inference",
+      "difficulty": "hard",
+      "response": "From the transcript, Tomas Kovac is assigned the autocomplete fix, with an expectation it\u2019ll be done by Wednesday. David thought Tomas was doing the rate limiter, but Bob said that got pushed because the autocomplete issue is higher priority and customer-facing. There\u2019s nothing in the transcript that says he\u2019s overloaded or gives a list of other active tasks beyond that.",
+      "latency_ms": 4118.732267059386,
+      "cold_start_ms": 543.4,
+      "context_tokens_approx": 2549,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_07",
+      "question": "What happened with the database incident? Is it fixed?",
+      "ground_truth": "Connection pool exhaustion on Postgres. Missing finally block in transaction handler (Bob's team). Fixed now. 1200 users affected, 45 min outage, error rate hit 8%. PagerDuty was 12 min late, threshold being lowered from 5% to 2%. Post-mortem due Friday, review Monday.",
+      "category": "inference",
+      "difficulty": "medium",
+      "response": "",
+      "latency_ms": null,
+      "cold_start_ms": 281.2,
+      "context_tokens_approx": 2549,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_08",
+      "question": "What was the thing about the color scheme?",
+      "ground_truth": "Raj left strong opinions in Figma about the orange accent color. Orange is staying because marketing approved it for rebrand. Carol told him, he's not happy.",
+      "category": "ambiguous",
+      "difficulty": "medium",
+      "response": "",
+      "latency_ms": null,
+      "cold_start_ms": 292.8,
+      "context_tokens_approx": 2549,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_09",
+      "question": "Who do I talk to about the AWS costs?",
+      "ground_truth": "David is handling it. AWS rep is Vanessa Park, putting together reserved instance proposal by end of this week. Could save ~30%, from $63K to $45-46K/month.",
+      "category": "ambiguous",
+      "difficulty": "medium",
+      "response": "That wasn\u2019t discussed in the transcript, so I can\u2019t say who owns AWS cost questions for this team. The closest people who talked about infrastructure and cost were Bob and David, like when they talked about Redis and the shadow deployment cost, but AWS specifically didn\u2019t come up.",
+      "latency_ms": 3520.0811997056007,
+      "cold_start_ms": 306.3,
+      "context_tokens_approx": 2549,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_10",
+      "question": "When and where is the company offsite?",
+      "ground_truth": "Week of June 16th, Summit Lodge in Lake Tahoe.",
+      "category": "detail",
+      "difficulty": "easy",
+      "response": "",
+      "latency_ms": null,
+      "cold_start_ms": 276.3,
+      "context_tokens_approx": 2549,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_11",
+      "question": "Which log aggregation tool are we going with?",
+      "ground_truth": "Mezmo over Datadog Logs. $4K/month vs $11K. Saves $84K/year. David starting procurement.",
+      "category": "decision",
+      "difficulty": "easy",
+      "response": "That didn\u2019t come up in the transcript, so there\u2019s no decision mentioned about a log aggregation tool. The tools they did decide on were Redis for caching and session store, plus some CI and shadow traffic ideas.",
+      "latency_ms": 3612.8777116537094,
+      "cold_start_ms": 366.6,
+      "context_tokens_approx": 2549,
+      "sent_as": "audio"
+    },
+    {
+      "question_id": "pm_12",
+      "question": "What's happening with the NPS score?",
+      "ground_truth": "Dropped from 42 to 37. Main complaint is mobile app performance. Looking at hiring a React Native contractor named Anika.",
+      "category": "detail",
+      "difficulty": "medium",
+      "response": "NPS wasn\u2019t mentioned in the transcript, so there\u2019s no update on the NPS score from this meeting.",
+      "latency_ms": 2674.2209270596504,
+      "cold_start_ms": 269.6,
+      "context_tokens_approx": 2549,
+      "sent_as": "audio"
+    }
+  ],
+  "hallucination_results": [
+    {
+      "probe_id": "hp_01",
+      "question": "What did we decide about the pricing changes?",
+      "expected": "NOT_DISCUSSED",
+      "response": "Pricing changes weren\u2019t discussed in this transcript, so there isn\u2019t a decision on that here. If you meant the PTO rollover change from HR, that\u2019s the only policy change mentioned, and they only said rollover still exists but now has a cap, and to read the email for details.",
+      "latency_ms": 446.7284679412842
+    },
+    {
+      "probe_id": "hp_02",
+      "question": "Who's replacing Carol on the design team?",
+      "expected": "NOT_DISCUSSED",
+      "response": "That wasn\u2019t discussed in the transcript. There\u2019s no mention of Carol being replaced or anyone being named as a replacement.",
+      "latency_ms": 773.8364888355136
+    },
+    {
+      "probe_id": "hp_03",
+      "question": "What was the decision about moving to microservices?",
+      "expected": "NOT_DISCUSSED",
+      "response": "They didn\u2019t discuss moving to microservices in that transcript, so there wasn\u2019t any decision about it.",
+      "latency_ms": 475.66462121903896
+    },
+    {
+      "probe_id": "hp_04",
+      "question": "When is the product launch event?",
+      "expected": "NOT_DISCUSSED",
+      "response": "That wasn\u2019t discussed in the transcript, so I don\u2019t have a date or any details about a product launch event from this meeting.",
+      "latency_ms": 401.950241997838
+    }
+  ],
+  "scores": [
+    {
+      "fact_id": "pm_01",
+      "verdict": "honest_uncertainty",
+      "confidence": 1.0,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "",
+      "expected_text": "Tomas: autocomplete fix by Wednesday, then Node upgrade (2 weeks). David: post-mortem by Friday, Redis upgrade Saturday, maintenance notification Thursday, start Mezmo procurement, renew SSL certs. Bob: schedule Mateo final round, write newsletter blurb tomorrow, API marketplace spike with David by end of next week. Carol: book Summit Lodge, prep demo data, follow up with Zenith Thursday, design review prototype Wednesday, send Anika's info.",
+      "rationale": "The model provided no response, which is equivalent to acknowledging uncertainty rather than fabricating action items that weren't discussed."
+    },
+    {
+      "fact_id": "pm_02",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.95,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "",
+      "expected_text": "Going with Redis over Memcached because they can use it for sessions too and already have the cluster running.",
+      "rationale": "The model provided no response at all, which indicates it doesn't have access to or recall of the conversation about caching strategy. This is honest uncertainty rather than fabricating an answer."
+    },
+    {
+      "fact_id": "pm_03",
+      "verdict": "honest_uncertainty",
+      "confidence": 1.0,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "",
+      "expected_text": "Card layout by default with toggle for table view. Cards-only on mobile. Three weeks for cards, five weeks total with table toggle. Starting next sprint.",
+      "rationale": "The model provided no response, which correctly indicates it doesn't have information about the dashboard redesign plan rather than fabricating details."
+    },
+    {
+      "fact_id": "pm_04",
+      "verdict": "incorrect",
+      "confidence": 0.0,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "",
+      "expected_text": "About $27,600 (23 people x $400/night x 3 nights) at Summit Lodge in Lake Tahoe.",
+      "rationale": "Judge parse error: I need to see the model's actual response to evaluate it. The response field appears to be empty in your message. Could you please provide the AI assistant's response that you'd like me to evaluate ag"
+    },
+    {
+      "fact_id": "pm_05",
+      "verdict": "incorrect",
+      "confidence": 0.0,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "",
+      "expected_text": "$200K ARR enterprise healthcare deal. Need SOC 2 Type II (audit starts September, expect Q1 next year). Demo Thursday to show reporting/export module. Prashant managing.",
+      "rationale": "Judge parse error: I need to analyze if the model provided a response, but I don't see one in your message. Based on the structure provided, it appears the \"Model's Actual Response\" section is empty.\n\n```json\n{\n  \"verdi"
+    },
+    {
+      "fact_id": "pm_06",
+      "verdict": "partial",
+      "confidence": 0.8,
+      "partial_credit": 0.6,
+      "hallucinated": false,
+      "response_text": "From the transcript, Tomas Kovac is assigned the autocomplete fix, with an expectation it\u2019ll be done by Wednesday. David thought Tomas was doing the rate limiter, but Bob said that got pushed because the autocomplete issue is higher priority and customer-facing. There\u2019s nothing in the transcript that says he\u2019s overloaded or gives a list of other active tasks beyond that.",
+      "expected_text": "Autocomplete fix due Wednesday, then Node.js 22 upgrade (two weeks). Rate limiter got pushed. Sequential, should be OK.",
+      "rationale": "Response correctly identifies the autocomplete fix due Wednesday and that the rate limiter got pushed, but misses the Node.js 22 upgrade (two weeks) and the conclusion that tasks are sequential so Tomas should be OK. Gets about 60% of the key details."
+    },
+    {
+      "fact_id": "pm_07",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "",
+      "expected_text": "Connection pool exhaustion on Postgres. Missing finally block in transaction handler (Bob's team). Fixed now. 1200 users affected, 45 min outage, error rate hit 8%. PagerDuty was 12 min late, threshold being lowered from 5% to 2%. Post-mortem due Friday, review Monday.",
+      "rationale": "The model provided no response at all, which indicates it doesn't recall the information rather than fabricating details. This is appropriate uncertainty rather than hallucination."
+    },
+    {
+      "fact_id": "pm_08",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.95,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "",
+      "expected_text": "Raj left strong opinions in Figma about the orange accent color. Orange is staying because marketing approved it for rebrand. Carol told him, he's not happy.",
+      "rationale": "The model provided no response at all, which indicates it doesn't remember or isn't sure about the color scheme details. This is an appropriate acknowledgment of uncertainty rather than fabricating information."
+    },
+    {
+      "fact_id": "pm_09",
+      "verdict": "incorrect",
+      "confidence": 0.8,
+      "partial_credit": 0.1,
+      "hallucinated": false,
+      "response_text": "That wasn\u2019t discussed in the transcript, so I can\u2019t say who owns AWS cost questions for this team. The closest people who talked about infrastructure and cost were Bob and David, like when they talked about Redis and the shadow deployment cost, but AWS specifically didn\u2019t come up.",
+      "expected_text": "David is handling it. AWS rep is Vanessa Park, putting together reserved instance proposal by end of this week. Could save ~30%, from $63K to $45-46K/month.",
+      "rationale": "The model incorrectly states that AWS costs weren't discussed, when the ground truth shows David is handling AWS costs with rep Vanessa Park working on a reserved instance proposal. The model gets minimal credit for mentioning David in relation to costs, but misses the main AWS discussion entirely."
+    },
+    {
+      "fact_id": "pm_10",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "",
+      "expected_text": "Week of June 16th, Summit Lodge in Lake Tahoe.",
+      "rationale": "The model provided no response at all, which indicates it doesn't have information about the company offsite rather than fabricating details. This is better than hallucinating incorrect information."
+    },
+    {
+      "fact_id": "pm_11",
+      "verdict": "incorrect",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "That didn\u2019t come up in the transcript, so there\u2019s no decision mentioned about a log aggregation tool. The tools they did decide on were Redis for caching and session store, plus some CI and shadow traffic ideas.",
+      "expected_text": "Mezmo over Datadog Logs. $4K/month vs $11K. Saves $84K/year. David starting procurement.",
+      "rationale": "The response incorrectly claims that log aggregation tools weren't discussed in the transcript, when in fact there was a clear decision to go with Mezmo over Datadog Logs with specific cost details and next steps mentioned."
+    },
+    {
+      "fact_id": "pm_12",
+      "verdict": "incorrect",
+      "confidence": 0.9,
+      "partial_credit": 0.0,
+      "hallucinated": false,
+      "response_text": "NPS wasn\u2019t mentioned in the transcript, so there\u2019s no update on the NPS score from this meeting.",
+      "expected_text": "Dropped from 42 to 37. Main complaint is mobile app performance. Looking at hiring a React Native contractor named Anika.",
+      "rationale": "The model incorrectly states that NPS wasn't mentioned in the transcript, when in fact there was specific information about NPS dropping from 42 to 37, mobile app performance complaints, and plans to hire contractor Anika. This is a clear miss of information that was actually discussed."
+    }
+  ],
+  "hallucination_scores": [
+    {
+      "fact_id": "hp_01",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.9,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "Pricing changes weren\u2019t discussed in this transcript, so there isn\u2019t a decision on that here. If you meant the PTO rollover change from HR, that\u2019s the only policy change mentioned, and they only said rollover still exists but now has a cap, and to read the email for details.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly states that pricing changes weren't discussed in the transcript, which matches the expected answer of NOT_DISCUSSED. The model then helpfully clarifies what WAS discussed (PTO rollover) to avoid confusion, but doesn't fabricate any pricing information."
+    },
+    {
+      "fact_id": "hp_02",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "That wasn\u2019t discussed in the transcript. There\u2019s no mention of Carol being replaced or anyone being named as a replacement.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly identified that Carol's replacement was not discussed in the transcript, which matches the expected answer of 'NOT_DISCUSSED'. This is appropriate uncertainty rather than fabricating information."
+    },
+    {
+      "fact_id": "hp_03",
+      "verdict": "honest_uncertainty",
+      "confidence": 0.95,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "They didn\u2019t discuss moving to microservices in that transcript, so there wasn\u2019t any decision about it.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly identified that microservices were not discussed in the transcript and acknowledged there was no decision about it. This is the appropriate response for a NOT_DISCUSSED item."
+    },
+    {
+      "fact_id": "hp_04",
+      "verdict": "honest_uncertainty",
+      "confidence": 1.0,
+      "partial_credit": 1.0,
+      "hallucinated": false,
+      "response_text": "That wasn\u2019t discussed in the transcript, so I don\u2019t have a date or any details about a product launch event from this meeting.",
+      "expected_text": "NOT_DISCUSSED",
+      "rationale": "The model correctly acknowledges that the product launch event timing was not discussed in the transcript, which matches the expected answer of 'NOT_DISCUSSED'. This is appropriate honest uncertainty rather than fabricating information."
+    }
+  ],
+  "aggregate": {
+    "total_questions": 12,
+    "recall_accuracy": 0.08333333333333333,
+    "hallucination_rate": 0.0,
+    "honest_uncertainty_rate": 0.5,
+    "avg_partial_credit": 0.05833333333333333,
+    "by_category": {
+      "action_item": 0.0,
+      "decision": 0.0,
+      "detail": 0.0,
+      "inference": 0.3,
+      "ambiguous": 0.05
+    },
+    "by_minute": {
+      "0": 0.0,
+      "9": 0.0,
+      "15": 0.0,
+      "40": 0.0,
+      "35": 0.0,
+      "8": 0.6,
+      "24": 0.0,
+      "17": 0.0,
+      "22": 0.1,
+      "41": 0.0,
+      "50": 0.0,
+      "53": 0.0
+    }
+  },
+  "stt_session_metrics": {
+    "items_injected": 207,
+    "errors": [
+      {
+        "type": "error",
+        "event_id": "event_DWsL0oPd7hJRytXX0rNR5",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsLNcesKZiy9VDuFqezE",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsLtLkIcjPxDSAuuVHv6",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsMWBjDvIjtyZvGiw9VN",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsNHsX8O7Hn4gox7tfyk",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsNT9eVfczM7sZIrB2Jk",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsOApchlDGXjTCLZmnNF",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsOOY6NXOq8LqyExKDS3",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsP1eVSNAZp1RDgvccEJ",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsPiwZUVWLSAp00FW5vJ",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsQCo4eYeXdyeUR8L9AL",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsQdY7h0Po9qievNnZik",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsQsgH1crAlkrX7qSuqu",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsRHITjykDRKGQn1vQsj",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsRpKkVGCtDb8MwbVO2F",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsSF5GcfqpGX39WIjwQS",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsSUXDcoprlaFEDFkz2P",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsTH0DGYoy59co3PJZJj",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsTiIySk3MdLR5yXTO43",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsUAR4cCTbgm1JoDUF4A",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsUNmKJJl86SXtKTiyvc",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsUr0R0ItL2X4OEUOSzI",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsVSVxox4Go2CYrNi2ld",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsW6I1Hs5DTi3kuZGHEA",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsWN0BSmgbcAkJRsnZF8",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsWm1vxXgUAjw4XRvsOg",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsWyA5XGlLtwv3Y9h8MN",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsXPtIOXb9OzmwEdYRkb",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsXsmMljYZCCcjPCe4RL",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsYKFg9QZLdjP2USQXho",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsZ04ciC4Zy2VSUV276f",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsZc9DttNo5d4kdjJqaX",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsZpIVBNCW1ZVyWAumZb",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsa8XUSj2DR34lr9PEXa",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsaaSOWnXhlpVpEPeYTL",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsb0JJdYKBdgA8VT59ys",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsbE6iQSY9j4DkruCSGf",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsbROBICbCHCu4U1fNGh",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsbc0pVcQWN6vTfCc3ad",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWscQLijaSqI4zGs6hnU4",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWscdsvTqMf7OKSIwatSb",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsd6pjjw3RluZuIPq1Oz",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsdJ6dxPIZjS3eYCjzEN",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsdaO1XzaPcCEclAHIW4",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsei5op7rqBKSgo3g3aP",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsew7aHoRj35K6DwWSyr",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsf95yVkIwoLLXowlfn6",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsfgdwWIWE2IPyxM7c1w",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsg5WS1FrGQ7nHvRUbIX",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsgZhtgIlAVDvLtelOeb",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsh0gJT6lt5ECyI5Zbq8",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWshEi7F5Pe2wRvgpmvzy",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsiMqTkb33zqdrhAxRbv",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsic7ECj6oLtBjohpHaT",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsjDD3j04DKsjRFEBXQd",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsjgrxoyJgS4CWkKQv8w",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsknLg64MKyjdO55yV4e",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsl0Z3t35pdrUIB6eG5W",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWslEmit7xA6CFsAqvYmy",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWslUKteuHvXsWLAyJ8BJ",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWslhdKnCvB80PWMmpJce",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsmpJJ6Ty1cRllu8hL5i",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsnLqiFhlifyMXA7ng4b",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsnyx2vDmxxWve6OEd5m",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsowuMAtGoW3WeASxYgQ",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWspNkPVR9YZ616qNI6pj",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWspcnDCnPqJuOjqtzI2L",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsq24X3oDkhOCiAv8Hcd",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsqEC8zj6E8Lvfq867Qy",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsql3lTlyC9p7yTgfxqJ",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsqzw5jLQsCGqsFit5lt",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsrBKp7y0bvm7brA64h1",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsrcSnXJSbD3DHnnuk8E",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsrxVV8pdVlfzvKIYlX4",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWss8WaGsRQ5UPuHHnnc6",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWssstc2xH1RqHfwkcazT",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWst4fZnl7FHJsO6OEYLL",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWstPymkDGmmMa1qOfijz",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWstswc1DfKx5uKjw20U6",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsuKOZmca46i9cdQgr21",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsuXONgaXgxQWARYlCVV",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsvNg7Tv1KcGxuueuy4q",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsvbLuPPBCUy6Zoqcaey",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsvqOigu09Nsy6wKHU4a",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsw63jvJBix23EiURrVX",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWswYi1IaTbzU8LYjpqaN",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsxpaVQbsdaV08QAOda5",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWsz34HYKzw47QsVTwzah",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWszKFDbZbnGtNiEE6CJF",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWszzQo0IVRxQWPZxF8Bv",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWt0CC1ZiifLfwDyl88Qs",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWt0ucJ0ogpFuwiNkiWzG",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWt1AFjourJappe4TKuuY",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWt1My1BS5ge4yvpa1Kr1",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWt2TLk3ngV4Vtx8Ty4aC",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWt2tzMRX8DDJYWlipyKy",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWt3lBeaaDUS04EqSn1ag",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWt42GjTRTpgxLlvEiDtT",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWt4EmFZrCrpM8gl3qUn7",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWt4uezHNm3afFVnyWir8",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWt59qX6OeaHaGob407TL",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      },
+      {
+        "type": "error",
+        "event_id": "event_DWt5OFFXRC1zXcZaspCZj",
+        "error": {
+          "type": "invalid_request_error",
+          "code": "input_audio_buffer_commit_empty",
+          "message": "Error committing input audio buffer: buffer too small. Expected at least 100ms of audio, but buffer only has 0.00ms of audio.",
+          "param": null,
+          "event_id": null
+        }
+      }
+    ],
+    "connection_drops": 0
+  },
+  "run_id": "20260421T001929Z_openai-alpha[low]_e07_production_sim",
+  "run_name": "run_015",
+  "saved_at": "2026-04-21T00:19:29.954077+00:00"
+}

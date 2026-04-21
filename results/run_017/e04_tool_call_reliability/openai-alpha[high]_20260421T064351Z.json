@@ -1,0 +1,176 @@
+{
+  "experiment": "e04_tool_call_reliability",
+  "provider": "openai-alpha[high]",
+  "config": {
+    "tool_name": "lookup_data",
+    "should_call_count": 8,
+    "should_not_call_count": 8
+  },
+  "should_call_results": [
+    {
+      "prompt": "Look up the latest sales numbers for Q2.",
+      "expected_category": "sales",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "latest Q2 sales numbers; return the most recent year and the key sales metrics with dates",
+        "category": "sales",
+        "correct_category": true
+      },
+      "response": ""
+    },
+    {
+      "prompt": "Search the database for customer complaints about shipping.",
+      "expected_category": "customers",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "customer complaints about shipping; include complaint text snippets, dates, order IDs if available, and status; sort by most recent",
+        "category": "customers",
+        "correct_category": true
+      },
+      "response": ""
+    },
+    {
+      "prompt": "Can you query the inventory for items with less than 10 units in stock?",
+      "expected_category": "inventory",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "inventory items with stock less than 10 units; include item name, SKU, current stock, and location if available; sort by lowest stock first",
+        "category": "inventory",
+        "correct_category": true
+      },
+      "response": ""
+    },
+    {
+      "prompt": "Pull up the employee records for the engineering department.",
+      "expected_category": "employees",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "engineering department employee records; return names, job titles, employee IDs, employment status, and team; exclude personal contact info if possible; sort by name",
+        "category": "employees",
+        "correct_category": true
+      },
+      "response": ""
+    },
+    {
+      "prompt": "Search for all orders placed in the last 24 hours.",
+      "expected_category": "sales",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "all orders placed in the last 24 hours; include order ID, customer identifier if available, timestamp, total amount, and status; sort by newest first",
+        "category": "sales",
+        "correct_category": true
+      },
+      "response": ""
+    },
+    {
+      "prompt": "Look up how many active enterprise customers we have.",
+      "expected_category": "customers",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "count of active enterprise customers; return a single aggregated count and the definition if available; filter: customer type enterprise and status active",
+        "category": "customers",
+        "correct_category": true
+      },
+      "response": ""
+    },
+    {
+      "prompt": "Query the database for products that are out of stock.",
+      "expected_category": "inventory",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "products that are out of stock; include product name, SKU, current stock, and location if available; filter stock equals zero; sort by name",
+        "category": "inventory",
+        "correct_category": true
+      },
+      "response": ""
+    },
+    {
+      "prompt": "Find all employees who started this quarter.",
+      "expected_category": "employees",
+      "tool_called": true,
+      "correct_tool": true,
+      "arg_quality": {
+        "has_query": true,
+        "query_value": "employees with start date in this quarter (Q2 2026, from 2026-04-01 through today 2026-04-20); return minimal fields: name, job title, start date, employee ID; sort by start date",
+        "category": "employees",
+        "correct_category": true
+      },
+      "response": ""
+    }
+  ],
+  "should_not_call_results": [
+    {
+      "prompt": "What is the capital of France?",
+      "tool_called": false,
+      "response": "The capital of France is Paris."
+    },
+    {
+      "prompt": "Explain what a database index is.",
+      "tool_called": false,
+      "response": "A database index is like a shortcut for finding data faster. Instead of scanning the whole table every time, the database can use the index to jump straight to the matching rows, which speeds up queri"
+    },
+    {
+      "prompt": "Tell me a joke about programming.",
+      "tool_called": false,
+      "response": "Why do programmers hate nature? Because it has too many bugs."
+    },
+    {
+      "prompt": "What does SQL stand for?",
+      "tool_called": false,
+      "response": "SQL stands for Structured Query Language."
+    },
+    {
+      "prompt": "How does a hash table work?",
+      "tool_called": false,
+      "response": "A hash table stores key\u2013value pairs. It uses a hash function to turn a key into a slot location, so lookups are usually very fast. When two keys map to the same slot, that\u2019s a collision, and the table"
+    },
+    {
+      "prompt": "What's the difference between REST and GraphQL?",
+      "tool_called": false,
+      "response": "REST exposes resources as endpoints, and clients often make multiple requests to get related data. GraphQL uses a single endpoint where the client specifies exactly what fields it wants, which can red"
+    },
+    {
+      "prompt": "Summarize the benefits of microservices.",
+      "tool_called": false,
+      "response": "Microservices can make a system easier to scale and deploy in pieces, let teams work more independently, and let you mix technologies where it makes sense. The tradeoffs are more operational complexit"
+    },
+    {
+      "prompt": "What year was Python first released?",
+      "tool_called": false,
+      "response": "Python was first released in 1991."
+    }
+  ],
+  "aggregate": {
+    "true_positives": 8,
+    "false_negatives": 0,
+    "true_negatives": 8,
+    "false_positives": 0,
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0
+  },
+  "session_metrics": {
+    "total_input_tokens": 81777,
+    "total_output_tokens": 7212,
+    "errors": [],
+    "connection_drops": 0
+  },
+  "run_id": "20260421T064351Z_openai-alpha[high]_e04_tool_call_reliability",
+  "run_name": "run_017",
+  "saved_at": "2026-04-21T06:43:51.619085+00:00"
+}

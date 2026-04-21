@@ -25,6 +25,7 @@ logger = setup_logging("runner")
 
 PROVIDERS = {
     "openai": "providers.openai_realtime:OpenAIRealtimeProvider",
+    "openai-alpha": "providers.openai_realtime_alpha:OpenAIRealtimeAlphaProvider",
     "grok": "providers.grok_xai:GrokRealtimeProvider",
 }
 

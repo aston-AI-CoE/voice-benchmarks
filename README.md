@@ -148,6 +148,42 @@ python3 compare_results.py -e 06 --run run_008
 python3 compare_results.py -e 07 --run run_008
 ```
 
+## gpt-realtime-alpha-dolphin-6 (Realtime 2 alpha)
+
+Set in `.env`:
+
+```
+OPENAI_REALTIME_MODEL=gpt-realtime-alpha-dolphin-6
+OPENAI_REASONING_EFFORT=low   # minimal | low | medium | high
+```
+
+The alpha uses provider `openai-alpha`. Key differences from `openai`:
+- No `OpenAI-Beta` header (alpha rejects it)
+- `reasoning.effort` session parameter required
+- `session.type` must be `realtime`
+- Audio-only output (`output_modalities: ["audio"]`)
+- Response items have a `phase` field: `commentary` (preamble) or `final_answer`
+
+```bash
+# Full alpha suite — generates audio fixtures if missing (~10 min), then runs all
+# E01/E03/E04 at all 4 effort levels + E06/E07 at low+medium (~65 min total)
+nohup ./run_alpha.sh > /dev/null 2>&1 &
+tail -f results/run_*/run.log | tail -1
+
+# Text-only experiments, no audio fixtures needed (~15 min)
+nohup ./run_alpha.sh --skip-audio > /dev/null 2>&1 &
+tail -f results/run_*/run.log | tail -1
+
+# Single effort level
+nohup ./run_alpha.sh --skip-audio --effort medium > /dev/null 2>&1 &
+tail -f results/run_*/run.log | tail -1
+
+# Individual experiments
+OPENAI_REASONING_EFFORT=low  python3 run_experiment.py --run run_013 -e 01 -p openai-alpha
+OPENAI_REASONING_EFFORT=high python3 run_experiment.py --run run_013 -e 03 -p openai-alpha
+OPENAI_REASONING_EFFORT=low  python3 run_experiment.py --run run_013 -e 07 -p openai-alpha --duration 60
+```
+
 ## Meeting Script
 
 852 lines of natural dialogue (~60 min TTS audio), 4 speakers with different voices, realistic meeting dynamics (tangents, interruptions, filler). 16 mid-meeting "Hey Otto" questions sent as audio, 12 post-meeting questions, 4 hallucination probes.
@@ -311,3 +347,49 @@ voice-benchmarks/
 | 010 | E01: both 100%. E06: OpenAI hallucination spiked to 42%. E07: summary average 47% (blended). |
 | 011 | E01: Grok 95%, OpenAI 100%. E06: OpenAI 50%. E07 60min: OpenAI 92%. Summary average 47% (blended). |
 | 012 | **Latest run. OpenAI only — Grok dropped.** E01: OpenAI 100%, 863ms latency. E06: OpenAI 38%, 8 errors (up from 1 in prior runs). E07 60min: OpenAI 55% — mild drop from prior runs, worth monitoring. |
+| 013 | Alpha provider bring-up. Single E01 run (reasoning=low) to validate `openai-alpha` wiring. 100% recall, 0% hallucination. |
+| 015 | **Alpha run 1 — `gpt-realtime-alpha-dolphin-6`, all effort levels.** E01: 100% recall / 0% hallucination across minimal/low/medium/high. E03: avg TTFB 779–1047ms (see table below). E06/E07: ⚠️ invalid — audio input broken due to server VAD auto-committing the buffer (alpha rejected `turn_detection: null`); needs fix before audio results are valid. |
+| 017 | **Alpha run 2 — VAD fix validated, full E06/E07.** E01: 100% recall all effort levels. E03: avg TTFB 618–929ms (medium fastest avg, high fastest P50). E07 60min: 67% (low), 58% (medium) — but sessions cut by OpenAI's hard 60-min API cap at 63% through meeting; true 60min recall unknown. E07 15min: 25% (expected given limited meeting coverage). E06 60min: hit API cap; E06 (15min): 17%, VAD interference still present. See `KNOWN_ISSUES.md` for run_017 partial validity table. |
+
+### run_015 — Alpha E01 Recall by Effort
+
+| Effort | Recall | Hallucination | Avg TTFB |
+|--------|--------|---------------|----------|
+| minimal | 100% | 0% | 539ms |
+| low | 100% | 0% | 614ms |
+| medium | 100% | 0% | 409ms |
+| high | 100% | 0% | 504ms |
+
+### run_015 — Alpha E03 Latency by Effort
+
+| Effort | Avg TTFB | P50 | P95 | Simple | Medium | Complex |
+|--------|----------|-----|-----|--------|--------|---------|
+| minimal | 839ms | 883ms | 1522ms | 343ms | 1047ms | 1127ms |
+| low | 779ms | 515ms | 1771ms | 582ms | 742ms | 1015ms |
+| medium | 1047ms | 508ms | 2754ms | 481ms | 802ms | 1857ms |
+| high | 847ms | 486ms | 2574ms | 303ms | 697ms | 1539ms |
+
+Note: effort ordering is not strictly monotonic on a single run — variance expected. `high` has lowest P50 (486ms) and lowest simple TTFB (303ms). E06/E07 audio results excluded (invalid — see run note).
+
+### run_017 — Alpha E03 Latency by Effort (updated)
+
+| Effort | Avg TTFB | P50 | P95 | Simple | Medium | Complex |
+|--------|----------|-----|-----|--------|--------|---------|
+| minimal | 909ms | 1043ms | 1742ms | 307ms | 1254ms | 1167ms |
+| low | 929ms | 1066ms | 1782ms | 264ms | 1162ms | 1361ms |
+| medium | 618ms | 443ms | 1665ms | 373ms | 399ms | 1080ms |
+| high | 827ms | 306ms | 2873ms | 286ms | 456ms | 1738ms |
+
+`medium` has the best avg (618ms). `high` has lowest P50 (306ms) and lowest simple TTFB (286ms) but widest P95 (2873ms — reasoning spikes on complex prompts). Consistent with run_015 pattern.
+
+### run_017 — Alpha E07 Production Sim
+
+| Provider | Duration | Recall | Halluc | Session OK | Note |
+|----------|----------|--------|--------|------------|------|
+| openai-alpha[low] | 15min | 25% | 8% | ✓ | |
+| openai-alpha[low] | 60min | 67% | 0% | ✗ | API 60min cap at 63% of meeting |
+| openai-alpha[medium] | 15min | 25% | 33% | ✓ | |
+| openai-alpha[medium] | 60min | 58% | 17% | ✗ | API 60min cap at 63% of meeting |
+| gpt-realtime-1.5 (runs 009-012) | 60min | 79% | ~5% | ✓ | |
+
+E07 60min recall is a lower bound — sessions were cut before the full meeting was played. The late-session cliff (1% for 40–60min questions) is an artifact of missing context, not model degradation.
