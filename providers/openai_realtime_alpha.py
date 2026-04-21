@@ -40,9 +40,13 @@ _IGNORABLE_ERRORS = {
     # VAD already triggered a response before our explicit response.create;
     # that response IS the one we want — just wait for it to complete.
     "conversation_already_has_active_response",
-    # response.cancel when nothing is in-flight
+    # response.cancel when nothing is in-flight — alpha returns this code;
+    # 1.5 returned "response_not_found" / "response_cancel_inactive".
+    # In E07 (fresh session per question), no response is ever active before
+    # send_audio() fires, so this fires on every question. Benign.
     "response_not_found",
     "response_cancel_inactive",
+    "response_cancel_not_active",
 }
 
 
