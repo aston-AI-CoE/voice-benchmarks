@@ -372,7 +372,7 @@ Which runs are usable and why. ✅ = valid data, ⚠️ = partial (usable with c
 | 013 | openai-alpha | ✅ | — | — | — | Alpha bring-up only; single E01 at low effort |
 | 014 | openai-alpha | ❌ | ❌ | ❌ | ❌ | Killed at audio line 303/852 — audio fixtures not ready; no valid results |
 | 015 | openai-alpha | ✅ | ✅ | ❌ | ❌ | E06/E07: alpha rejected `turn_detection:null`; server VAD auto-committed buffer; 0% recall + session crash |
-| 016 | openai-alpha | — | — | ⚠️ | ⚠️ | Undocumented partial test during VAD fix development; not committed |
+| 016 | openai-alpha | — | — | ❌ | ❌ | Forfeited — provider code changed mid-run during VAD fix; results unreliable |
 | 017 | openai-alpha | ✅ | ✅ | ⚠️ | ⚠️ | E06/E07 60min: OpenAI API cut sessions at 60-min hard cap (at 63% of meeting); scoring incomplete |
 | 018 | openai-alpha | — | — | — | ⚠️ | E07 55min in progress; designed to stay under API cap |
 
