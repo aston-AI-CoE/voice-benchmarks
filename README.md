@@ -1,6 +1,6 @@
 # Voice Benchmarks — OpenAI Realtime vs Grok/xAI
 
-Scientific benchmarks comparing realtime voice API providers for Otto's voice meeting assistant. 12 runs, 20 experiments per run, testing text recall, audio streaming, latency, tool calling, and production architecture.
+Scientific benchmarks comparing realtime voice API providers for Otto's voice meeting assistant. Testing text recall, audio streaming, latency, tool calling, and production architecture across gpt-realtime-1.5 (runs 001–012) and gpt-realtime-alpha-dolphin-6 (runs 013–018).
 
 ## Key Findings (12 runs)
 
@@ -51,16 +51,29 @@ OpenAI averages 25-50% overall; Grok averaged 33% in run_008 (first run where Gr
 
 The production architecture (external STT → fresh voice session per question) avoids the audio degradation problem and is the viable path forward.
 
-| Run | 60min recall | Avg recall (15+30+60min blended) | Notes |
-|-----|-------------|----------------------------------|-------|
-| 006 | 92% | 56% | First successful E07 run |
-| 008 | **8%** | 29% | ⚠️ STT session hit 60-min cap mid-meeting — transcript truncated, post-meeting quiz invalid. The "92%" previously cited for this run was mid-meeting "Hey Otto" accuracy (13/13), not post-meeting scoring. |
-| 009 | 83% | 50% | |
-| 010 | — | 47% | |
-| 011 | 92% | 47% | |
-| 012 | 55% | 43% | Grok dropped |
+**gpt-realtime-1.5**
 
-**There is no regression.** The "92% → 47%" drop cited in earlier summaries was a measurement inconsistency: the original "92%" came from a single 60min test, while all run summaries from run_009 onward blend 15min + 30min + 60min scores. Comparing 60min-only results shows consistent 83-92% recall (runs 006, 009, 011). Run_012 at 55% is a mild drop worth monitoring. Run_008's post-meeting score (8%) was a broken run where the STT session truncated before the meeting ended.
+| Run | 60min recall | Avg (15+30+60min blended) | Notes |
+|-----|-------------|---------------------------|-------|
+| 006 | 92% | 56% | First successful E07 run |
+| 008 | ❌ 8% | 29% | STT session hit 60-min cap mid-meeting — transcript truncated; invalid |
+| 009 | 83% | 50% | |
+| 010 | — | 47% | 60min not run this round |
+| 011 | 92% | 47% | |
+| 012 | 55% | 43% | Grok dropped; mild recall drop, worth monitoring |
+
+**gpt-realtime-alpha-dolphin-6**
+
+| Run | Effort | Duration | Recall | Notes |
+|-----|--------|----------|--------|-------|
+| 017 | low | 15min | 25% | Limited coverage expected (only first 15min of meeting) |
+| 017 | medium | 15min | 25% | |
+| 017 | low | 60min | ⚠️ 67% | API cut session at 63% of meeting — recall covers first ~38min only |
+| 017 | medium | 60min | ⚠️ 58% | Same API cap issue |
+| 018 | low | 55min | _pending_ | In progress — designed to stay under 60min API cap |
+| 018 | medium | 55min | _pending_ | In progress |
+
+**There is no regression on gpt-realtime-1.5.** The "92% → 47%" drop cited in earlier summaries was a measurement inconsistency: the original "92%" came from a single 60min test; run summaries from run_009 onward blend 15+30+60min. Comparing 60min-only: consistent 83-92% (runs 006/009/011). Run_012 at 55% is mild, worth monitoring. Alpha 60min results are partial — true 60min recall unknown until run_018 completes.
 
 **Grok hits its ~3K-word context limit at ~26 minutes** and fails all subsequent questions. OpenAI has no equivalent limit (tested to 7K+ words).
 
@@ -337,6 +350,36 @@ voice-benchmarks/
 ├── README.md
 └── KNOWN_ISSUES.md
 ```
+
+## Run Validity
+
+Which runs are usable and why. ✅ = valid data, ⚠️ = partial (usable with caveat), ❌ = invalid/discard.
+
+| Run | Provider | E01 | E03 | E06 | E07 | Reason if invalid |
+|-----|----------|-----|-----|-----|-----|-------------------|
+| 001 | openai, grok | ✅ | — | — | — | Bring-up run; Grok truncation bug present |
+| 002 | openai, grok | ✅ | — | — | — | Grok truncation fixed |
+| 003 | openai, grok | ✅ | — | — | — | Realistic script introduced |
+| 004 | openai, grok | ✅ | — | ❌ | — | Grok audio sessions still die |
+| 005 | openai, grok | — | — | ❌ | — | Killed mid-run — Grok E06 hung on missing response timeout |
+| 006 | openai, grok | ✅ | — | ✅ | ✅ | First clean full run; E07 60min 92% |
+| 007 | — | — | — | — | — | Skipped |
+| 008 | openai, grok | ✅ | — | ✅ | ❌ | E07: STT session hit 60-min cap; transcript truncated at ~50min; post-meeting quiz invalid |
+| 009 | openai, grok | ✅ | ✅ | ✅ | ✅ | Clean run; E07 60min 83% |
+| 010 | openai, grok | ✅ | ✅ | ✅ | ✅ | E07 60min not run; blended avg only |
+| 011 | openai, grok | ✅ | ✅ | ✅ | ✅ | E07 60min 92% |
+| 012 | openai only | ✅ | ✅ | ✅ | ✅ | Grok dropped; E07 60min 55% (mild drop) |
+| 013 | openai-alpha | ✅ | — | — | — | Alpha bring-up only; single E01 at low effort |
+| 014 | openai-alpha | ❌ | ❌ | ❌ | ❌ | Killed at audio line 303/852 — audio fixtures not ready; no valid results |
+| 015 | openai-alpha | ✅ | ✅ | ❌ | ❌ | E06/E07: alpha rejected `turn_detection:null`; server VAD auto-committed buffer; 0% recall + session crash |
+| 016 | openai-alpha | — | — | ⚠️ | ⚠️ | Undocumented partial test during VAD fix development; not committed |
+| 017 | openai-alpha | ✅ | ✅ | ⚠️ | ⚠️ | E06/E07 60min: OpenAI API cut sessions at 60-min hard cap (at 63% of meeting); scoring incomplete |
+| 018 | openai-alpha | — | — | — | ⚠️ | E07 55min in progress; designed to stay under API cap |
+
+**Usable for alpha vs baseline comparison:** run_017 E01/E03 (clean), run_017 E07 15min (limited coverage), run_018 E07 55min (pending).  
+**Usable for gpt-realtime-1.5 E07 baseline:** runs 006, 009, 011, 012 (60min).
+
+---
 
 ## Run History
 
