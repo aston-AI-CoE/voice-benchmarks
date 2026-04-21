@@ -17,7 +17,7 @@ import statistics
 from datetime import date
 from pathlib import Path
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).parent.parent
 RESULTS = ROOT / "results"
 
 # Baseline numbers from gpt-realtime-1.5 (runs 009-012, README)
@@ -364,7 +364,7 @@ Based on these results:
   E07_alpha_{{effort}}_*.log    — production sim logs
   E06_alpha_{{effort}}_*.log    — always-streaming logs
   alpha_report.md               — this file
-  summary.txt                   — compare_results.py output
+  summary.txt                   — reports/compare_results.py output
 ```
 """
     return report

@@ -10,7 +10,7 @@
 #   tail -f results/run_XXX/run.log
 #
 set -euo pipefail
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/.." 
 
 MODEL="gpt-realtime-alpha-dolphin-6"
 
@@ -111,7 +111,7 @@ echo "=== Phase 3 done ==="
 # ── Report ────────────────────────────────────────────────────────────────────
 echo ""
 echo "=== Generating report ==="
-python3 generate_alpha_report.py --run "$RUN_NAME" \
+python3 reports/generate_alpha_report.py --run "$RUN_NAME" \
     > "${RUN_DIR}/alpha_report.md" 2>&1 \
     && echo "Report: ${RUN_DIR}/alpha_report.md" \
     || echo "WARN: report generation failed — check generate_alpha_report.py"
@@ -126,7 +126,7 @@ SUMMARY="${RUN_DIR}/summary.txt"
     echo ""
     for exp in 01 03 06 07; do
         echo "===== E${exp} ====="
-        python3 compare_results.py -e "$exp" --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
+        python3 reports/compare_results.py -e "$exp" --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
         echo ""
     done
 } > "$SUMMARY" 2>&1

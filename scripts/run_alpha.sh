@@ -13,7 +13,7 @@
 #   ./run_alpha.sh --effort low         # single effort level, all experiments
 #
 set -euo pipefail
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/.." 
 
 MODEL="gpt-realtime-alpha-dolphin-6"
 SKIP_AUDIO=0
@@ -57,8 +57,8 @@ else
     echo "Audio fixtures: MISSING"
     if [ "$SKIP_AUDIO" -eq 0 ]; then
         echo "  Generating now (~10 min)..."
-        python3 generate_audio.py --meeting meeting_1hr
-        python3 generate_question_audio.py
+        python3 scripts/generate_audio.py --meeting meeting_1hr
+        python3 scripts/generate_question_audio.py
         HAS_AUDIO=1
         echo "  Audio fixtures: generated"
     else
@@ -173,17 +173,17 @@ SUMMARY="${RUN_DIR}/summary.txt"
     echo "Failures: ${FAILURES}/${#PIDS[@]}"
     echo ""
     echo "========== E01: Instant Context Recall =========="
-    python3 compare_results.py -e 01 --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
+    python3 reports/compare_results.py -e 01 --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
     echo ""
     echo "========== E03: Response Latency =========="
-    python3 compare_results.py -e 03 --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
+    python3 reports/compare_results.py -e 03 --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
     echo ""
     if [ "$HAS_AUDIO" -eq 1 ]; then
         echo "========== E06: Always-Streaming Audio =========="
-        python3 compare_results.py -e 06 --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
+        python3 reports/compare_results.py -e 06 --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
         echo ""
         echo "========== E07: Production Sim =========="
-        python3 compare_results.py -e 07 --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
+        python3 reports/compare_results.py -e 07 --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
     fi
 } > "$SUMMARY" 2>&1
 

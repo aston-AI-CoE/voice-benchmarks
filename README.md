@@ -112,8 +112,8 @@ cp .env.example .env
 pip3 install -r requirements.txt
 
 # One-time: generate audio fixtures (~10 min)
-python3 generate_audio.py --meeting meeting_1hr
-python3 generate_question_audio.py
+python3 scripts/generate_audio.py --meeting meeting_1hr
+python3 scripts/generate_question_audio.py
 ```
 
 ## Experiments
@@ -131,7 +131,7 @@ python3 generate_question_audio.py
 
 ```bash
 # Run all experiments in parallel (~65 min)
-nohup ./run_all.sh > /dev/null 2>&1 &
+nohup ./scripts/run_all.sh > /dev/null 2>&1 &
 tail -f results/run_*/run.log | tail -1
 
 # Run individual experiments
@@ -141,11 +141,11 @@ python3 run_experiment.py -e 07 -p openai --duration 60            # production 
 python3 run_experiment.py -e 07 -p grok --duration 15 --skip-scoring  # quick Grok test
 
 # Smoke test (5 min, verifies everything works)
-./smoke_test.sh
+./scripts/smoke_test.sh
 
 # Compare results
-python3 compare_results.py -e 06 --run run_008
-python3 compare_results.py -e 07 --run run_008
+python3 reports/compare_results.py -e 06 --run run_008
+python3 reports/compare_results.py -e 07 --run run_008
 ```
 
 ## gpt-realtime-alpha-dolphin-6 (Realtime 2 alpha)
@@ -167,15 +167,15 @@ The alpha uses provider `openai-alpha`. Key differences from `openai`:
 ```bash
 # Full alpha suite — generates audio fixtures if missing (~10 min), then runs all
 # E01/E03/E04 at all 4 effort levels + E06/E07 at low+medium (~65 min total)
-nohup ./run_alpha.sh > /dev/null 2>&1 &
+nohup ./scripts/run_alpha.sh > /dev/null 2>&1 &
 tail -f results/run_*/run.log | tail -1
 
 # Text-only experiments, no audio fixtures needed (~15 min)
-nohup ./run_alpha.sh --skip-audio > /dev/null 2>&1 &
+nohup ./scripts/run_alpha.sh --skip-audio > /dev/null 2>&1 &
 tail -f results/run_*/run.log | tail -1
 
 # Single effort level
-nohup ./run_alpha.sh --skip-audio --effort medium > /dev/null 2>&1 &
+nohup ./scripts/run_alpha.sh --skip-audio --effort medium > /dev/null 2>&1 &
 tail -f results/run_*/run.log | tail -1
 
 # Individual experiments
@@ -323,12 +323,19 @@ voice-benchmarks/
 │   │   ├── run_008_report.md
 │   │   └── E*.log              # Per-experiment logs
 │   └── ...
-├── run_all.sh                   # Parallel test runner
-├── smoke_test.sh                # Quick validation
-├── generate_audio.py            # One-time TTS generation
-├── generate_question_audio.py   # One-time question audio generation
-├── run_experiment.py            # CLI entry point
-└── compare_results.py           # Cross-provider comparison
+├── scripts/
+│   ├── run_all.sh               # Parallel test runner (gpt-realtime-1.5)
+│   ├── run_alpha.sh             # Alpha flexible runner
+│   ├── run_alpha_full.sh        # Alpha overnight suite
+│   ├── smoke_test.sh            # Quick validation
+│   ├── generate_audio.py        # One-time TTS fixture generation
+│   └── generate_question_audio.py  # One-time question audio generation
+├── reports/
+│   ├── compare_results.py       # Cross-provider comparison
+│   └── generate_alpha_report.py # Alpha structured report
+├── run_experiment.py            # CLI entry point (run from repo root)
+├── README.md
+└── KNOWN_ISSUES.md
 ```
 
 ## Run History

@@ -6,7 +6,7 @@
 # Total time ≈ longest single experiment (~65 min for E06/E07 60min)
 #
 set -euo pipefail
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/.." 
 
 # --- Determine run name ---
 LAST=$(ls -d results/run_* 2>/dev/null | sort -V | tail -1 | grep -oP '\d+$' || echo "0")
@@ -41,8 +41,8 @@ done
 if [ "$FAIL" -eq 1 ]; then exit 1; fi
 
 # --- Audio check ---
-[ -f "audio_fixtures/meeting_1hr/manifest.json" ] || { echo "ERROR: Run python3 generate_audio.py --meeting meeting_1hr"; exit 1; }
-[ -f "audio_fixtures/meeting_1hr_questions/manifest.json" ] || { echo "ERROR: Run python3 generate_question_audio.py"; exit 1; }
+[ -f "audio_fixtures/meeting_1hr/manifest.json" ] || { echo "ERROR: Run python3 scripts/generate_audio.py --meeting meeting_1hr"; exit 1; }
+[ -f "audio_fixtures/meeting_1hr_questions/manifest.json" ] || { echo "ERROR: Run python3 scripts/generate_question_audio.py"; exit 1; }
 echo "Audio: OK"
 echo ""
 
@@ -122,13 +122,13 @@ SUMMARY="${RUN_DIR}/summary.txt"
     echo "Failures: ${FAILURES}/${#PIDS[@]}"
     echo ""
     echo "========== E01: Instant Context Recall =========="
-    python3 compare_results.py -e 01 --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
+    python3 reports/compare_results.py -e 01 --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
     echo ""
     echo "========== E06: Always-Streaming Audio (OpenAI) =========="
-    python3 compare_results.py -e 06 --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
+    python3 reports/compare_results.py -e 06 --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
     echo ""
     echo "========== E07: Production Sim =========="
-    python3 compare_results.py -e 07 --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
+    python3 reports/compare_results.py -e 07 --run "$RUN_NAME" 2>/dev/null || echo "(no results)"
 } > "$SUMMARY" 2>&1
 
 cat "$SUMMARY"

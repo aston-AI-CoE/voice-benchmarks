@@ -25,7 +25,7 @@ import json
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from common.audio import AUDIO_FIXTURES_DIR, SAMPLE_RATE, SAMPLE_WIDTH, get_fixture_dir
 from common.config import setup_logging

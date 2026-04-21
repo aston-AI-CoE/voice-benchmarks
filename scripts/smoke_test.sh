@@ -7,7 +7,7 @@
 #   ./smoke_test.sh
 #
 set -euo pipefail
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/.." 
 
 RUN_NAME="smoke_$(date +%Y%m%dT%H%M%S)"
 RUN_DIR="results/${RUN_NAME}"
@@ -24,7 +24,7 @@ echo ""
 # Generate audio fixtures if needed
 if [ ! -f "audio_fixtures/realistic_meeting/manifest.json" ]; then
     echo "[1] Generating audio fixtures..."
-    python3 generate_audio.py
+    python3 scripts/generate_audio.py
     echo ""
 fi
 
