@@ -113,8 +113,14 @@ run_020 fixed this by skipping the transcription wait when the server rejects `i
 | run_019 | medium | 55min   | 29/55 min (53%) | 50%     | 0%     | No — same issue |
 | run_020 | low    | 55min   | 46/55 min (84%) | **83%** | 17%    | Mostly valid — 2 questions (pm_11 min49, pm_12 min52) still outside coverage window due to VAD drain overhead |
 | run_020 | medium | 55min   | 46/55 min (84%) | **83%** | 8%     | Same |
+| run_021 | low    | 55min   | 27/55 min (54%) | 58%     | 17%    | No — API WebSocket drop at 38.8 min (transient, unrelated to code) |
+| run_022 | low    | 55min   | 45/55 min (79%) | **83%** | 8%     | ✅ Valid — confirms run_020 result |
 
-run_020 applied fix: skip transcription wait when server rejects `input_audio_transcription`. Coverage improved from 53% → 84%. Remaining gap: forced VAD drain (8s/trigger) still adds overhead. The 2 failing questions are a benchmark infrastructure issue — in production, STT comes from Zoom SDK, not the Realtime API, so this overhead doesn't exist.
+run_020 applied fix: skip transcription wait when server rejects `input_audio_transcription`. Coverage improved from 53% → 84%. run_022 independently confirms 83% recall at low effort.
+
+**Why the STT session hits the 60-min cap:** E07 uses two separate Realtime API sessions. Session A (STT) runs for the entire meeting to build the transcript — this one hits the cap. Session B (each "Hey Otto" question) opens fresh per question and closes after ~10 seconds — these never approach the cap. **In production, Session A does not exist** — STT comes from Zoom SDK or Deepgram. The 60-min cap is a benchmark infrastructure limitation only, not a production concern.
+
+Remaining gap: forced VAD drain (8s/trigger) still adds overhead to Session A. The 2 failing questions (pm_11 min49, pm_12 min52) are outside the coverage window as a result. Benchmark-only issue.
 
 
 ---
@@ -141,7 +147,12 @@ All 4 effort levels scored 100% on should-call / should-not-call accuracy. For O
 
 - Session IDs: run_017/e01_instant_context_recall (all efforts)
 
-**3. `medium` effort has the best average latency — counterintuitive but consistent**
+**3. 100% recall on full meeting transcript — model quality confirmed (E08, run_023)**
+E08 strips out the STT phase entirely: the full meeting transcript is loaded as text and injected directly into each fresh question session. With the correct context, the model scores 100% recall at both low and medium effort, with 0 false negatives on the 12 post-meeting questions. Hallucination rate: 8% (low), 17% (medium). Total run time: 6 minutes. This separates model quality from benchmark infrastructure — the model itself is not the limiting factor.
+
+- Session IDs: run_023/e08_context_recall (openai-alpha[low], openai-alpha[medium])
+
+**4. `medium` effort has the best average latency — counterintuitive but consistent**
 `medium` (618ms avg TTFB) beats `low` (929ms) and `minimal` (909ms). Observed in both run_015 and run_017. Hypothesis: reasoning stabilizes the generation path, reducing variance on medium-complexity prompts. Worth validating in a production voice context.
 
 - Session IDs: run_017/e03_response_latency
@@ -150,14 +161,16 @@ All 4 effort levels scored 100% on should-call / should-not-call accuracy. For O
 
 ## P0 Improvements for Production
 
-**1. Hard 60-minute session cap is a production blocker for meeting assistants**
-Alpha sessions close with `1001 (going away) Your session hit the maximum duration of 60 minutes.` Our primary use case is a full-meeting voice assistant. A 60min cap cuts the session before the meeting ends and makes it impossible to test the full E07 60min benchmark cleanly. gpt-realtime-1.5 has the same cap, but it's more acute on the alpha because:
+**1. Hard 60-minute session cap — not a production blocker for Hey Otto, but worth raising**
+Alpha sessions close with `1001 (going away) Your session hit the maximum duration of 60 minutes.`
 
-- Reasoning + 256K context means long meetings are the primary use case
-- No graceful reconnection / context handoff mechanism exists
-- `send_audio_no_response` drain operations (8s timeout) mean setup overhead per session is higher
+**Production impact: none for our architecture.** In the "Hey Otto" model, each question opens a fresh session (~10 seconds) and closes immediately. A 90-min meeting fires dozens of these — none approach the cap. The cap only matters for persistent long-running sessions.
 
-**Request:** Raise the alpha session cap to 120min, or provide a context-handoff mechanism for session continuation.
+**Benchmark impact: real.** Our E07 benchmark used a Realtime API session as an STT engine, streaming audio for 55 minutes. That session hits the cap. However, using the Realtime API for STT on alpha has no benefit: `input_audio_transcription` is rejected server-side (see P0 #3), so the session receives audio but returns nothing useful. In production, STT comes from Zoom SDK or Deepgram — not the Realtime API — so the cap is irrelevant there too.
+
+We're raising this because it affects any customer who wants an always-on voice assistant or a persistent agent connection. For our use case it's a benchmark infrastructure issue we've already worked around (E08 drops the STT session entirely and runs in 6 min with 100% recall).
+
+**Request:** Raise the alpha session cap to 120min, or provide a context-handoff mechanism for session continuation — primarily for customers whose architecture requires persistent connections.
 
 - Session IDs: run_017/e07_production_sim (openai-alpha[low]_20260421T081622Z, openai-alpha[medium]_20260421T081620Z)
 
@@ -210,8 +223,10 @@ Not tested in this benchmark run — all audio fixtures are English. Will test m
 
 ### Blockers / P0
 
-**1. Session cap — long-meeting STT use case**
-Our benchmark STT session (meeting audio → transcript) and any production use case involving a persistent Realtime connection hits the 60-min hard cap. The "Hey Otto" question sessions are short and unaffected, but if any part of the pipeline needs a persistent connection, this blocks 60+ min meetings.
+**1. Session cap — not blocking us, but affects persistent-connection architectures**
+The "Hey Otto" question sessions are seconds long — unaffected by the 60-min cap. Our benchmark STT session hit the cap, but we've moved to E08 (text transcript injected directly) which eliminates that session entirely and runs in 6 min with 100% recall. In production, STT comes from Zoom SDK — no persistent Realtime connection needed.
+
+Raising for customers who need always-on or persistent agent connections:
 - Is a 120min cap or session-handoff mechanism on the roadmap before GA?
 - What is the recommended reconnect/continuation pattern for long-running sessions today?
 
@@ -220,10 +235,15 @@ Alpha always runs server VAD. Our production architecture ("Hey Otto" trigger �
 - Will `turn_detection: null` be supported before GA?
 - Can `session.updated` return `turn_detection.type = "server_vad"` when VAD is active, even after a rejected override attempt?
 
-**3. `input_audio_transcription` rejection — is there an alternative?**
-Alpha rejects `input_audio_transcription` (confirmed server-side, run_020 logs). This means there is no way to get a text copy of what the user said from within a Realtime session. In production we'd use Zoom SDK or Deepgram for this, but it's a meaningful loss of capability vs 1.5.
+**3. `input_audio_transcription` rejection — not blocking us, but a capability regression**
+Alpha rejects `input_audio_transcription` server-side (confirmed run_020 — not a client code bug). This field requests a text copy of what the user said within a Realtime session.
+
+**Production impact: none for our architecture.** For the "Hey Otto" use case, STT comes from Zoom SDK (which provides speaker-attributed transcription for free, with no session cap). Using the Realtime API as an STT engine on alpha has no benefit: the field is rejected, the 60-min cap kills long sessions, and VAD fires on ambient meeting audio. Zoom SDK or Deepgram is unambiguously the right tool for meeting STT. We've confirmed this with E08 — loading the transcript directly and asking questions via fresh Realtime sessions achieves 100% recall in 6 minutes.
+
+**Why we're still raising it:** It's a regression from 1.5 and affects use cases where a developer doesn't have a separate STT pipeline and wants a single Realtime API to handle both input transcription and response generation.
 - Is this permanent or will it be supported before GA?
-- Is there an alternative field or event that provides input audio transcription on alpha?
+- Is there an alternative field or event that provides input transcription on alpha?
+- What is the intended STT architecture for developers who don't have Zoom SDK or Deepgram?
 
 ---
 

@@ -37,6 +37,7 @@ EXPERIMENTS = {
     "05": "experiments.e05_realtime_session_1hr.experiment",
     "06": "experiments.e06_audio_session.experiment",
     "07": "experiments.e07_production_sim.experiment",
+    "08": "experiments.e08_context_recall.experiment",
 }
 
 
@@ -83,8 +84,8 @@ async def run_single(
 
     experiment = get_experiment_module(experiment_id)
 
-    # E07 takes a provider factory (creates multiple sessions), others take an instance
-    if experiment_id == "07":
+    # E07/E08 take a provider factory (create multiple sessions); others take an instance
+    if experiment_id in ("07", "08"):
         if dry_run:
             provider_or_factory = None
         else:
@@ -105,7 +106,7 @@ async def run_single(
             kwargs["questions_path"] = questions_path
     if experiment_id in ("06", "07"):
         kwargs["max_lines"] = max_lines
-    if experiment_id in ("05", "06", "07") and duration_minutes > 0:
+    if experiment_id in ("06", "07", "08") and duration_minutes > 0:
         kwargs["duration_minutes"] = duration_minutes
 
     result = await experiment.run(provider_or_factory, **kwargs)
