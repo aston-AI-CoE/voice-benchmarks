@@ -18,7 +18,7 @@
 
 - **100% recall** on full 55-min meeting transcript (E08, run_023) — model correctly answers every question when context is injected
 - **100% tool call accuracy** across all effort levels — model correctly decides when to delegate to `ask_otto`
-- **Hey Otto architecture works** — fresh session per question (~10s each), 500–1000ms cold start, voice-to-voice confirmed
+- **Hey Otto architecture works** — fresh session per question (~10s each), ~970ms cold start, 3–5s TTFB with full transcript context, voice-to-voice confirmed
 
 **What we need from OpenAI:**
 1. `session.updated` must return `turn_detection.type = "server_vad"` after a rejected `turn_detection` override — the omission silently invalidated an entire benchmark run
@@ -73,8 +73,7 @@ Also tested: text recall (E01), response latency (E03), tool call reliability (E
 
 ### E03 — Response Latency (TTFB)
 
-30 prompts across 3 complexity tiers.
-
+30 prompts across 3 complexity tiers. **Note: these are short prompts with no transcript context — not representative of Hey Otto production latency. See E08 below for real-world numbers.**
 
 | Effort                      | Avg       | P50       | P95    | Simple | Complex |
 | --------------------------- | --------- | --------- | ------ | ------ | ------- |
@@ -84,12 +83,21 @@ Also tested: text recall (E01), response latency (E03), tool call reliability (E
 | high                        | 827ms     | **306ms** | 2873ms | 286ms  | 1738ms  |
 | gpt-realtime-1.5 (baseline) | 595ms     | —         | 1200ms | —      | —       |
 
-
 **Observations:**
 
 - `medium` has the lowest average TTFB (618ms) — counterintuitively faster than `low`/`minimal`
 - `high` has the lowest P50 (306ms) but widest P95 (2873ms) — reasoning stabilizes simple responses but spikes on complex prompts
 - Effort ordering is not monotonic on avg TTFB — consistent across run_015 and run_017
+
+**Real-world Hey Otto latency (E08, run_023 — full 18K token transcript injected):**
+
+| Metric | Low | Medium |
+|---|---|---|
+| Cold start (session open → ready) | ~870–1200ms, avg **968ms** | ~840–1500ms, avg **975ms** |
+| TTFB (question sent → first audio) | **3.2–5.1s** | **3.7–5.8s** |
+| Total (cold start + TTFB) | **~4–6s** | **~4.5–6.5s** |
+
+The gap between E03 and E08 latency is the transcript context — injecting ~18K tokens of meeting transcript into the system prompt adds reasoning time before the model speaks. This 3–5s TTFB is the dead air window where preambles ("let me check the transcript") matter most for voice UX.
 
 ---
 
