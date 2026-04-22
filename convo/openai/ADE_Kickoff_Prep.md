@@ -174,15 +174,36 @@ We're raising this because it affects any customer who wants an always-on voice 
 
 - Session IDs: run_017/e07_production_sim (openai-alpha[low]_20260421T081622Z, openai-alpha[medium]_20260421T081620Z)
 
-**2. `turn_detection: null` / `{"type": "none"}` consistently rejected — VAD state not reliably surfaced**
+**2. `turn_detection: null` rejected + silent state bug in `session.updated`**
 
-Background: VAD (Voice Activity Detection) is the mechanism that decides when a user has finished speaking and auto-triggers a model response. With gpt-realtime-1.5, `turn_detection: null` was accepted and the client controlled audio commit and response timing manually. Alpha always runs server VAD and rejects attempts to disable it.
+**What VAD is:** Server-side Voice Activity Detection — the API decides when a user has stopped talking and automatically triggers a model response.
 
-Our production architecture is **"Hey Otto" triggered**: Zoom SDK or Deepgram handles continuous STT and transcript accumulation; when a participant says "Hey Otto", a fresh short-lived voice session opens, the question is sent, and Otto answers or delegates to `ask_otto`. The model never passively hears ambient meeting audio. In this model, forced VAD is a **minor inconvenience**, not a blocker — each session only hears the intended question, so VAD misfires are rare. We implemented a `response.cancel` + drain workaround.
+**Why this wasn't a problem on gpt-realtime-1.5:** `turn_detection: null` was accepted. The client controlled when to commit audio and trigger a response:
+```
+client streams audio → client decides "user done" → client sends commit → client triggers response
+```
+Full client control. No surprise auto-responses.
 
-The more significant issue is that after `turn_detection` rejection, `session.updated` omits the `turn_detection` field entirely. Code that checks `turn_detection == null` as "VAD disabled" will incorrectly conclude VAD is off. This caused a 55-minute run to produce invalid results (run_018) before we identified and fixed the bug.
+**Why alpha is different:** Alpha rejects `turn_detection: null`. VAD is always server-controlled:
+```
+client streams audio → server decides "user done" → server auto-triggers response
+```
 
-**Request:** Return `turn_detection.type = "server_vad"` in `session.updated` when VAD is active so clients can detect the active state reliably after a rejected `turn_detection` field.
+For our **"Hey Otto" architecture** (short sessions, each only hears the intended question): minor inconvenience. VAD fires correctly because the session only hears one person asking one question. We implemented a `response.cancel` + drain workaround and it works.
+
+For **always-on streaming** (E06 — one session hearing all meeting audio): fatal. The model auto-responds every time any participant pauses mid-sentence. Otto interrupts random meeting conversation. E06 is not viable on alpha for this reason.
+
+**The state bug (more serious than the VAD rejection itself):** When `turn_detection: null` is rejected, `session.updated` omits the `turn_detection` field entirely instead of returning `"type": "server_vad"`. This means:
+
+```python
+td = session_updated.get("turn_detection")  # → None (field missing)
+if td is None:
+    vad_active = False  # ← WRONG — VAD is actually active
+```
+
+Client code reads "VAD is off" when it is in fact on. Every audio line streams into an active VAD session, auto-responses fire for every speaker pause, and the session fills with garbage responses the client isn't handling. This silently invalidated run_018 — the benchmark ran for 55 minutes producing wrong results before we identified and fixed the bug.
+
+**Request:** When VAD is active after a rejected `turn_detection` override, return `"turn_detection": {"type": "server_vad"}` in `session.updated` so clients can reliably detect the actual VAD state.
 
 - Session IDs: run_018/e07_production_sim (both efforts — invalid due to this bug)
 
