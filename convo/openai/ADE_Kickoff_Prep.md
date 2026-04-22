@@ -3,12 +3,32 @@
 
 |             |                                                                  |
 | ----------- | ---------------------------------------------------------------- |
-| **Date**    | 2026-04-21                                                       |
-| **Status**  | Final — run_020 complete                                         |
+| **Date**    | 2026-04-22                                                       |
+| **Status**  | Final — run_023 complete                                         |
 | **Model**   | gpt-realtime-alpha-dolphin-6                                     |
-| **Runs**    | run_015, run_017, run_018 (invalid), run_019 (invalid — coverage mismatch), run_020 (final) |
+| **Runs**    | run_015, run_017, run_018 (invalid — VAD state bug), run_019 (invalid — coverage), run_020, run_021 (invalid — API drop), run_022, run_023 |
 | **Contact** | Aston Lee, [aston.lee@workato.com](mailto:aston.lee@workato.com) |
 
+
+---
+
+## TL;DR
+
+**The model is capable. The remaining blockers are API limitations, not model quality.**
+
+- **100% recall** on full 55-min meeting transcript (E08, run_023) — model correctly answers every question when context is injected
+- **100% tool call accuracy** across all effort levels — model correctly decides when to delegate to `ask_otto`
+- **Hey Otto architecture works** — fresh session per question (~10s each), 500–1000ms cold start, voice-to-voice confirmed
+
+**What we need from OpenAI:**
+1. `session.updated` must return `turn_detection.type = "server_vad"` after a rejected `turn_detection` override — the omission silently invalidated an entire benchmark run
+2. Clarity on `input_audio_transcription` — is it returning before GA, and what's the recommended architecture for devs without a separate STT pipeline?
+3. Explanation of non-monotonic latency (`medium` faster than `low`) — affects production effort selection
+4. Preamble prompting guidance — we haven't been able to reliably trigger preambles before tool dispatch
+
+**What is not a blocker for our architecture:**
+- 60-min session cap — Hey Otto question sessions are ~10 seconds each; cap only affects always-on streaming (E06) which we don't use
+- `input_audio_transcription` rejection — Zoom SDK handles STT; using Realtime API for STT has no benefit on alpha anyway
 
 ---
 
@@ -25,7 +45,7 @@ This is **E07 (production sim)**. The model is never passively listening to ambi
 
 - **E06 (always-streaming)**: Single long session processing all meeting audio continuously. Tested for comparison only; not the target architecture. Not viable on alpha (VAD forced on).
 
-Also tested: text recall (E01), response latency (E03), tool call reliability (E04).
+Also tested: text recall (E01), response latency (E03), tool call reliability (E04), and E08 (fast context recall — transcript injected as text, no STT session, ~6 min run time).
 
 **Baseline**: gpt-realtime-1.5, runs 009–012 (same test suite, same audio fixtures).
 
@@ -122,6 +142,23 @@ run_020 applied fix: skip transcription wait when server rejects `input_audio_tr
 
 Remaining gap: forced VAD drain (8s/trigger) still adds overhead to Session A. The 2 failing questions (pm_11 min49, pm_12 min52) are outside the coverage window as a result. Benchmark-only issue.
 
+
+---
+
+### E08 — Context Recall (Fast Variant, run_023)
+
+E07 spends ~45 min streaming audio through a Realtime STT session just to build the transcript. E08 loads the transcript as text directly and skips the STT session entirely — isolating model quality from benchmark infrastructure. Each "Hey Otto" question opens a fresh voice session with the full transcript injected, same as E07.
+
+| Effort | Recall   | Halluc | Cold start | Elapsed |
+| ------ | -------- | ------ | ---------- | ------- |
+| low    | **100%** | 8%     | 968ms      | 6.2 min |
+| medium | **100%** | 17%    | 975ms      | 6.4 min |
+
+**Result: 100% recall at both effort levels. The model correctly answers all 12 post-meeting questions when given the full transcript.** The 83% figure from E07 reflects STT coverage gaps (2 questions consistently fell outside the covered meeting window due to VAD drain overhead) — not model quality.
+
+E08 is now the standard regression test. E07 is reserved for validating the full pipeline end-to-end.
+
+- Session IDs: run_023/e08_context_recall (openai-alpha[low], openai-alpha[medium])
 
 ---
 
@@ -244,27 +281,20 @@ Not tested in this benchmark run — all audio fixtures are English. Will test m
 
 ### Blockers / P0
 
-**1. Session cap — not blocking us, but affects persistent-connection architectures**
-The "Hey Otto" question sessions are seconds long — unaffected by the 60-min cap. Our benchmark STT session hit the cap, but we've moved to E08 (text transcript injected directly) which eliminates that session entirely and runs in 6 min with 100% recall. In production, STT comes from Zoom SDK — no persistent Realtime connection needed.
-
-Raising for customers who need always-on or persistent agent connections:
+**1. Session cap**
+Not blocking us (Hey Otto sessions are ~10s each). Raising for persistent-connection use cases.
 - Is a 120min cap or session-handoff mechanism on the roadmap before GA?
 - What is the recommended reconnect/continuation pattern for long-running sessions today?
 
-**2. `turn_detection: null` rejection — permanent or alpha-only?**
-Alpha always runs server VAD. Our production architecture ("Hey Otto" trigger → fresh short session) can work around this, but always-streaming use cases cannot. The rejection also causes a silent state bug: `session.updated` omits `turn_detection` entirely after rejection, so clients can't detect VAD is active without special handling.
+**2. `turn_detection: null` rejection + VAD state bug**
+See full write-up in P0 Improvements #2 above. Short version: alpha forces VAD on and `session.updated` omits `turn_detection` after rejection, causing clients to silently misread VAD state.
 - Will `turn_detection: null` be supported before GA?
-- Can `session.updated` return `turn_detection.type = "server_vad"` when VAD is active, even after a rejected override attempt?
+- **Can `session.updated` return `turn_detection.type = "server_vad"` when VAD is active after a rejected override?** (This is the actual fix we need — the rejection itself we can work around.)
 
-**3. `input_audio_transcription` rejection — not blocking us, but a capability regression**
-Alpha rejects `input_audio_transcription` server-side (confirmed run_020 — not a client code bug). This field requests a text copy of what the user said within a Realtime session.
-
-**Production impact: none for our architecture.** For the "Hey Otto" use case, STT comes from Zoom SDK (which provides speaker-attributed transcription for free, with no session cap). Using the Realtime API as an STT engine on alpha has no benefit: the field is rejected, the 60-min cap kills long sessions, and VAD fires on ambient meeting audio. Zoom SDK or Deepgram is unambiguously the right tool for meeting STT. We've confirmed this with E08 — loading the transcript directly and asking questions via fresh Realtime sessions achieves 100% recall in 6 minutes.
-
-**Why we're still raising it:** It's a regression from 1.5 and affects use cases where a developer doesn't have a separate STT pipeline and wants a single Realtime API to handle both input transcription and response generation.
-- Is this permanent or will it be supported before GA?
-- Is there an alternative field or event that provides input transcription on alpha?
-- What is the intended STT architecture for developers who don't have Zoom SDK or Deepgram?
+**3. `input_audio_transcription` rejection**
+Not blocking us — Zoom SDK is the right STT tool for our architecture. Using Realtime API for STT on alpha has no benefit anyway (field rejected + 60-min cap + VAD on ambient audio). Raising for developers without a separate STT pipeline.
+- Is this returning before GA?
+- What is the recommended STT architecture for developers without Zoom SDK or Deepgram?
 
 ---
 
