@@ -143,6 +143,9 @@ python3 scripts/generate_question_audio.py
 ## Usage
 
 ```bash
+# Offline validation (credential-free CI gate; no API calls or result writes)
+./scripts/offline_validate.sh
+
 # Run all experiments in parallel (~65 min)
 nohup ./scripts/run_all.sh > /dev/null 2>&1 &
 tail -f results/run_*/run.log | tail -1
@@ -153,7 +156,7 @@ python3 run_experiment.py -e 06 -p openai --duration 15            # 15 min audi
 python3 run_experiment.py -e 07 -p openai --duration 60            # production sim, 60 min
 python3 run_experiment.py -e 07 -p grok --duration 15 --skip-scoring  # quick Grok test
 
-# Smoke test (5 min, verifies everything works)
+# Live smoke test (opt-in; requires API credentials and writes results/smoke_*)
 ./scripts/smoke_test.sh
 
 # Compare results
